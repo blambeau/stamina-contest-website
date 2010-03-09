@@ -1,0 +1,13 @@
+h3. Baseline Implementation
+
+Open-source code of RPNI and RedBlue (aka blue-fringe) are proposed as a good starting point for challengers. This code is written in Ruby and distributed under a MIT licence. You can download it "here":TODO
+
+This code is also made available through Subversion (read-only), if you prefer working 'on-the-edge' or plan to submit patches. You can download the trunk version of the source code using:
+
+<pre>svn checkout http://svn.chefbe.net/stamina/trunk</pre>
+
+If you prefer a stable version:
+
+<pre>svn checkout http://svn.chefbe.net/stamina/tags/public_0.2.1</pre>
+
+Please report any bug, feature or documentation request on our "redmine bug tracker":http://redmine.chefbe.net/projects/stamina

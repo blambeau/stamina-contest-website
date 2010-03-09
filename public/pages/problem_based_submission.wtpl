@@ -1,0 +1,12 @@
+<form id="problem-based-submission-form" method="post">
+
+<label for="problem_id">Problem ID: <span id="problem-id">select in the table</span></label>
+<input type="hidden" name="problem_id" value=""/>
+
+<label for="binary_sequence">Binary sequence:</label>
+<textarea style="height:120px; width: 300px;" name="binary_sequence"></textarea>
+<br/>
+<input class="submit" type="submit" value="Submit"/>
+<div class="clear"></div>
+
+</form>

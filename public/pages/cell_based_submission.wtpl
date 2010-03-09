@@ -1,0 +1,12 @@
+<form id="cell-based-submission-form" method="post">
+
+<label for="problem_id">Cell: <span id="cell-id">select in the table</span></label>
+<input type="hidden" name="problem_id" value=""/>
+
+<span>Cell file:</span>
+<input type="file"/>
+
+<br/>
+<input class="submit" type="submit" value="Submit"/>
+<div class="clear"></div>
+</form>

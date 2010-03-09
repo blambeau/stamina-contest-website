@@ -1,0 +1,20 @@
+h3. Problem-based submission
+
+Use the grid below to select the problem ID, then copy-paste your @{protocol#scoring}{binary sequence} in the formulary.
+
+!{WebStamina::Tools::problem_based_submission_grid(nil, "submission-grid")}
+
+<notextile><<{problem_based_submission.wtpl}</notextile>
+
+<div class="clear"></div>
+
+h3. Cell-based submission
+
+This submission form expects a @{participate}{valid cell file}.
+
+!{WebStamina::Tools::cell_based_submission_grid(nil, "submission-grid")}
+
+<notextile><<{cell_based_submission.wtpl}</notextile>
+
+<div class="clear"></div>
+

@@ -1,0 +1,36 @@
+h3(#forest-fire). Algorithm used to produce state machines
+
+The original "Forest-Fire algorithm":http://www.cs.cmu.edu/afs/cs/Web/People/jure/pubs/powergrowth-tkdd.pdf, accepts three parameters: 
+
+* _f_ : a forward-burning probability,
+* _b_ : a backward-burning ratio,
+* _n_ : the number of vertices 
+
+Vertices are added iteratively. The process of adding a vertex _v_ is as follows:
+
+# Choose a random ambassador node <i>w</i> and form an edge _v_ &rarr; _w_.
+# Generate two random numbers _x_ and _y_ that are geometrically distributed with means <i>f / (1 - f)</i> and <i>fb / (1 - fb)</i>. Node _v_ selects _x_ in-edges and _y_ out-edges of _w_ to nodes that are not yet visited. If there are not enough nodes available, it selects as many as it can.
+# Node _v_ forms out-edges to the end-points of the selected edges from and to _w_ and applies step (2) recursively for each of those nodes. As the process continues, nodes cannot be revisited.
+
+The adapted version of the above algorithm accepts three additional parameters:
+
+* _a_ : an upper limit on the size of the alphabet. 
+* _l_ : the probability that a state loops to itself (which cannot occur in the straightforward Forest-fire algorithm)
+* _p_ : the probability of parallel edge labels (which also cannot occur in the conventional algorithm).
+
+Moreover, the following rules have been added:
+
+# Every time a state is added, it has a 50% chance of being an accepting or rejecting state.
+# To ensure that each state is reachable, every time a state is added, instead of connecting an edge from the new state to an ambassador state, the reverse edge is added (from the ambassador to the new state). 
+# Every time a new edge is added, it is labelled with an element from the alphabet. The possible alphabet choices are curtailed to ensure that a selected element will not cause the machine to be non-deterministic. If it is impossible to select an element that will produce a deterministic machine, the edge is not added. 
+
+At the end of the process, the machine is checked for equivalent states, and these are merged. The number of states <i>n</i> was chosen to produce machines that have about 50 states (though this can vary slightly due to the minimisation process).
+
+For the final competition machines, the following parameters were chosen:
+
+* _a_ = {2,5,10,20,50} (see table above)
+* _n_ = varied according to alphabet size - chosen to ensure that size of machines is about 50 states after minimization.
+* _f_ = 0.31
+* _b_ = 0.385
+* _l_ = 0.2
+* _p_ = 0.2

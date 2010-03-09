@@ -1,0 +1,182 @@
+/* ------------------------------- Main Overridings */
+body {
+	width: 80%;
+	margin: auto;
+	font-family: Verdana, Arial;
+	font-size: 14px;
+	padding: 40px 0px 0px 0px;
+	background-color: white;
+  overflow: scroll;
+}
+a { cursor: pointer; }
+img { border: none;}
+div.left { clear: left; }
+div.right { clear: right; }
+div.clear { clear: both; }
+* { line-height: 19px; }
+
+/* ------------------------------- Header */
+#banner {
+	padding: 10px;
+	padding-bottom: 0px;
+	border-bottom: 1px solid #CF4500;
+}
+#banner h1 {
+	font-variant: small-caps;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+  color: #820000;
+}
+#banner h1 a, #banner h1 a:visited, #banner h1 a:hover {
+	color: #820000;
+	text-decoration: none;
+}
+#banner #organizers { float: right; margin-bottom: 20px; }
+#banner h2 {
+	float: left;
+	font-style: italic;
+	font-size: 1em;
+	padding: 0px;
+	padding-left: 100px;
+	margin: 0px;
+	font-family: Arial;
+	color: #CF4500;
+}
+
+/* ------------------------------- Menu */
+ul#menu { clear: both; font-size: 1em; }
+ul#menu li {
+	display: block;
+	float: right;
+	list-style : none;
+	width: 90px;
+  border: 1px solid #CF4500;
+  border-bottom: none;
+  background-color: white;
+  padding: 3px 3px 3px 3px;
+  margin-right: 5px;
+  text-align: center;
+}
+ul#menu li a, ul#menu li a:visited { color: #CF4500; text-decoration: none; }
+ul#menu li:hover { cursor: pointer; background-color: #CF4500; }
+ul#menu li:hover a { color: white; }
+ul#menu li.current { background-color: #CF4500; }
+ul#menu li.current a, ul#menu li.current a:visited { color: white; }
+ul#menu li.last { width: 150px; }
+
+/* ------------------------------- Footer */
+#footer {
+	border-top: 1px solid #CF4500;
+	clear: both;
+}
+
+/* ------------------------------- All the static text is driven by the following rules */
+#content .pagebody {
+	padding-top: 20px;
+}
+#content {
+	padding: 10px;
+	padding-top: 5px;
+	padding-top: 0px;
+  text-align: justify;
+  background: url(images/specimen.gif);
+}
+#content h3 {
+	color: #820000;
+	font-size: 1.4em;
+	font-variant: small-caps;
+}
+#content p, #content dl {
+	padding-left: 20px;
+	padding-right: 10px;
+}
+#content dl dt {
+	font-weight: bold;
+}
+#content ol, #content ul {
+	padding-left: 60px;
+	padding-right: 10px;
+}
+#content ol li, #content ul li {
+	padding-bottom: 3px;
+}
+#content a, #content a:visited {
+	text-decoration: none;
+	color: #CF4500;
+}
+#content a:hover {
+	text-decoration: underline;
+}
+#content img {
+	display: block;
+	width: 60%;
+	padding: 0px;
+	margin: auto;
+}
+#content table {
+	font-family: Arial;
+	margin: auto;
+	margin-top: 20px; margin-bottom: 20px;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+#content table.left { float: left; margin-left: 50px;}
+#content table.right { float: right; margin-right: 50px;}
+#content table td, #content table th  {
+	padding: 3px 10px 3px 10px;
+	border: 1px solid black;
+	text-align: center;
+}
+#content table caption {
+	font-variant: small-caps;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+#content table th {
+  font-weight: normal;
+}
+#content table td {
+  color: #CF4500;
+}
+#content table td a:hover {
+  font-weight: bold;
+}
+#content dl dt { padding-bottom: 2px; }
+#content pre { text-align: center; font-weight: bold; color: #333333;}
+#content pre.left { text-align: left; font-weight: bold; padding-left: 30px;}
+#content div.math {
+	padding-left: 100px;
+}
+#content div.news table {
+	float: left;
+}
+
+#content table.competition-grid tr td {
+	width: 130px; overflow: hide;
+	color: black;
+}
+#content table.competition-grid tr td.solved {
+	background-color: green;
+}
+#content table.competition-grid tr td.solved a {
+		color: white;
+}
+
+
+#content table.submission-grid { margin-top: 0px; float: left;}
+#content input.submit {float: right; margin-top:10px;}
+table.submission-grid tr td {width: 100px;}
+form#problem-based-submission-form,
+form#cell-based-submission-form {
+	margin-left: 25px;
+	float: left;
+}
+form span#problem-id,
+form span#cell-id { font-style: italic;}
+form label {
+	margin:0px; padding:0px;
+	padding-bottom: 3px;
+	display: block;
+}

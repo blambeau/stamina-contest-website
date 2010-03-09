@@ -1,0 +1,54 @@
+h3. Training & Test Sets
+
+Training and test strings for each of the 100 problems can be downloaded using the two tables below. A cell is considered broken if your induction algorithm solves the 5 problems it contains (see @{protocol}{the protocol page} for details, and the "section below":#file-formats about file formats). 
+
+Alternatively to these tables, you can download "the archive that contains all of the training sets":http://www.dcs.shef.ac.uk/~nw/Files/trainingTesting.tar.gz (see the "section below":#file-formats about its content).
+
+!{WebStamina::Tools::training_download_grid("Training sets")}
+!{WebStamina::Tools::test_download_grid("Test sets")}
+
+h3(#file-formats). File formats
+
+The files in the grids above contain input strings, one per line. Training sets contains positive (starting with **@+@**) and negative strings (starting with **@-@**) in any order. Test sets contains test strings only (starting with **@?@**). Symbols are always integer literals and are separated by one space:
+
+For training sets:
+
+<pre class="left">
++             # the empty positive string (lambda)
+-             # the empty negative string
++ 1 23 5 49   # a positive string with 4 symbols
+- 2 1         # a negative string with 2 symbols
+</pre>
+
+For test sets:
+
+<pre class="left">
+?             # the empty string could of course be classified
+? 21 5 6      # a test string to be classified as well (3 symbols)
+</pre>
+
+The "compressed archive":http://www.dcs.shef.ac.uk/~nw/Files/trainingTesting.tar.gz contains 20 text files, one for each grid cell. Therefore each file contains the training and testing data of five problems. These files respect the following abstract format:
+
+<pre class="left">
+id [PROBLEM NUMBER]       # first problem in the cell
+[TRAINING SET]
+[TEST SET]
+id [PROBLEM NUMBER]       # next problem
+...
+</pre>
+
+For example, 
+
+<pre class="left">
+id 1                      # first problem in the first cell (alphabet of size 2)
++ 1 2 1 2                 # training set starts here
+- 1 2 1
+...
++ 1
+? 2 1 2 2 1               # test set starts here
+? 2 2 
+?                             # never forget that the empty string exists ;-)
+...
+id 2                      # second problem in the cell
+...
+</pre>

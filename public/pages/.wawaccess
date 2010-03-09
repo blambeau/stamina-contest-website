@@ -1,0 +1,30 @@
+wawaccess do
+  
+  # We don't inherits static configuration
+  inherits false
+  
+  # .wawaccess files are never served
+  match /.wawaccess$/ do
+    deny
+  end
+  
+  # Match the root site
+  match '/' do
+    apply 'home.redcloth'
+  end
+  
+  # We match .wtpl files using wlang
+  match file(:extension => '.redcloth') do
+    wlang '../templates/layout.wtpl', {:current => File.basename(served_file, '.redcloth')}
+  end
+  
+  # When the file cannot be found
+  match true do
+    if /\.redcloth$/ =~ served_file
+      apply "pages/404.redcloth", 404
+    else
+      apply "#{served_file}.redcloth"
+    end
+  end
+  
+end
