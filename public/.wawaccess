@@ -5,6 +5,11 @@ wawaccess do
     deny
   end
 
+  # Match the root site
+  match root do
+    apply '/pages/home.redcloth'
+  end
+  
   # We serve all as static file by default
   match file do
     static

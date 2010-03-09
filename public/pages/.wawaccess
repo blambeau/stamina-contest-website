@@ -8,11 +8,6 @@ wawaccess do
     deny
   end
   
-  # Match the root site
-  match '/' do
-    apply 'home.redcloth'
-  end
-  
   # We match .wtpl files using wlang
   match file(:extension => '.redcloth') do
     wlang '../templates/layout.wtpl', {:current => File.basename(served_file, '.redcloth')}

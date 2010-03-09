@@ -1,6 +1,6 @@
 /* ------------------------------- Main Overridings */
 body {
-	width: 80%;
+	width: 85%;
 	margin: auto;
 	font-family: Verdana, Arial;
 	font-size: 14px;
@@ -38,6 +38,8 @@ div.clear { clear: both; }
 	font-style: italic;
 	font-size: 1em;
 	padding: 0px;
+	position: absolute;
+	top: 75px;
 	padding-left: 100px;
 	margin: 0px;
 	font-family: Arial;
@@ -48,14 +50,14 @@ div.clear { clear: both; }
 ul#menu { clear: both; font-size: 1em; }
 ul#menu li {
 	display: block;
-	float: right;
+	float: left;
 	list-style : none;
-	width: 90px;
+	width: 80px;
   border: 1px solid #CF4500;
   border-bottom: none;
   background-color: white;
   padding: 3px 3px 3px 3px;
-  margin-right: 5px;
+  margin-left: 5px;
   text-align: center;
 }
 ul#menu li a, ul#menu li a:visited { color: #CF4500; text-decoration: none; }
@@ -80,7 +82,7 @@ ul#menu li.last { width: 150px; }
 	padding-top: 5px;
 	padding-top: 0px;
   text-align: justify;
-  background: url(images/specimen.gif);
+  background: url(../images/specimen.gif);
 }
 #content h3 {
 	color: #820000;

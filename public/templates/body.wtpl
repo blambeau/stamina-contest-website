@@ -9,7 +9,7 @@
   		</div>
 		  <h2>${info.subtitle}</h2>
   		<ul id="menu">
-  		  *{info.menu.reverse.reject{|e| e['label'].nil?} as entry}{
+  		  *{info.menu.reject{|e| e['label'].nil?} as entry}{
   		    <li class="?{current == entry.url}{current} ?{entry.url == 'committee'}{last}" onclick="@{+{entry.url}}" id="link_${entry.url}">@{+{entry.url}}{+{entry.label}}</li>
   		  }
   		</ul>

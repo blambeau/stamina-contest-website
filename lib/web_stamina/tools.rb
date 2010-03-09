@@ -144,12 +144,12 @@ module WebStamina
     
     # Returns the download url for a given training set
     def training_set_download_url(sparsity, alph, problem_id)
-      "training_sample_#{problem_id}.txt"
+      "downloads/training_sample_#{problem_id}.txt"
     end
     
     # Returns the download url for a given test set
     def test_set_download_url(sparsity, alph, problem_id)
-      "test_sample_#{problem_id}.txt"
+      "downloads/test_sample_#{problem_id}.txt"
     end
     
     # 

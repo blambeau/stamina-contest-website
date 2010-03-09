@@ -1,0 +1,28 @@
+wawaccess do
+  inherits false
+
+  # .wawaccess files are never served
+  match /.wawaccess$/ do
+    deny
+  end
+  
+  # Matching a training sample
+  match /training_sample_(\d\d?|100)\.txt$/ do |url, number|
+    [200, {'Content-Type' => 'text/plain; charset=utf8',
+           'Content-disposition' => "attachment; filename=training_sample_#{number}.txt"}, 
+           ["#{number}"]]
+  end
+  
+  # Matching a test sample
+  match /test_sample_(\d\d?|100)\.txt$/ do |url, number|
+    [200, {'Content-Type' => 'text/plain; charset=utf8',
+           'Content-disposition' => "attachment; filename=test_sample_#{number}.txt"}, 
+           ["#{number}"]]
+  end
+  
+  # When the file cannot be found
+  match true do
+    apply "pages/404.redcloth", 404
+  end
+
+end
