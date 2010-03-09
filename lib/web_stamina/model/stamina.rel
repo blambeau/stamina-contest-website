@@ -1,0 +1,54 @@
+namespace(:default)
+
+# People who subscribed to the competition
+relvar(:people) {
+  attribute :id,         Serial
+  attribute :mail,       String
+  attribute :nickname,   String
+  attribute :password,   String
+  attribute :activation, String, {:default => ''}
+  attribute :first_name, String, {:default => ''}
+  attribute :last_name,  String, {:default => ''}
+  primary_key :id
+  candidate_key :mail
+  candidate_key :nickname
+}
+
+# Algorithms considered as challengers
+relvar(:challengers) {
+  attribute :people, Integer
+  attribute :algorithm, String
+  primary_key :people, :algorithm
+  foreign_key :people => default.people
+}
+
+# A cell in the problem grid
+relvar(:cells) {
+  attribute :token, Integer
+  attribute :alphabet_size, Integer
+  attribute :sample_sparsity, Float
+  primary_key :alphabet_size, :sample_sparsity
+  candidate_key :token
+}
+
+# Problems inside a cell
+relvar(:problems) {
+  attribute :id, Integer
+  attribute :alphabet_size, Integer
+  attribute :sample_sparsity, Float
+  primary_key :id
+  foreign_key [:alphabet_size, :sample_sparsity] => default.cells
+}
+
+# Challenger submissions
+relvar(:submissions) {
+  attribute :people, Integer
+  attribute :algorithm, String
+  attribute :problem, Integer
+  attribute :submission_time, Time
+  attribute :binary_sequence, String
+  attribute :score, Float
+  primary_key :people, :algorithm, :problem, :submission_time
+  foreign_key [:people, :algorithm] => default.challengers
+  foreign_key :problem => default.problems
+}
