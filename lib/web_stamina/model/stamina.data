@@ -29,6 +29,7 @@ default.problems = default.cells.collect{|t|
   }
   probs
 }.flatten
+default.people = []
 # default.people = [
 #   {:id => 1, 
 #    :activation => '3c02fcea71303a540350cd659929dded', 

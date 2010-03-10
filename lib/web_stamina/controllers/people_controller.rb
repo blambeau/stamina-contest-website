@@ -34,7 +34,7 @@ module WebStamina
       }
       def subscribe(params)
         resources.db.transaction do |t|
-          t.default.people << params.keep(t.default.people.attribute_names).merge(:activation => generate_activation_key)
+          t.default.people << params.keep(t.default.people.attribute_names).merge(:activation => generate_activation_key, :id => t.default.people.tuple_count+1)
         end
         :ok
       end
