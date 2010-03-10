@@ -1,0 +1,6 @@
+<ul id="links">
+  <li><a onclick="javascript:show_login_form()">login</a></li>
+  <li><a onclick="javascript:show_subscribe_form()">create a competitor account</a></li>
+  <li><a onclick="javascript:show_contact_form()">any question?</a></li>
+	<div class="clear"></div>
+</ul>

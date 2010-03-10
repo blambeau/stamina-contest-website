@@ -5,4 +5,10 @@ Waw.rack do
   map '/' do
     run ::Waw::StaticController.new(:root => 'public')
   end
+  map '/webserv' do
+    use ::Waw::JSONController
+    map '/people' do
+      run ::WebStamina::Controllers::PeopleController.instance
+    end
+  end
 end

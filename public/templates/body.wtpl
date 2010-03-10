@@ -15,6 +15,7 @@
   		</ul>
   		<div class="clear"></div>
 		</div>
+		<<+{anonymous_links.wtpl}
 		<div id="content">
       <div class="page-body">
         ^{redcloth/xhtml}{<<+{../${served_file} share all}}
@@ -26,4 +27,6 @@
       }
     </div>
 	</div>
+  <div id="hide"></div>
+<div id="popup"></div>
 </body>

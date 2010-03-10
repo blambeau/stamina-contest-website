@@ -1,0 +1,25 @@
+={controllers.people.contact as action}{
+	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="login" class="form-460">
+		<p>To take contact with the organizers, please fill the form below. Alternatively, you can send an email
+		   to @{mailto:stamina@listes.uclouvain.be}{stamina@listes.uclouvain.be}</p>
+		
+		<p class="feedback"></p>
+		
+		<p class="span-4">
+			<label for="mail">Your e-mail&nbsp;:</label>
+			<input type="text" name="mail" value="" tabindex="100" />
+		</p>
+		
+		<p class="span-4">
+			<label for="message">Your message:</label>
+<textarea type="message" name="message" tabindex="101">
+</textarea>
+		</p>
+		
+		<p class="form-button">
+			<input type="submit" tabindex="102" value="Go »"/>
+			+{action.ajax_form_preparer(:form_id => 'login')}
+			<a onclick="hide_login_form()">Close</a>
+		</p>
+	</form>
+}

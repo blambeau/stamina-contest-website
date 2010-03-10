@@ -6,3 +6,4 @@ module WebStamina
   
 end # module WebStamina
 require 'web_stamina/tools'
+require 'web_stamina/controllers/people_controller'

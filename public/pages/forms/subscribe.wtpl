@@ -1,0 +1,24 @@
+={controllers.people.subscribe as action}{
+	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="subscribe" class="form-460">
+		<p>After subscription you will receive an account activation e-mail. Once your account activated, you will have access
+		   to competitor dedicated features like result submissions.</p>
+		
+		<p class="feedback"></p>
+		
+		<p class="span-4">
+			<label for="mail">Your e-mail&nbsp;:</label>
+			<input type="text" name="mail" value="" tabindex="100" />
+		</p>
+		
+		<p class="span-4">
+			<label for="password">Your password:</label>
+			<input type="password" name="password" value="" tabindex="101"/>
+		</p>
+		
+		<p class="form-button">
+			<input type="submit" tabindex="102" value="Go »"/>
+			+{action.ajax_form_preparer(:form_id => 'login')}
+			<a onclick="hide_login_form()">Close</a>
+		</p>
+	</form>
+}
