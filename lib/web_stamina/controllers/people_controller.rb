@@ -16,14 +16,24 @@ module WebStamina
         session_set(:user, params[:mail]) and :ok
       end
       
-      signature {}
+      signature {
+        validation [:mail, :nickname, :password, :password_confirm, :lastname, :firstname], mandatory, :registration_mandatory
+        validation :mail, mail, :bad_mail
+        validation :password, (size>=8) & (size<=15), :bad_password
+        validation [:password, :password_confirm], (mandatory & same), :passwords_dont_match
+        validation :authorize_submission_usage, (boolean | default(false)), :bad_authorize
+      }
+      routing {
+        upon 'validation-ko' do form_validation_feedback end
+        upon 'success/ok'    do refresh  end
+      }
       def subscribe(params)
         :ok
       end
       
       # Login
       signature {
-        validation :mail, mandatory & mail, :bad_email
+        validation :mail, mandatory & mail, :bad_mail
         validation :message, mandatory, :missing_message
       }
       routing {

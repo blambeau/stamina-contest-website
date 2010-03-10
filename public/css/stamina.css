@@ -234,6 +234,13 @@ form p {
 	line-height: normal;
 	text-align: justify;
 }
+form h4 {
+	font-size: 18px;
+	color: #CF4500;
+	margin: 0px;
+	margin-bottom: 10px;
+	padding: 0px;
+}
 form a, form a:visited {
 	color: blue;
 	text-decoration: underline;
@@ -268,6 +275,10 @@ form.form-300 p.span-3 {
 }
 form.form-300 p.span-3 input {
 	width: 296px;
+}
+form.form-300 input.checkbox {
+	display: inline;
+	width: 20px;
 }
 form.form-300 p.form-button {
 	width: 300px;
@@ -379,7 +390,7 @@ form.form-460 p.form-button input {
 #popup {
 	display: none;
 	position: absolute;
-	top: 150px;
+	top: 50px;
 	left: 50%;
 	background: #fff;
 	border: 5px solid #000;

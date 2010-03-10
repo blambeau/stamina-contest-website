@@ -3,9 +3,13 @@
 
 /* Messages, from waw.resources.messages */
 var messages = new Array();
-messages['bad_email'] = "Invalid e-mail address";
+messages['bad_authorize'] = "Bad value sent by your browser for a checkbox";
+messages['bad_mail'] = "Invalid e-mail address";
+messages['bad_password'] = "You password should contain at least 8 and maximum 15 characters";
 messages['bad_user_or_password'] = "Unknown user or bad password";
 messages['missing_message'] = "The message is mandatory";
+messages['passwords_dont_match'] = "Your passwords do not match";
+messages['registration_mandatory'] = "All fields are mandatory";
 
 /* Actions contributed by WebStamina::Controllers::PeopleController, mapped to / */
 function webserv_people_contact(request_data, form) {
@@ -57,7 +61,21 @@ function webserv_people_subscribe(request_data, form) {
       window.location = '/feedback?mkey=server_error';
     },
     success: function(data) {
+      if (data[0] == 'validation-ko') {
+        str = '';
+        str += '<ul>';
+        for (var k in data[1]) {
+          str += '<li>' + messages[data[1][k]] + '</li>';
+        }
+        str += '</ul>';
+        $(form + ' .feedback').show();
+        $(form + ' .feedback').html(str);
       
+      } else if (data[0] == 'success') {
+        if (data[1] == 'ok') {
+          location.reload(true);
+        }
+      }
     }
   });
   return false;

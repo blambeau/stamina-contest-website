@@ -15,7 +15,7 @@ function hide_popup() {
 	$('#popup').hide();
   $('#hide').hide();
 }
-function show_login_form()     { show_popup('pages/forms/login.wtpl', 300); }
+function show_login_form()     { show_popup('pages/forms/login.wtpl', 460); }
 function hide_login_form()     { hide_popup(); }
 function show_subscribe_form() { show_popup('pages/forms/subscribe.wtpl', 460);}
 function hide_subscribe_form() { hide_popup(); }

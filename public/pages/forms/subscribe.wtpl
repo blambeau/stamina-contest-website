@@ -1,24 +1,48 @@
 ={controllers.people.subscribe as action}{
 	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="subscribe" class="form-460">
-		<p>After subscription you will receive an account activation e-mail. Once your account activated, you will have access
-		   to competitor dedicated features like result submissions.</p>
+	  <h4>Create a competitor account</h4>
+		<p>After having filled the form below, you will receive an e-mail with instructions to activate you account. 
+		   Once done you will have access to competitor dedicated features, including result submissions.</p>
 		
 		<p class="feedback"></p>
 		
 		<p class="span-4">
-			<label for="mail">Your e-mail&nbsp;:</label>
+			<label for="mail">Your e-mail (used for authentification and contact)&nbsp;:</label>
 			<input type="text" name="mail" value="" tabindex="100" />
 		</p>
 		
 		<p class="span-4">
-			<label for="password">Your password:</label>
-			<input type="password" name="password" value="" tabindex="101"/>
+			<label for="nickname">Choose a nickname (max 8 characters)&nbsp;:</label>
+			<input type="text" name="nickname" value="" tabindex="100" maxlength="8"/>
 		</p>
+		
+  	<p class="span-2">
+  		<label for="password">Choose a password (8..15 chars)</label>
+  		<input type="password" name="password"/>
+  	</p>
+  	<p class="span-2-last">
+  		<label for="password_confirm">Confirm it</label>
+  		<input type="password" name="password_confirm"/>
+  	</p>
+
+  	<p class="span-2">
+  		<label for="lastname">Your last name:</label>
+  		<input type="text" name="lastname"/>
+  	</p>
+  	<p class="span-2-last">
+  		<label for="firstname">Your first name:</label>
+  		<input type="text" name="firstname"/>
+  	</p>
+
+  	<p class="span-4-checkbox">
+  		<input type="checkbox" name="authorize_submission_usage" value="true" checked="checked"/>
+  		<label for="authorize_submission_usage">I authorize the organizers to use submitted data for post-competition analysis</label>
+  	</p>
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>
-			+{action.ajax_form_preparer(:form_id => 'login')}
-			<a onclick="hide_login_form()">Close</a>
+			+{action.ajax_form_preparer(:form_id => 'subscribe')}
+			<a onclick="hide_subscribe_form()">Close</a>
 		</p>
 	</form>
 }
