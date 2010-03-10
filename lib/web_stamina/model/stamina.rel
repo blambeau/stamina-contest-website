@@ -2,13 +2,15 @@ namespace(:default)
 
 # People who subscribed to the competition
 relvar(:people) {
-  attribute :id,         Serial
+  attribute :id,         Integer
   attribute :mail,       String
   attribute :nickname,   String
   attribute :password,   String
-  attribute :activation, String, {:default => ''}
-  attribute :first_name, String, {:default => ''}
-  attribute :last_name,  String, {:default => ''}
+  attribute :activation, String,   {:default => ''}
+  attribute :first_name, String,   {:default => ''}
+  attribute :last_name,  String,   {:default => ''}
+  attribute :admin_level, Integer, {:default => -1 }
+  attribute :authorize_submission_usage, Boolean, {:default => true}
   primary_key :id
   candidate_key :mail
   candidate_key :nickname

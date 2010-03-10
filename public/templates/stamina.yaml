@@ -12,8 +12,6 @@ menu:
     label: Participate
   - url: download
     label: Download
-  - url: entries
-    label: Submit
   - url: committee
     label: Scientific Committee
   - url: machines

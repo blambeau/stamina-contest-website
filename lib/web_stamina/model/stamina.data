@@ -29,3 +29,14 @@ default.problems = default.cells.collect{|t|
   }
   probs
 }.flatten
+default.people = []
+# default.people = [
+#   {:id => 1, 
+#    :activation => '3c02fcea71303a540350cd659929dded', 
+#    :last_name  => 'LAMBEAU', 
+#    :first_name => 'BERNARD',
+#    :password   => 'Bernie007', 
+#    :mail       => 'blambeau@gmail.com', 
+#    :authorize_submission_usage => true, 
+#    :nickname => 'blambeau'}
+# ]

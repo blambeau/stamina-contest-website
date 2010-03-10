@@ -1,0 +1,48 @@
+={controllers.people.subscribe as action}{
+	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="subscribe" class="form-460">
+	  <h4>Create a competitor account</h4>
+		<p>After having filled the form below, you will receive an e-mail with instructions to activate you account. 
+		   Once done you will have access to competitor dedicated features, including result submissions.</p>
+		
+		<p class="feedback"></p>
+		
+		<p class="span-4">
+			<label for="mail">Your e-mail (used for authentification and contact)&nbsp;:</label>
+			<input type="text" name="mail" value="" tabindex="100" />
+		</p>
+		
+		<p class="span-4">
+			<label for="nickname">Choose a nickname (max 8 characters)&nbsp;:</label>
+			<input type="text" name="nickname" value="" tabindex="100" maxlength="8"/>
+		</p>
+		
+  	<p class="span-2">
+  		<label for="password">Choose a password (8..15 chars)</label>
+  		<input type="password" name="password"/>
+  	</p>
+  	<p class="span-2-last">
+  		<label for="password_confirm">Confirm it</label>
+  		<input type="password" name="password_confirm"/>
+  	</p>
+
+  	<p class="span-2">
+  		<label for="last_name">Your last name:</label>
+  		<input type="text" name="last_name"/>
+  	</p>
+  	<p class="span-2-last">
+  		<label for="first_name">Your first name:</label>
+  		<input type="text" name="first_name"/>
+  	</p>
+
+  	<p class="span-4-checkbox">
+  		<input type="checkbox" name="authorize_submission_usage" value="true" checked="checked"/>
+  		<label for="authorize_submission_usage">I authorize the organizers to use submitted data for post-competition analysis</label>
+  	</p>
+		
+		<p class="form-button">
+			<input type="submit" tabindex="102" value="Go »"/>
+			+{action.ajax_form_preparer(:form_id => 'subscribe')}
+			<a onclick="hide_subscribe_form()">Close</a>
+		</p>
+	</form>
+}

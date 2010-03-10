@@ -1,29 +1,30 @@
-<body>
-  <div id="inside">
-		<div id="banner">
-		  <h1><a href="/">${info.title}</a></h1>
-  		<div id="organizers">
-  		  *{info.organizers as org}{
-  		    <a href="{org.website}"><img src="{org.icon}" alt="{org.name}"/></a>
-		    }
-  		</div>
-		  <h2>${info.subtitle}</h2>
-  		<ul id="menu">
-  		  *{info.menu.reject{|e| e['label'].nil?} as entry}{
-  		    <li class="?{current == entry.url}{current} ?{entry.url == 'committee'}{last}" onclick="@{+{entry.url}}" id="link_${entry.url}">@{+{entry.url}}{+{entry.label}}</li>
-  		  }
-  		</ul>
-  		<div class="clear"></div>
+<<+{anonymous_links.wtpl}
+<div id="inside">
+	<div id="banner">
+	  <h1><a href="/">${info.title}</a></h1>
+	  <h2>${info.subtitle}</h2>
+		<div id="organizers">
+		  *{info.organizers as org}{
+		    <a href="{org.website}"><img src="{org.icon}" alt="{org.name}"/></a>
+	    }
 		</div>
-		<div id="content">
-      <div class="page-body">
-        ^{redcloth/xhtml}{<<+{../${served_file} share all}}
-	    </div>
-    </div>
-    <div id="footer">
-      *{info.sponsors as s}{
-        <a href="{s.website}"><img src="{s.icon}" alt="{s.name}"/></a>
-      }
-    </div>
+		<ul id="menu">
+		  *{info.menu.reject{|e| e['label'].nil?} as entry}{
+		    <li class="?{current == entry.url}{current} ?{entry.url == 'committee'}{last}" onclick="@{+{entry.url}}" id="link_${entry.url}">@{+{entry.url}}{+{entry.label}}</li>
+		  }
+		</ul>
+		<div class="clear"></div>
 	</div>
-</body>
+	<div id="content">
+    <div class="page-body">
+      ^{redcloth/xhtml}{<<+{../${served_file} share all}}
+    </div>
+  </div>
+  <div id="footer">
+    *{info.sponsors as s}{
+      <a href="{s.website}"><img src="{s.icon}" alt="{s.name}"/></a>
+    }
+  </div>
+</div>
+<div id="hide"></div>
+<div id="popup"></div>
