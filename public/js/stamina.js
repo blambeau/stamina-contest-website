@@ -5,6 +5,7 @@ function select_cell_for_submission(cell_id) {
 	$('#cell-id').html(cell_id);
 }
 function show_popup(url, width) {
+	$('#hide').height($('#inside').height()+100);
   $('#hide').show();
 	$.get(url, function(data) { $('#popup').html(data); });
   $('#popup').width(width);

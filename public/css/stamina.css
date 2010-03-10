@@ -33,7 +33,7 @@ div.clear { clear: both; }
 	color: #820000;
 	text-decoration: none;
 }
-#banner #organizers { float: right; margin-bottom: 20px; }
+#organizers { float: right; margin-bottom: 20px; }
 #banner h2 {
 	float: left;
 	font-style: italic;
@@ -50,13 +50,15 @@ div.clear { clear: both; }
 	margin: 0px;
 	padding: 0px;
 	margin-bottom: 15px;
+	padding-bottom: 5px;
 	width: 100%;
 	border-bottom: 1px solid #CF4500;
+	text-align: right;
 }
 #links li {
-	float: right;
+	display: inline;
 	padding: 3px;
-	margin: 0px 5px;
+	margin: 0px 3px;
 	list-style: none;
 }
 #links li a, #links li a:visited {
@@ -178,7 +180,7 @@ ul#menu li.last { width: 150px; }
 }
 
 #content table.competition-grid tr td {
-	width: 130px; overflow: hide;
+	width: 130px;
 	color: black;
 }
 #content table.competition-grid tr td.solved {

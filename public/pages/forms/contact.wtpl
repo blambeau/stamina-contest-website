@@ -1,5 +1,6 @@
 ={controllers.people.contact as action}{
 	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="login" class="form-460">
+	  <h4>Contact organizers</h4>
 		<p>To take contact with the organizers, please fill the form below. Alternatively, you can send an email
 		   to @{mailto:stamina@listes.uclouvain.be}{stamina@listes.uclouvain.be}</p>
 		
