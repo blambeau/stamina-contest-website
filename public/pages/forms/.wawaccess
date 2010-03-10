@@ -15,8 +15,11 @@ wawaccess do
   
   # When the file cannot be found
   match true do
-    puts served_file
-    apply "pages/404.redcloth", 404
+    if /\.wtpl$/ =~ served_file
+      apply "pages/404.redcloth", 404
+    else
+      apply "#{served_file}.wtpl"
+    end
   end
   
 end
