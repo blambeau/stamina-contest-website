@@ -26,12 +26,12 @@
   	</p>
 
   	<p class="span-2">
-  		<label for="lastname">Your last name:</label>
-  		<input type="text" name="lastname"/>
+  		<label for="last_name">Your last name:</label>
+  		<input type="text" name="last_name"/>
   	</p>
   	<p class="span-2-last">
-  		<label for="firstname">Your first name:</label>
-  		<input type="text" name="firstname"/>
+  		<label for="first_name">Your first name:</label>
+  		<input type="text" name="first_name"/>
   	</p>
 
   	<p class="span-4-checkbox">
