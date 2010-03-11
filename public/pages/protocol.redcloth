@@ -9,8 +9,8 @@ The competition server has a total of 100 <i>problems</i> - each problem is a sa
 
 The 100 problems are divided into <i>cells</i> of 5 problems each, where each cell corresponds to a particular combination of sparsity and alphabet size. The table below shows how the cells are organised. Easier problems (with a smaller alphabet and a larger sample) are towards the upper-left of the table, and the harder problems (larger alphabet and smaller sample) are towards the bottom-right.
 
-!{WebStamina::Tools::abstract_grid("5 problems to solve in each cell", "left")}
-!{WebStamina::Tools::points_grid("Cell points", "right")}
+!{grid_tools.abstract_grid("5 problems to solve in each cell", "left")}
+!{grid_tools.points_grid("Cell points", "right")}
 <div class="clear"></div>
 
 Participation in the competition consists in attempting to <i>solve</i> cells. A cell is considered to be solved if all of the 5  problems it contains are solved with a @{protocol#scoring}{BCR score} of at least 0.99. Each cell is given a number of points (from 1 to 4) according to its difficulty, based on the average performance of the @{baseline}{redblue algorithm}, computed with our @{protocol#scoring}{scoring procedure}. <u>The first technique to solve a hardest cell, among those solved in the competition, will be the winner</u>. The organizers will add additional problems if all cells appear to be solved more than one month before the final deadline.  

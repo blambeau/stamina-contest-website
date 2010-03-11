@@ -1,5 +1,5 @@
 module WebStamina
-  module Tools
+  class GridTools
     
     # Redblue results on the grid
     REDBLUE_RESULTS = {
@@ -15,6 +15,22 @@ module WebStamina
     
     # Alphabet sizes
     ALPHABETS = [2, 5, 10, 20, 50]
+    
+    ############################################################################################
+    ### Initialization
+    ############################################################################################
+
+    # Creates a tools instance
+    def initialize(database)
+      @database = database
+    end
+    
+    # Converts a Sequel dataset to a grid as hashes of hashes
+    def to_hash_grid(dataset)
+      grid = Hash.new{|h,k| h[k] = {}}
+      dataset.each{|t| grid[t[:alphabet_size]][t[:sample_sparsity]] = t}
+      grid
+    end
 
     ############################################################################################
     ### Tools to generate HTML grids
@@ -32,12 +48,13 @@ module WebStamina
         last = first+4
         yield(s, alph, (first..last))
       }
-      classes = SPARSITY.collect{|s|
-        cssclass = solved?(s, alph) ? "solved" : "unsolved"
-      }
-      cells = cells.zip(classes).collect {|pair|
-        cssclass = "class=\"#{pair[1]}\""
-        "<td #{cssclass}>#{pair[0]}</td>"
+      cells = cells.collect {|block_result|
+        case block_result
+          when Hash
+            "<td class=\"#{block_result[:css_class]}\">#{block_result[:label]}</td>"
+          else
+            "<td>#{block_result}</td>"
+        end
       }
       "<th>#{alph}</th>" + cells.join
     end
@@ -119,22 +136,13 @@ module WebStamina
     ### About the competition grid
     ############################################################################################
     
-    # Returns the name of the people that solved a given cell
-    def solved?(sparsity, alph)
-      if sparsity == "100%" and alph == 2
-        "blambeau-qsm"
-      elsif sparsity == "100%" and alph == 5
-        "pdupont-groove"
-      elsif sparsity == "50%" and alph == 2
-        "walk-nice"
-      end
-    end
-    
     # Returns the competition grid. Never put in cache.
     def competition_grid
+      hash_grid = to_hash_grid(@database.handler[:broken_cells])
       grid(nil, "competition-grid"){ |sparsity, alph, range| 
-        solved = ::WebStamina::Tools::solved?(sparsity, alph) 
-        solved ? "<a href=''>#{solved}</a>" : "<i>...</i>"
+        tuple = hash_grid[alph][sparsity]
+        label = tuple ? "#{tuple[:nickname]}/#{tuple[:algorithm]}" : ""
+        {:label => "<a href=''>#{label}</a>", :css_class => tuple ? tuple[:cell_status] : 'inactive'}
       }
     end
     
@@ -212,6 +220,5 @@ module WebStamina
       } 
     end
     
-    extend Tools
-  end # module Tools
+  end # end GridTools
 end # module WebStamina

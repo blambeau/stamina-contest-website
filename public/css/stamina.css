@@ -183,12 +183,11 @@ ul#menu li.last { width: 150px; }
 	width: 130px;
 	color: black;
 }
-#content table.competition-grid tr td.solved {
-	background-color: green;
-}
-#content table.competition-grid tr td.solved a {
-		color: white;
-}
+table.competition-grid tr td.broken   { background-color: green; }
+table.competition-grid tr td.pending  { background-color: orange; }
+table.competition-grid tr td.active   { background-color: yellow; }
+table.competition-grid tr td.inactive { background-color: white; }
+#content table.competition-grid tr td.broken a { color: white; }
 
 
 #content table.submission-grid { margin-top: 0px; float: left;}
