@@ -44,8 +44,12 @@ default.submissions = [
   {:people => 2, :algorithm => 'gravi', :problem => 4, :submission_time => Time.utc(2010, 01, 01, 16, 05), :score => 0.995},
   {:people => 2, :algorithm => 'gravi', :problem => 5, :submission_time => Time.utc(2010, 01, 01, 16, 06), :score => 0.99},
   
-  # some try by qsm on the same cell
-  {:people => 1, :algorithm => 'qsm', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 15, 32), :score => 0.78},
-  {:people => 1, :algorithm => 'qsm', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.995},
+  # some try by qsm on the second cell
+  {:people => 1, :algorithm => 'qsm', :problem => 6, :submission_time => Time.utc(2010, 01, 01, 15, 32), :score => 0.78},
+  {:people => 1, :algorithm => 'qsm', :problem => 8, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.995},
+  
+  # some try by qsm on the second cell
+  {:people => 2, :algorithm => 'gravi', :problem => 21, :submission_time => Time.utc(2010, 01, 01, 15, 32), :score => 0.78},
+  {:people => 2, :algorithm => 'gravi', :problem => 24, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.61},
   
 ]

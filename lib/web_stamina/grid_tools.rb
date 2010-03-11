@@ -16,6 +16,9 @@ module WebStamina
     # Alphabet sizes
     ALPHABETS = [2, 5, 10, 20, 50]
     
+    # CSS classes associated to cell status
+    CELL_STATUS_TO_CSS_CLASS = {0 => 'inactive', 1 => 'active', 2 => 'pending', 3 => 'broken'}
+    
     ############################################################################################
     ### Initialization
     ############################################################################################
@@ -138,11 +141,12 @@ module WebStamina
     
     # Returns the competition grid. Never put in cache.
     def competition_grid
-      hash_grid = to_hash_grid(@database.handler[:broken_cells])
+      hash_grid = to_hash_grid(@database.handler[:master_grid])
       grid(nil, "competition-grid"){ |sparsity, alph, range| 
         tuple = hash_grid[alph][sparsity]
         label = tuple ? "#{tuple[:nickname]}/#{tuple[:algorithm]}" : ""
-        {:label => "<a href=''>#{label}</a>", :css_class => tuple ? tuple[:cell_status] : 'inactive'}
+        css_class = CELL_STATUS_TO_CSS_CLASS[tuple ? tuple[:cell_status] : 0]
+        {:label => "<a href=''>#{label}</a>", :css_class => css_class}
       }
     end
     

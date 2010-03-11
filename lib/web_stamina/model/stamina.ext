@@ -45,19 +45,32 @@ CREATE VIEW grid_statistics AS
              AND s2.alphabet_size   = s.alphabet_size
              AND s2.sample_sparsity = s.sample_sparsity
              AND s2.score >= 0.99) AS broken_problem_count,
-        case when count(s.problem) = 5 and min(s.score) >= 0.99 then 'broken'
-             when max(s.score) >= 0.99 then 'pending'
-             else 'active'
+        case when count(s.problem) = 5 and min(s.score) >= 0.99 then 3
+             when max(s.score) >= 0.99 then 2
+             else 1
          end as cell_status
     FROM pertinent_submissions AS s
 GROUP BY s.people, s.nickname, s.algorithm, s.alphabet_size, s.sample_sparsity;
 
+DROP VIEW IF EXISTS master_grid;
+CREATE VIEW master_grid AS
+  SELECT * FROM grid_statistics as g
+   WHERE cell_status = (SELECT max(cell_status) 
+                          FROM grid_statistics AS g2
+                         WHERE g2.alphabet_size   = g.alphabet_size
+                           AND g2.sample_sparsity = g.sample_sparsity)
+     AND latest_submission_time = (SELECT min(latest_submission_time)
+                                     FROM grid_statistics AS g2
+                                    WHERE g2.alphabet_size   = g.alphabet_size
+                                      AND g2.sample_sparsity = g.sample_sparsity
+                                      AND g2.cell_status     = g.cell_status);
+
 DROP VIEW IF EXISTS broken_cells;
 CREATE VIEW broken_cells AS
   SELECT * FROM grid_statistics AS s
-   WHERE s.cell_status = 'broken'
+   WHERE s.cell_status = 3
      AND s.latest_submission_time = (SELECT min(latest_submission_time)
                                        FROM grid_statistics AS s2
                                       WHERE s2.alphabet_size   = s.alphabet_size
                                         AND s2.sample_sparsity = s2.sample_sparsity
-                                        AND s2.cell_status     = 'broken');
+                                        AND s2.cell_status     = 3);
