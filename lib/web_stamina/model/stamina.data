@@ -1,29 +1,29 @@
 default.cells = [
-  {:token => 1,  :alphabet_size => 2, :sample_sparsity => 1.0},
-  {:token => 2,  :alphabet_size => 2, :sample_sparsity => 0.5},
-  {:token => 3,  :alphabet_size => 2, :sample_sparsity => 0.25},
-  {:token => 4,  :alphabet_size => 2, :sample_sparsity => 0.125},
-  {:token => 5,  :alphabet_size => 5, :sample_sparsity => 1.0},
-  {:token => 6,  :alphabet_size => 5, :sample_sparsity => 0.5},
-  {:token => 7,  :alphabet_size => 5, :sample_sparsity => 0.25},
-  {:token => 8,  :alphabet_size => 5, :sample_sparsity => 0.125},
-  {:token => 9,  :alphabet_size => 10, :sample_sparsity => 1.0},
-  {:token => 10, :alphabet_size => 10, :sample_sparsity => 0.5},
-  {:token => 11, :alphabet_size => 10, :sample_sparsity => 0.25},
-  {:token => 12, :alphabet_size => 10, :sample_sparsity => 0.125},
-  {:token => 13, :alphabet_size => 20, :sample_sparsity => 1.0},
-  {:token => 14, :alphabet_size => 20, :sample_sparsity => 0.5},
-  {:token => 15, :alphabet_size => 20, :sample_sparsity => 0.25},
-  {:token => 16, :alphabet_size => 20, :sample_sparsity => 0.125},
-  {:token => 17, :alphabet_size => 50, :sample_sparsity => 1.0},
-  {:token => 18, :alphabet_size => 50, :sample_sparsity => 0.5},
-  {:token => 19, :alphabet_size => 50, :sample_sparsity => 0.25},
-  {:token => 20, :alphabet_size => 50, :sample_sparsity => 0.125}
+  {:token => 1,  :alphabet_size => 2, :sample_sparsity => '100%'},
+  {:token => 2,  :alphabet_size => 2, :sample_sparsity => '50%'},
+  {:token => 3,  :alphabet_size => 2, :sample_sparsity => '25%'},
+  {:token => 4,  :alphabet_size => 2, :sample_sparsity => '12.5%'},
+  {:token => 5,  :alphabet_size => 5, :sample_sparsity => '100%'},
+  {:token => 6,  :alphabet_size => 5, :sample_sparsity => '50%'},
+  {:token => 7,  :alphabet_size => 5, :sample_sparsity => '25%'},
+  {:token => 8,  :alphabet_size => 5, :sample_sparsity => '12.5%'},
+  {:token => 9,  :alphabet_size => 10, :sample_sparsity => '100%'},
+  {:token => 10, :alphabet_size => 10, :sample_sparsity => '50%'},
+  {:token => 11, :alphabet_size => 10, :sample_sparsity => '25%'},
+  {:token => 12, :alphabet_size => 10, :sample_sparsity => '12.5%'},
+  {:token => 13, :alphabet_size => 20, :sample_sparsity => '100%'},
+  {:token => 14, :alphabet_size => 20, :sample_sparsity => '50%'},
+  {:token => 15, :alphabet_size => 20, :sample_sparsity => '25%'},
+  {:token => 16, :alphabet_size => 20, :sample_sparsity => '12.5%'},
+  {:token => 17, :alphabet_size => 50, :sample_sparsity => '100%'},
+  {:token => 18, :alphabet_size => 50, :sample_sparsity => '50%'},
+  {:token => 19, :alphabet_size => 50, :sample_sparsity => '25%'},
+  {:token => 20, :alphabet_size => 50, :sample_sparsity => '12.5%'}
 ]
 default.problems = default.cells.collect{|t|
   th, probs = t.to_h, []
   5.times{|i| 
-    tuple = th.merge(:id => 5*(th[:token]-1)+i)
+    tuple = th.merge(:id => 5*(th[:token]-1)+i+1)
     tuple.delete(:token)
     probs << tuple
   }

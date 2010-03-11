@@ -1,0 +1,76 @@
+DROP INDEX IF EXISTS idx_submissions_subkey;
+DROP INDEX IF EXISTS idx_submissions_time;
+CREATE INDEX idx_submissions_subkey ON submissions (people, algorithm, problem);
+CREATE INDEX idx_submissions_time ON submissions (submission_time);
+
+DROP VIEW IF EXISTS latest_submissions;
+CREATE VIEW latest_submissions AS
+  SELECT * FROM submissions AS s
+   WHERE s.submission_time = (SELECT max(submission_time)
+                                FROM submissions AS s2
+                               WHERE s2.people    = s.people
+                                 AND s2.algorithm = s.algorithm
+                                 AND s2.problem   = s.problem);
+
+DROP VIEW IF EXISTS pertinent_submissions;
+CREATE VIEW pertinent_submissions AS
+  SELECT s.people,
+         pe.nickname,
+         s.algorithm,
+         s.problem,
+         p.alphabet_size,
+         p.sample_sparsity,
+         s.submission_time,
+         s.score
+    FROM latest_submissions AS s
+    JOIN problems AS p on s.problem = p.id
+    JOIN people AS pe on s.people = pe.id;
+                                     
+DROP VIEW IF EXISTS grid_statistics;
+CREATE VIEW grid_statistics AS
+  SELECT s.people, 
+         s.nickname,
+         s.algorithm,
+         s.alphabet_size,
+         s.sample_sparsity,
+         min(s.submission_time) AS soonest_submission_time,
+         max(s.submission_time) AS latest_submission_time,
+         min(s.score) AS weakest_score,
+         max(s.score) AS highest_score,
+         count(s.problem) AS submission_count,
+         (SELECT count(s2.problem)
+            FROM pertinent_submissions AS s2
+           WHERE s2.people          = s.people 
+             AND s2.algorithm       = s.algorithm
+             AND s2.alphabet_size   = s.alphabet_size
+             AND s2.sample_sparsity = s.sample_sparsity
+             AND s2.score >= 0.99) AS broken_problem_count,
+        case when count(s.problem) = 5 and min(s.score) >= 0.99 then 3
+             when max(s.score) >= 0.99 then 2
+             else 1
+         end as cell_status
+    FROM pertinent_submissions AS s
+GROUP BY s.people, s.nickname, s.algorithm, s.alphabet_size, s.sample_sparsity;
+
+DROP VIEW IF EXISTS master_grid;
+CREATE VIEW master_grid AS
+  SELECT * FROM grid_statistics as g
+   WHERE cell_status = (SELECT max(cell_status) 
+                          FROM grid_statistics AS g2
+                         WHERE g2.alphabet_size   = g.alphabet_size
+                           AND g2.sample_sparsity = g.sample_sparsity)
+     AND latest_submission_time = (SELECT min(latest_submission_time)
+                                     FROM grid_statistics AS g2
+                                    WHERE g2.alphabet_size   = g.alphabet_size
+                                      AND g2.sample_sparsity = g.sample_sparsity
+                                      AND g2.cell_status     = g.cell_status);
+
+DROP VIEW IF EXISTS broken_cells;
+CREATE VIEW broken_cells AS
+  SELECT * FROM grid_statistics AS s
+   WHERE s.cell_status = 3
+     AND s.latest_submission_time = (SELECT min(latest_submission_time)
+                                       FROM grid_statistics AS s2
+                                      WHERE s2.alphabet_size   = s.alphabet_size
+                                        AND s2.sample_sparsity = s2.sample_sparsity
+                                        AND s2.cell_status     = 3);

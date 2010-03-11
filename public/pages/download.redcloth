@@ -4,8 +4,8 @@ Training and test strings for each of the 100 problems can be downloaded using t
 
 Alternatively to these tables, you can download "the archive that contains all of the training sets":http://www.dcs.shef.ac.uk/~nw/Files/trainingTesting.tar.gz (see the "section below":#file-formats about its content).
 
-!{WebStamina::Tools::training_download_grid("Training sets")}
-!{WebStamina::Tools::test_download_grid("Test sets")}
+!{grid_tools.training_download_grid("Training sets")}
+!{grid_tools.test_download_grid("Test sets")}
 
 h3(#file-formats). File formats
 

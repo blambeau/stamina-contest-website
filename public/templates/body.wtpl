@@ -1,4 +1,8 @@
-<<+{anonymous_links.wtpl}
+?{session.logged?}{
+  <<+{logged_links.wtpl}
+}{
+  <<+{anonymous_links.wtpl}
+}
 <div id="inside">
 	<div id="banner">
 	  <h1><a href="/">${info.title}</a></h1>

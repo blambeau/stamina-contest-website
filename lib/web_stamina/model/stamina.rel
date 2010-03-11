@@ -2,13 +2,13 @@ namespace(:default)
 
 # People who subscribed to the competition
 relvar(:people) {
-  attribute :id,         Integer
-  attribute :mail,       String
-  attribute :nickname,   String
-  attribute :password,   String
-  attribute :activation, String,   {:default => ''}
-  attribute :first_name, String,   {:default => ''}
-  attribute :last_name,  String,   {:default => ''}
+  attribute :id,          Integer
+  attribute :mail,        String
+  attribute :nickname,    String
+  attribute :password,    String
+  attribute :activation,  String,   {:default => ''}
+  attribute :first_name,  String,   {:default => ''}
+  attribute :last_name,   String,   {:default => ''}
   attribute :admin_level, Integer, {:default => -1 }
   attribute :authorize_submission_usage, Boolean, {:default => true}
   primary_key :id
@@ -28,7 +28,7 @@ relvar(:challengers) {
 relvar(:cells) {
   attribute :token, Integer
   attribute :alphabet_size, Integer
-  attribute :sample_sparsity, Float
+  attribute :sample_sparsity, String
   primary_key :alphabet_size, :sample_sparsity
   candidate_key :token
 }
@@ -37,7 +37,7 @@ relvar(:cells) {
 relvar(:problems) {
   attribute :id, Integer
   attribute :alphabet_size, Integer
-  attribute :sample_sparsity, Float
+  attribute :sample_sparsity, String
   primary_key :id
   foreign_key [:alphabet_size, :sample_sparsity] => default.cells
 }
