@@ -21,7 +21,7 @@ The target machines are generated using a @{machines}{variant of the Forest-Fire
 
 - Number of states := State machines in the competition have <u>approximately 50 states</u>, which is representative of case studies found in the software engineering literature. A roughly <u>equal proportion of accepting and rejecting states</u> has been chosen, a feature shared with "Abbadingo":http://www-bcl.cs.may.ie/.
 
-- Larger alphabets := Depending on the model, state machine transitions are either labelled by the input that triggers the transition, or by the system function that governs the transition. In either case, there can be a large number inputs / functions. Alphabet sizes in the competition range <u>from 2 to 50 symbols, represented by integer literals</u> for practical reasons.
+- Larger alphabets := State machine transitions are labelled by some alphabet symbol. Such a symbol may typically correspond to the input that triggers a transition or to a system function that governs the transition. For simplicity in this competition, alphabet symbols are represented by integer literals. Alphabet sizes in the competition range from 2 to 50 symbols (while previous competitions such as Abbadingo focussed on 2 letter alphabets)
 
 - Degree distribution := State machines of software systems tend to contain a <u>small proportion of states with a high out-degree</u> while <u>most states have in- and out-degrees of one or two transitions</u>. Some states are sink accepting states, that is, an out-degree of 0.
 
