@@ -24,7 +24,7 @@ module WebStamina
       signature {
         validation :mail, mandatory & mail, :bad_user_or_password
         validation :password, (size>=8) & (size<=15), :bad_user_or_password
-        #validation [:mail, :password], user_may_log, :bad_user_or_password
+        validation [:mail, :password], authorized_user, :bad_user_or_password
       }
       routing {
         upon 'validation-ko' do feedback end
@@ -43,7 +43,7 @@ module WebStamina
       }
       routing {
         upon 'validation-ko' do form_validation_feedback end
-        upon 'success/ok'    do refresh  end
+        upon 'success/ok'    do refresh                  end
       }
       def subscribe(params)
         activation_key = generate_activation_key
