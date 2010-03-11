@@ -2,6 +2,7 @@
 bad_user_or_password "Unknown user or bad password"
 bad_mail             "Invalid e-mail address"
 missing_message      "The message is mandatory"
+missing_subject      "The subject is mandatory"
 
 # The subscription form
 registration_mandatory "All fields are mandatory"

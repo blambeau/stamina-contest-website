@@ -8,7 +8,12 @@
 		
 		<p class="span-4">
 			<label for="mail">Your e-mail&nbsp;:</label>
-			<input type="text" name="mail" value="" tabindex="100" />
+			<input type="text" name="mail" value="{session.user_mail}" tabindex="100" />
+		</p>
+		
+		<p class="span-4">
+			<label for="mail">Subject&nbsp;:</label>
+			<input type="text" name="subject" value="" tabindex="100" />
 		</p>
 		
 		<p class="span-4">

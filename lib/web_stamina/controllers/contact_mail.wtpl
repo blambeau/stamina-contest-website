@@ -1,0 +1,3 @@
+<p>From: ${mail}</p>
+
+<p>${message}</p>

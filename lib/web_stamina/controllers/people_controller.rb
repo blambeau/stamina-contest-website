@@ -6,12 +6,21 @@ module WebStamina
       # Returns the mail agent to use
       def mail_agent
         @mail_agent = resources.business.mail_agent unless @mail_agent
+        
         template = @mail_agent.add_template(:activation)
         template.from         = "The StaMiNA competition <stamina@listes.uclouvain.be>"
         template.subject      = "Your competitor account for StaMinA"
         template.content_type = 'text/html'
         template.charset      = 'UTF-8'
         template.body         = File.read(File.join(File.dirname(__FILE__), 'activation_mail.wtpl'))
+        
+        template = @mail_agent.add_template(:contact)
+        template.to           = ["stamina@listes.uclouvain.be"]
+        template.subject      = "${subject}"
+        template.content_type = 'text/html'
+        template.charset      = 'UTF-8'
+        template.body         = File.read(File.join(File.dirname(__FILE__), 'contact_mail.wtpl'))
+        
         @mail_agent
       end
       
@@ -32,6 +41,13 @@ module WebStamina
       }
       def login(params)
         session_set(:user, params[:mail]) and :ok
+      end
+      
+      # Logout
+      signature {}
+      routing { upon '*' do refresh end }
+      def logout(params)
+        session_unset(:user)
       end
       
       signature {
@@ -76,6 +92,7 @@ module WebStamina
       # Login
       signature {
         validation :mail, mandatory & mail, :bad_mail
+        validation :subject, mandatory, :missing_subject
         validation :message, mandatory, :missing_message
       }
       routing {
@@ -83,6 +100,9 @@ module WebStamina
         upon 'success/ok'    do refresh  end
       }
       def contact(params)
+        mail = mail_agent.to_mail(:contact, params)
+        mail.from = params[:mail]
+        mail_agent.send_mail(mail)
         :ok
       end
       

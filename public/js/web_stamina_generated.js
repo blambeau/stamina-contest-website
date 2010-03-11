@@ -8,6 +8,7 @@ messages['bad_mail'] = "Invalid e-mail address";
 messages['bad_password'] = "You password should contain at least 8 and maximum 15 characters";
 messages['bad_user_or_password'] = "Unknown user or bad password";
 messages['missing_message'] = "The message is mandatory";
+messages['missing_subject'] = "The subject is mandatory";
 messages['passwords_dont_match'] = "Your passwords do not match";
 messages['registration_mandatory'] = "All fields are mandatory";
 
@@ -68,6 +69,17 @@ function webserv_people_login(request_data, form) {
           location.reload(true);
         }
       }
+    }
+  });
+  return false;
+}  
+function webserv_people_logout(request_data, form) {
+  $.ajax({type: "POST", url: "/webserv/people/logout", data: request_data, dataType: "json",
+    error: function(data) {
+      window.location = '/feedback?mkey=server_error';
+    },
+    success: function(data) {
+      location.reload(true);
     }
   });
   return false;

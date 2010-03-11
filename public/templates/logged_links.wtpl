@@ -1,0 +1,4 @@
+<ul id="links">
+  <li><a onclick="javascript:show_contact_form()">any question?</a></li>
+  <li><a onclick="{controllers.people.logout.ajax_link}">logout</a></li>
+</ul>
