@@ -1,3 +1,17 @@
+DROP INDEX IF EXISTS idx_submissions_subkey;
+DROP INDEX IF EXISTS idx_submissions_time;
+CREATE INDEX idx_submissions_subkey ON submissions (people, algorithm, problem);
+CREATE INDEX idx_submissions_time ON submissions (submission_time);
+
+DROP VIEW IF EXISTS latest_submissions;
+CREATE VIEW latest_submissions AS
+  SELECT * FROM submissions AS s
+   WHERE s.submission_time = (SELECT max(submission_time)
+                                FROM submissions AS s2
+                               WHERE s2.people    = s.people
+                                 AND s2.algorithm = s.algorithm
+                                 AND s2.problem   = s.problem);
+
 DROP VIEW IF EXISTS pertinent_submissions;
 CREATE VIEW pertinent_submissions AS
   SELECT s.people,
@@ -8,17 +22,10 @@ CREATE VIEW pertinent_submissions AS
          p.sample_sparsity,
          s.submission_time,
          s.score
-    FROM submissions AS s
+    FROM latest_submissions AS s
     JOIN problems AS p on s.problem = p.id
-    JOIN people AS pe on s.people = pe.id
-   WHERE NOT EXISTS (
-     SELECT * FROM submissions AS s2
-      WHERE s2.people          = s.people
-        AND s2.algorithm       = s.algorithm
-        AND s2.problem         = s.problem
-        AND s2.submission_time > s.submission_time
-   );
-
+    JOIN people AS pe on s.people = pe.id;
+                                     
 DROP VIEW IF EXISTS grid_statistics;
 CREATE VIEW grid_statistics AS
   SELECT s.people, 
