@@ -5,6 +5,8 @@ module WebStamina
   VERSION = "0.0.1"
   
 end # module WebStamina
+require 'waw/tools/mail'
+require 'web_stamina/wawext'
 require 'web_stamina/tools'
 require 'web_stamina/controllers/people_controller'
 

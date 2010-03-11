@@ -1,0 +1,3 @@
+CREATE VIEW authorized_people AS
+  SELECT mail, password FROM people
+   WHERE admin_level >= 0;

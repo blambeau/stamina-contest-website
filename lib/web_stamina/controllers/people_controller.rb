@@ -1,6 +1,19 @@
+require 'digest/md5'
 module WebStamina
   module Controllers
     class PeopleController < ::Waw::ActionController
+      
+      # Returns the mail agent to use
+      def mail_agent
+        @mail_agent = resources.business.mail_agent unless @mail_agent
+        template = @mail_agent.add_template(:activation)
+        template.from         = "The StaMiNA competition <stamina@listes.uclouvain.be>"
+        template.subject      = "Your competitor account for StaMinA"
+        template.content_type = 'text/html'
+        template.charset      = 'UTF-8'
+        template.body         = File.read(File.join(File.dirname(__FILE__), 'activation_mail.wtpl'))
+        @mail_agent
+      end
       
       # Generates an activation key
       def generate_activation_key
@@ -33,10 +46,29 @@ module WebStamina
         upon 'success/ok'    do refresh  end
       }
       def subscribe(params)
+        activation_key = generate_activation_key
         resources.db.transaction do |t|
           tuple = params.keep(t.default.people.attribute_names)
-          tuple.merge!(:activation => generate_activation_key, :id => t.default.people.tuple_count+1)
+          tuple[:password] = Digest::MD5.hexdigest(tuple[:password])
+          tuple.merge!(:activation => activation_key, :id => t.default.people.tuple_count+1)
           t.default.people << tuple
+        end
+        context = {:first_name      => params[:first_name], 
+                   :hosting_site    => config.web_base, 
+                   :activation_link => config.web_base + "webserv/people/activate_account?key=#{activation_key}"}
+        mail_agent.send_mail(:activation, context, params[:mail])
+        :ok
+      end
+      
+      # Activates an account
+      signature { validation :key, valid_activation_key, :invalid_activation_key }
+      routing {
+        upon 'validation-ko' do popup_message(:invalid_activation_key) end
+        upon 'success/ok'    do popup_message(:welcome)                end
+      }
+      def activate_account(params)
+        result = resources.db.transaction do |t|
+          t.default.people.send(:underlying_table).filter(:activation => params[:key]).update(:activation => "", :admin_level => 0)
         end
         :ok
       end

@@ -12,6 +12,23 @@ messages['passwords_dont_match'] = "Your passwords do not match";
 messages['registration_mandatory'] = "All fields are mandatory";
 
 /* Actions contributed by WebStamina::Controllers::PeopleController, mapped to / */
+function webserv_people_activate_account(request_data, form) {
+  $.ajax({type: "POST", url: "/webserv/people/activate_account", data: request_data, dataType: "json",
+    error: function(data) {
+      window.location = '/feedback?mkey=server_error';
+    },
+    success: function(data) {
+      if (data[0] == 'validation-ko') {
+      alert('invalid_activation_key');
+      } else if (data[0] == 'success') {
+        if (data[1] == 'ok') {
+      alert('welcome');
+        }
+      }
+    }
+  });
+  return false;
+}  
 function webserv_people_contact(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/people/contact", data: request_data, dataType: "json",
     error: function(data) {
