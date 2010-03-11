@@ -23,7 +23,7 @@ default.cells = [
 default.problems = default.cells.collect{|t|
   th, probs = t.to_h, []
   5.times{|i| 
-    tuple = th.merge(:id => 5*(th[:token]-1)+i)
+    tuple = th.merge(:id => 5*(th[:token]-1)+i+1)
     tuple.delete(:token)
     probs << tuple
   }

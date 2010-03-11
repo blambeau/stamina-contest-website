@@ -1,0 +1,51 @@
+default.people = [
+  {:id => 1, :mail => "test1@stamina.org", :nickname => 'blambeau', :password => 'hello'},
+  {:id => 2, :mail => "test2@stamina.org", :nickname => 'pdupont',  :password => 'hello'}
+]
+default.challengers = [
+  {:people => 1, :algorithm => 'redblue'},
+  {:people => 1, :algorithm => 'qsm'    },
+  {:people => 2, :algorithm => 'gravi'  }
+]
+default.submissions = [
+  # noise for redblue
+  {:people => 1, :algorithm => 'redblue', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 00), :score => 0.72},
+  {:people => 1, :algorithm => 'redblue', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 01), :score => 0.73},
+  {:people => 1, :algorithm => 'redblue', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 02), :score => 0.60},
+
+  # one problem broken by redblue (will be better broken later)
+  {:people => 1, :algorithm => 'redblue', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 03), :score => 0.994},
+
+  # a cell completely broken at once by redblue
+  {:people => 1, :algorithm => 'redblue', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'redblue', :problem => 2, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'redblue', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'redblue', :problem => 4, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'redblue', :problem => 5, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+
+  # the same cell broken by gravi a bit later
+  {:people => 2, :algorithm => 'gravi', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 04), :score => 0.99},
+  {:people => 2, :algorithm => 'gravi', :problem => 2, :submission_time => Time.utc(2010, 01, 01, 14, 04), :score => 0.995},
+  {:people => 2, :algorithm => 'gravi', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.992},
+  {:people => 2, :algorithm => 'gravi', :problem => 4, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+  {:people => 2, :algorithm => 'gravi', :problem => 5, :submission_time => Time.utc(2010, 01, 01, 14, 06), :score => 0.995},
+
+  # the same cell not broken by gravi a bit later
+  {:people => 2, :algorithm => 'gravi', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.99},
+  {:people => 2, :algorithm => 'gravi', :problem => 2, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.995},
+  {:people => 2, :algorithm => 'gravi', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 15, 05), :score => 0.992},
+  {:people => 2, :algorithm => 'gravi', :problem => 4, :submission_time => Time.utc(2010, 01, 01, 15, 05), :score => 0.995},
+  {:people => 2, :algorithm => 'gravi', :problem => 5, :submission_time => Time.utc(2010, 01, 01, 15, 06), :score => 0.98},
+
+  # the same cell still broken by gravi a bit later
+  {:people => 2, :algorithm => 'gravi', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 16, 04), :score => 0.99},
+  {:people => 2, :algorithm => 'gravi', :problem => 2, :submission_time => Time.utc(2010, 01, 01, 16, 04), :score => 0.995},
+  {:people => 2, :algorithm => 'gravi', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 16, 05), :score => 0.992},
+  {:people => 2, :algorithm => 'gravi', :problem => 4, :submission_time => Time.utc(2010, 01, 01, 16, 05), :score => 0.995},
+  {:people => 2, :algorithm => 'gravi', :problem => 5, :submission_time => Time.utc(2010, 01, 01, 16, 06), :score => 0.99},
+  
+  # some try by qsm on the same cell
+  {:people => 1, :algorithm => 'qsm', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 15, 32), :score => 0.78},
+  {:people => 1, :algorithm => 'qsm', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.995},
+  
+]
