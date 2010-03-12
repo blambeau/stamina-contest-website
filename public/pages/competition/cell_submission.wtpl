@@ -12,6 +12,7 @@
 		</p>
 		
 		<input type="hidden" name="cell" value="{cell[:token]}"/>
+		<input type="hidden" name="algorithm" value="{algorithm}"/>
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>

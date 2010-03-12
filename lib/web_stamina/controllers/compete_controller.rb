@@ -20,23 +20,35 @@ module WebStamina
       end
       
       signature { 
-        validation :problem, Integer & isin(1..100),  :invalid_problem
-        validation :binseq,  String & mandatory,      :invalid_binary_sequence
+        validation :problem,   Integer & isin(1..100),  :invalid_problem
+        validation :algorithm, String & mandatory,      :invalid_algorithm
+        validation :binseq,    String & mandatory,      :invalid_binary_sequence
       }
       routing   { 
-        upon 'validation-ko' do form_validation_feedback                      end
-        upon '*' do refresh end 
+        upon 'validation-ko' do form_validation_feedback end
+        upon '*'             do refresh                  end 
       }
       def submit_problem(params)
-        puts params.inspect
+        resources.db.transaction do |t|
+          tuple = {:people          => session.current_user[:id],
+                   :algorithm       => params[:algorithm],
+                   :problem         => params[:problem],
+                   :submission_time => Time.now,
+                   :binary_sequence => params[:binseq],
+                   :score           => 0.99}
+          t.default.submissions << tuple
+          t.default.valid_submissions.send(:underlying_table).filter(tuple.keep(:people, :algorithm, :problem)).delete
+          t.default.valid_submissions << tuple
+        end
         :ok
       end
       
       signature {
-        validation :cell, Integer & isin(1..20), :invalid_cell
+        validation :cell, Integer & isin(1..20),   :invalid_cell
+        validation :algorithm, String & mandatory, :invalid_algorithm
       }
       routing   { 
-        upon 'validation-ko' do form_validation_feedback                      end
+        upon 'validation-ko' do form_validation_feedback end
         upon '*' do refresh end 
       }
       def submit_cell(params)

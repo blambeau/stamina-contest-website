@@ -6,6 +6,7 @@
 		<p class="feedback"></p>
 		
 		<input type="hidden" name="problem" value="{problem[:id]}"/>
+		<input type="hidden" name="algorithm" value="{algorithm}"/>
 		
 		<p class="span-4">
 			<label for="binseq">Your binary sequence&nbsp;:</label>

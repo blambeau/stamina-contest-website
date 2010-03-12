@@ -9,6 +9,7 @@ messages['bad_mail'] = "Invalid e-mail address";
 messages['bad_nickname'] = "Your nickname must contain between 2 and 10 characters";
 messages['bad_password'] = "You password should contain at least 8 and maximum 15 characters";
 messages['bad_user_or_password'] = "Unknown user or bad password";
+messages['invalid_algorithm'] = "You cannot submit result for this algorithm";
 messages['invalid_binary_sequence'] = "The binary sequence you provided is invalid";
 messages['invalid_cell'] = "The cell identifier should be between 1 and 100";
 messages['invalid_problem'] = "The problem identifier should be between 1 and 100";

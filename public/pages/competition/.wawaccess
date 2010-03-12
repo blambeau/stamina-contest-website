@@ -29,13 +29,19 @@ wawaccess do
   end
   
   # Problem-based submission
-  match /problem_submission\/([1-9][0-9]?)$/ do |url, problem|
-    wlang "problem_submission.wtpl", {:problem => resources.sequel_db[:problems].filter(:id => problem).first}
+  match /problem_submission\/([a-zA-Z0-9\-_]+)\/([1-9][0-9]?)$/ do |url, algo, problem|
+    wlang "problem_submission.wtpl", {
+      :problem   => resources.sequel_db[:problems].filter(:id => problem).first,
+      :algorithm => algo
+    }
   end
   
   # Cell-based submission
-  match /cell_submission\/([1-9]|1[0-9]|20)$/ do |url, cell|
-    wlang "cell_submission.wtpl", {:cell => resources.sequel_db[:cells].filter(:token => cell).first}
+  match /cell_submission\/([a-zA-Z0-9\-_]+)\/([1-9]|1[0-9]|20)$/ do |url, algo, cell|
+    wlang "cell_submission.wtpl", {
+      :cell => resources.sequel_db[:cells].filter(:token => cell).first,
+      :algorithm => algo
+    }
   end
   
   # Return a 404

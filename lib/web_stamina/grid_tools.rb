@@ -203,8 +203,8 @@ module WebStamina
     ############################################################################################
     
     # URL when clicking a link inside the problem-based submission grid
-    def problem_based_submission_url(sparsity, alph, problem_id)
-      "javascript:show_problem_submission_form('#{problem_id}')"
+    def problem_based_submission_url(algorithm, sparsity, alph, problem_id)
+      "javascript:show_problem_submission_form('#{algorithm}','#{problem_id}')"
     end
     
     # 
@@ -220,7 +220,7 @@ module WebStamina
         
         # We collect links for problem-based submissions
         label = range.collect{|r| 
-          url = problem_based_submission_url(sparsity, alph, r)
+          url = problem_based_submission_url(algorithm, sparsity, alph, r)
           css_class = CELL_STATUS_TO_CSS_CLASS[submissions[r] || 0]
           "<a class=\"#{css_class}\" href=\"#{url}\">#{r}</a>"
         }.join("&nbsp;") 
@@ -231,8 +231,8 @@ module WebStamina
     end
     
     # URL when clicking a link inside the cell-based submission grid
-    def cell_based_submission_url(sparsity, alph, range)
-      "javascript:show_cell_submission_form('#{1+(range.first / 5)}')"
+    def cell_based_submission_url(algorithm, sparsity, alph, range)
+      "javascript:show_cell_submission_form('#{algorithm}','#{1+(range.first / 5)}')"
     end
     
     # 
@@ -246,7 +246,7 @@ module WebStamina
         tuple = hash_grid[alph][sparsity]
         
         # We compute the label
-        url = cell_based_submission_url(sparsity, alph, range)
+        url = cell_based_submission_url(algorithm, sparsity, alph, range)
         label = "<a href=\"#{url}\">#{range}</a>"
         
         # Apply label and css class
