@@ -190,7 +190,7 @@ table.competition-grid tr td.inactive { background-color: white; }
 #content table.competition-grid tr td a { color: black; }
 
 
-#content table.submission-grid { margin-top: 0px; float: left;}
+#content table.submission-grid { margin-top: 0px; }
 #content input.submit {float: right; margin-top:10px;}
 table.submission-grid tr td {width: 100px;}
 form#problem-based-submission-form,
@@ -235,7 +235,7 @@ form p {
 	line-height: normal;
 	text-align: justify;
 }
-form h4 {
+h4 {
 	font-size: 18px;
 	color: #CF4500;
 	margin: 0px;

@@ -41,8 +41,8 @@
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>
+      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
 			+{action.ajax_form_preparer(:form_id => 'subscribe')}
-			<a onclick="hide_subscribe_form()">Close</a>
 		</p>
 	</form>
 }

@@ -20,10 +20,10 @@ function webserv_people_activate_account(request_data, form) {
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
-      alert('invalid_activation_key');
+      show_popup('/messages/invalid_activation_key');
       } else if (data[0] == 'success') {
         if (data[1] == 'ok') {
-      alert('welcome');
+      show_popup('/messages/welcome');
         }
       }
     }
@@ -48,7 +48,7 @@ function webserv_people_contact(request_data, form) {
       
       } else if (data[0] == 'success') {
         if (data[1] == 'ok') {
-          location.reload(true);
+      show_popup('/messages/contact_ok');
         }
       }
     }
@@ -107,7 +107,7 @@ function webserv_people_subscribe(request_data, form) {
       
       } else if (data[0] == 'success') {
         if (data[1] == 'ok') {
-          location.reload(true);
+      show_popup('/messages/subscription_ok');
         }
       }
     }

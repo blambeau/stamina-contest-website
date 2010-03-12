@@ -62,8 +62,8 @@ module WebStamina
         validation :authorize_submission_usage, (boolean | default(false)), :bad_authorize
       }
       routing {
-        upon 'validation-ko' do form_validation_feedback end
-        upon 'success/ok'    do refresh                  end
+        upon 'validation-ko' do form_validation_feedback                      end
+        upon 'success/ok'    do popup_message(:subscription_ok)               end
       }
       def subscribe(params)
         activation_key = generate_activation_key
@@ -100,8 +100,8 @@ module WebStamina
         validation :message, mandatory, :missing_message
       }
       routing {
-        upon 'validation-ko' do form_validation_feedback end
-        upon 'success/ok'    do refresh  end
+        upon 'validation-ko' do form_validation_feedback    end
+        upon 'success/ok'    do popup_message(:contact_ok)  end
       }
       def contact(params)
         mail = mail_agent.to_mail(:contact, params)

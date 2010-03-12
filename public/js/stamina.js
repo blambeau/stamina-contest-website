@@ -20,8 +20,5 @@ function hide_popup() {
   $('#hide').hide();
 }
 function show_login_form()     { show_popup('pages/forms/login', 460); }
-function hide_login_form()     { hide_popup(); }
 function show_subscribe_form() { show_popup('pages/forms/subscribe', 460);}
-function hide_subscribe_form() { hide_popup(); }
 function show_contact_form()   { show_popup('pages/forms/contact', 460); }
-function hide_contact_form()   { hide_popup(); }
