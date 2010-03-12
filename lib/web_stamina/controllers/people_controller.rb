@@ -37,7 +37,7 @@ module WebStamina
       }
       routing {
         upon 'validation-ko' do feedback end
-        upon 'success/ok'    do refresh  end
+        upon 'success/ok'    do redirect(:url => 'competition/compete')  end
       }
       def login(params)
         session_set(:user, params[:mail]) and :ok
@@ -45,9 +45,13 @@ module WebStamina
       
       # Logout
       signature {}
-      routing { upon '*' do refresh end }
+      routing { 
+        upon 'success/ok' do redirect(:url => 'home') end
+        upon '*'          do refresh                  end 
+      }
       def logout(params)
         session_unset(:user)
+        :ok
       end
       
       signature {

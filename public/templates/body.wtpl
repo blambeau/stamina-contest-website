@@ -12,11 +12,7 @@
 		    <a href="{org.website}"><img src="{org.icon}" alt="{org.name}"/></a>
 	    }
 		</div>
-		<ul id="menu">
-		  *{info.menu.reject{|e| e['label'].nil?} as entry}{
-		    <li class="?{current == entry.url}{current} ?{entry.url == 'committee'}{last}" onclick="@{+{entry.url}}" id="link_${entry.url}">@{+{entry.url}}{+{entry.label}}</li>
-		  }
-		</ul>
+		<<+{menu.wtpl share all}
 		<div class="clear"></div>
 	</div>
 	<div id="content">

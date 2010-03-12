@@ -66,7 +66,7 @@ function webserv_people_login(request_data, form) {
         $(form + ' .feedback').html(messages[data[1][0]]);
       } else if (data[0] == 'success') {
         if (data[1] == 'ok') {
-          location.reload(true);
+          window.location = "competition/compete";
         }
       }
     }
@@ -79,7 +79,12 @@ function webserv_people_logout(request_data, form) {
       window.location = '/feedback?mkey=server_error';
     },
     success: function(data) {
-      location.reload(true);
+      if (data[0] == 'success') {
+        if (data[1] == 'ok') {
+          window.location = "home";
+        }
+      } else {
+       location.reload(true);}
     }
   });
   return false;
