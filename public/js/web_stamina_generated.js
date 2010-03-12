@@ -10,7 +10,8 @@ messages['bad_nickname'] = "Your nickname must contain between 2 and 10 characte
 messages['bad_password'] = "You password should contain at least 8 and maximum 15 characters";
 messages['bad_user_or_password'] = "Unknown user or bad password";
 messages['invalid_algorithm'] = "You cannot submit result for this algorithm";
-messages['invalid_binary_sequence'] = "The binary sequence you provided is invalid";
+messages['invalid_binary_sequence'] = "The binary sequence should contain '1' and '0' characters only and no spaces";
+messages['invalid_binary_sequence_size'] = "The binary sequence you provided should contain 1500 characters";
 messages['invalid_cell'] = "The cell identifier should be between 1 and 100";
 messages['invalid_problem'] = "The problem identifier should be between 1 and 100";
 messages['missing_challenger_name'] = "The challenger name is mandatory";
@@ -185,6 +186,12 @@ function webserv_compete_submit_problem(request_data, form) {
         $(form + ' .feedback').show();
         $(form + ' .feedback').html(str);
       
+      } else if (data[0] == 'success') {
+        if (data[1] == 'not_broken') {
+      show_popup('/messages/problem_not_broken');
+        } else if (data[1] == 'broken') {
+      show_popup('/messages/problem_broken');
+        }
       } else {
        location.reload(true);}
     }

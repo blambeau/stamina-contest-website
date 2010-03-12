@@ -1,3 +1,12 @@
+# Submissions
+default.submissions = []
+default.valid_submissions = []
+
+# People & challengers
+default.people = []
+default.challengers = []
+
+# Cells
 default.cells = [
   {:token => 1,  :alphabet_size => 2, :sample_sparsity => '100%'},
   {:token => 2,  :alphabet_size => 2, :sample_sparsity => '50%'},
@@ -20,6 +29,8 @@ default.cells = [
   {:token => 19, :alphabet_size => 50, :sample_sparsity => '25%'},
   {:token => 20, :alphabet_size => 50, :sample_sparsity => '12.5%'}
 ]
+
+# Problems
 default.problems = default.cells.collect{|t|
   th, probs = t.to_h, []
   5.times{|i| 
@@ -29,14 +40,14 @@ default.problems = default.cells.collect{|t|
   }
   probs
 }.flatten
-default.people = []
-# default.people = [
-#   {:id => 1, 
-#    :activation => '3c02fcea71303a540350cd659929dded', 
-#    :last_name  => 'LAMBEAU', 
-#    :first_name => 'BERNARD',
-#    :password   => 'Bernie007', 
-#    :mail       => 'blambeau@gmail.com', 
-#    :authorize_submission_usage => true, 
-#    :nickname => 'blambeau'}
-# ]
+
+# Competition data
+source_dir = File.join('contest', 'grid')
+default.competition_data = (1..100).collect{|id|
+  {:problem         => id,
+   :target_adl      => File.read(File.join(source_dir, "#{id}_target.adl")),
+   :learning_sample => File.read(File.join(source_dir, "#{id}_learning.adl")),
+   :test_sample     => File.read(File.join(source_dir, "#{id}_test.adl")),
+   :binary_sequence => File.read(File.join(source_dir, "#{id}_test.bin")),
+  }
+}

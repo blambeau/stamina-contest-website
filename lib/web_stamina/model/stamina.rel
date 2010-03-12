@@ -44,6 +44,16 @@ relvar(:problems) {
   foreign_key [:alphabet_size, :sample_sparsity] => default.cells
 }
 
+# Competition data for all problems
+relvar(:competition_data) {
+  attribute :problem,         Integer
+  attribute :target_adl,      String 
+  attribute :learning_sample, String 
+  attribute :test_sample,     String
+  attribute :binary_sequence, String
+  primary_key :problem
+}
+
 # All challenger submissions
 relvar(:submissions) {
   attribute :people, Integer
