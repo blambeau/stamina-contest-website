@@ -49,8 +49,6 @@ module WebStamina
         upon '*'          do refresh                  end 
       }
       def logout(params)
-        puts env[:path].inspect
-        puts request.path
         session_unset(:user)
         :ok
       end
