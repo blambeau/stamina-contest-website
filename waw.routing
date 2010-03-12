@@ -2,7 +2,7 @@ Waw.rack do
   use ::Rack::CommonLogger,  Waw.logger
   use ::Rack::Session::Pool, :domain       => Waw.config.web_domain,
                              :expire_after => Waw.config.rack_session_expire
-  #use ::WebStamina::RememberApp
+  use ::WebStamina::RememberApp
   map '/' do
     run ::Waw::StaticController.new(:root => 'public')
   end

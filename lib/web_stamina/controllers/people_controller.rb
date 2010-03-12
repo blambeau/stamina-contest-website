@@ -3,6 +3,10 @@ module WebStamina
   module Controllers
     class PeopleController < ::Waw::ActionController
       
+      #############################################################################################
+      # Initialization and tools
+      #############################################################################################
+
       # Returns the mail agent to use
       def mail_agent
         @mail_agent = resources.business.mail_agent unless @mail_agent
@@ -24,6 +28,12 @@ module WebStamina
         @mail_agent
       end
       
+      # Generates an activation key
+      def generate_activation_key
+        "%0#{512 / 4}x" % rand(2**512 - 1)
+      end
+      alias :generate_sid :generate_activation_key
+
       #############################################################################################
       # Login & logout
       #############################################################################################
@@ -33,12 +43,19 @@ module WebStamina
         validation :mail, mandatory & mail, :bad_user_or_password
         validation :password, (size>=8) & (size<=15), :bad_user_or_password
         validation [:mail, :password], authorized_user, :bad_user_or_password
+        validation :remember_me, (boolean | default(false)), :bad_remember_me 
       }
       routing {
         upon 'validation-ko' do feedback end
         upon 'success/ok'    do redirect(:url => 'competition/compete')  end
       }
       def login(params)
+        puts params.inspect
+        if params[:remember_me]
+          resources.sequel_db[:people].
+                    filter(:mail => params[:mail]).
+                    update(:remember_me => generate_sid)
+        end
         session_set(:user, params[:mail]) and :ok
       end
       
@@ -49,6 +66,7 @@ module WebStamina
         upon '*'          do refresh                  end 
       }
       def logout(params)
+        resources.sequel_db[:people].filter(:mail => session.user).update(:remember_me => '') if session.logged?
         session_unset(:user)
         :ok
       end
@@ -58,11 +76,6 @@ module WebStamina
       # Subscription
       #############################################################################################
       
-      # Generates an activation key
-      def generate_activation_key
-        "%0#{128 / 4}x" % rand(2**128 - 1)
-      end
-
       # Subscribe action
       signature {
         validation [:mail, :nickname, :password, :password_confirm, :last_name, :first_name], mandatory, :registration_mandatory

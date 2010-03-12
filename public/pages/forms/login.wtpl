@@ -17,7 +17,7 @@
 		</p>
 		
 		<p class="span-4-checkbox">
-			<input type="checkbox" class="checkbox" name="remember" checked="checked" value="true" tabindex="101">Remember me</input>
+			<input type="checkbox" class="checkbox" name="remember_me" checked="checked" value="true" tabindex="101">Remember me</input>
 		</p>
 		
 		<p class="form-button">

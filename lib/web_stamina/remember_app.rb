@@ -18,12 +18,12 @@ module WebStamina
     # Manage calls
     def call(env)
       # autolog the user if needed
-      if not(session.logged?) and (had_cookie = request.cookies['stamina_ident'])
-        begin
-          mail, pass = Marshal.load(Base64.decode64(had_cookie))
-          session_set(:user, mail) if authorized_user?(mail, pass)
-        rescue => ex
+      remember_me = request.cookies['remember_me']
+      if not(session.logged?) and (remember_me)
+        if not(remember_me.empty?)
+          mail = (Waw.resources.sequel_db[:people].filter(:remember_me => remember_me).first || {})[:mail]
         end
+        session_set(:user, mail) 
       end
       
       # make the delegate call now
@@ -32,11 +32,9 @@ module WebStamina
       
       # Restore the cookie now
       if session.logged?
-        user = session.current_user()
-        cookie_value = Base64.encode64(Marshal.dump([user[:mail], user[:password]]))
-        res.set_cookie('stamina_ident', cookie_value)
+        res.set_cookie('remember_me', session.current_user[:remember_me])
       else
-        res.delete_cookie('stamina_ident')
+        res.delete_cookie('remember_me')
       end
       
       # Send the response now
