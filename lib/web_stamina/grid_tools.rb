@@ -34,6 +34,14 @@ module WebStamina
       dataset.each{|t| grid[t[:alphabet_size]][t[:sample_sparsity]] = t}
       grid
     end
+    
+    # Fills an array with results from a given people/algorithm pair
+    def competitor_submissions(people, algorithm)
+      submissions = @database.handler[:pertinent_submissions].filter(:people => people, :algorithm => algorithm)
+      results = {}
+      submissions.collect{|t| results[t[:problem]] = t[:submission_status]}
+      results
+    end
 
     ############################################################################################
     ### Tools to generate HTML grids
@@ -204,7 +212,7 @@ module WebStamina
     #
     def problem_based_submission_grid(caption, cssclass, people, algorithm)
       hash_grid = to_hash_grid(@database.handler[:grid_statistics].filter(:people => people, :algorithm => algorithm))
-      broken_info = @database.handler[:pertinent_submissions].filter(:people => people, :algorithm => algorithm)
+      submissions = competitor_submissions(people, algorithm)
       grid(caption, cssclass){|sparsity, alph, range| 
         
         # The tuple for this challenger in the grid statistics
@@ -213,8 +221,7 @@ module WebStamina
         # We collect links for problem-based submissions
         label = range.collect{|r| 
           url = problem_based_submission_url(sparsity, alph, r)
-          submission_tuple = broken_info.filter(:problem => r).first
-          css_class = CELL_STATUS_TO_CSS_CLASS[submission_tuple ? submission_tuple[:submission_status] : 0]
+          css_class = CELL_STATUS_TO_CSS_CLASS[submissions[r] || 0]
           "<a class=\"#{css_class}\" href=\"#{url}\">#{r}</a>"
         }.join("&nbsp;") 
         
