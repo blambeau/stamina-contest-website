@@ -9,8 +9,9 @@ relvar(:people) {
   attribute :activation,  String,   {:default => ''}
   attribute :first_name,  String,   {:default => ''}
   attribute :last_name,   String,   {:default => ''}
-  attribute :admin_level, Integer, {:default => -1 }
+  attribute :admin_level, Integer,  {:default => -1 }
   attribute :authorize_submission_usage, Boolean, {:default => true}
+  attribute :creation_time, Time
   primary_key :id
   candidate_key :mail
   candidate_key :nickname
@@ -18,8 +19,9 @@ relvar(:people) {
 
 # Algorithms considered as challengers
 relvar(:challengers) {
-  attribute :people, Integer
-  attribute :algorithm, String
+  attribute :people,        Integer
+  attribute :algorithm,     String
+  attribute :creation_time, Time
   primary_key :people, :algorithm
   foreign_key :people => default.people
 }

@@ -1,0 +1,20 @@
+={controllers.compete.create_challenger as action}{
+	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="create_challenger" class="form-460">
+	  <h4>Create a new challenger</h4>
+		<p>A challenger is simply an induction algorithm with which you want to compete on the grid. Please
+		   fill the form below to create a new challenger for your account.</p>
+		
+		<p class="feedback"></p>
+		
+		<p class="span-4">
+			<label for="algorithm">The challenger name (max 10 characters)&nbsp;:</label>
+			<input type="text" name="algorithm" value="" tabindex="100" size="10"/>
+		</p>
+		
+		<p class="form-button">
+			<input type="submit" tabindex="102" value="Go »"/>
+      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+			+{action.ajax_form_preparer(:form_id => 'create_challenger')}
+		</p>
+	</form>
+}

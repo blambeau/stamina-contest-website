@@ -21,7 +21,10 @@ CREATE VIEW pertinent_submissions AS
          p.alphabet_size,
          p.sample_sparsity,
          s.submission_time,
-         s.score
+         s.score,
+         case when s.score >= 0.99 then 3
+              else 1
+         end as submission_status
     FROM latest_submissions AS s
     JOIN problems AS p on s.problem = p.id
     JOIN people AS pe on s.people = pe.id;

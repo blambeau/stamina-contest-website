@@ -16,4 +16,4 @@ db << File.read(relative_file('stamina.ext'))
 
 rel = Rubyrel::Commands::Rel.new
 rel.run(__FILE__, ['-h', handler, '--trace', '--verbose', '-f', relative_file('stamina.data')])
-#rel.run(__FILE__, ['-h', handler, '--trace', '--verbose', '-f', relative_file('test.data')])
+rel.run(__FILE__, ['-h', handler, '--trace', '--verbose', '-f', relative_file('test.data')])

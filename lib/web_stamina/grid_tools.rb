@@ -146,7 +146,7 @@ module WebStamina
         tuple = hash_grid[alph][sparsity]
         label = tuple ? "#{tuple[:nickname]}/#{tuple[:algorithm]}" : ""
         css_class = CELL_STATUS_TO_CSS_CLASS[tuple ? tuple[:cell_status] : 0]
-        {:label => "<a href=''>#{label}</a>", :css_class => css_class}
+        {:label => label, :css_class => css_class}
       }
     end
     
@@ -196,31 +196,54 @@ module WebStamina
     
     # URL when clicking a link inside the problem-based submission grid
     def problem_based_submission_url(sparsity, alph, problem_id)
-      "javascript:select_problem_for_submission('#{problem_id}')"
+      "javascript:show_problem_submission_form('#{problem_id}')"
     end
     
     # 
     # Creates the HTML grid that presents the grid with problem-based submissions.
     #
-    def problem_based_submission_grid(caption = nil, cssclass = nil)
-      grid(caption, cssclass){|sparsity, alph, range| range.collect{|r| 
-        url = problem_based_submission_url(sparsity, alph, r)
-        "<a href=\"#{url}\">#{r}</a>"}.join("&nbsp;") 
+    def problem_based_submission_grid(caption, cssclass, people, algorithm)
+      hash_grid = to_hash_grid(@database.handler[:grid_statistics].filter(:people => people, :algorithm => algorithm))
+      broken_info = @database.handler[:pertinent_submissions].filter(:people => people, :algorithm => algorithm)
+      grid(caption, cssclass){|sparsity, alph, range| 
+        
+        # The tuple for this challenger in the grid statistics
+        tuple = hash_grid[alph][sparsity]
+        
+        # We collect links for problem-based submissions
+        label = range.collect{|r| 
+          url = problem_based_submission_url(sparsity, alph, r)
+          submission_tuple = broken_info.filter(:problem => r).first
+          css_class = CELL_STATUS_TO_CSS_CLASS[submission_tuple ? submission_tuple[:submission_status] : 0]
+          "<a class=\"#{css_class}\" href=\"#{url}\">#{r}</a>"
+        }.join("&nbsp;") 
+        
+        # Apply label and css class
+        {:label => label, :css_class => CELL_STATUS_TO_CSS_CLASS[tuple ? tuple[:cell_status] : 0]}
       }
     end
     
     # URL when clicking a link inside the cell-based submission grid
     def cell_based_submission_url(sparsity, alph, range)
-      "javascript:select_cell_for_submission('#{range}')"
+      "javascript:show_cell_submission_form('#{1+(range.first / 5)}')"
     end
     
     # 
     # Creates the HTML grid that presents the grid with cell-based submissions.
     #
-    def cell_based_submission_grid(caption = nil, cssclass = nil)
+    def cell_based_submission_grid(caption, cssclass, people, algorithm)
+      hash_grid = to_hash_grid(@database.handler[:grid_statistics].filter(:people => people, :algorithm => algorithm))
       grid(caption, cssclass){|sparsity, alph, range|
+
+        # The tuple for this challenger in the grid statistics
+        tuple = hash_grid[alph][sparsity]
+        
+        # We compute the label
         url = cell_based_submission_url(sparsity, alph, range)
-        "<a href=\"#{url}\">#{range}</a>"
+        label = "<a href=\"#{url}\">#{range}</a>"
+        
+        # Apply label and css class
+        {:label => label, :css_class => CELL_STATUS_TO_CSS_CLASS[tuple ? tuple[:cell_status] : 0]}
       } 
     end
     

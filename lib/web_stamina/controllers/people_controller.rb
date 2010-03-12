@@ -8,7 +8,7 @@ module WebStamina
         @mail_agent = resources.business.mail_agent unless @mail_agent
         
         template = @mail_agent.add_template(:activation)
-        template.from         = "The StaMiNA competition <stamina@listes.uclouvain.be>"
+        template.from         = "The StaMinA competition <stamina@listes.uclouvain.be>"
         template.subject      = "Your competitor account for StaMinA"
         template.content_type = 'text/html'
         template.charset      = 'UTF-8'
@@ -58,6 +58,7 @@ module WebStamina
         validation [:mail, :nickname, :password, :password_confirm, :last_name, :first_name], mandatory, :registration_mandatory
         validation :mail, mail, :bad_mail
         validation :password, (size>=8) & (size<=15), :bad_password
+        validation :nickname, (size>=2) & (size <= 10), :bad_nickname
         validation [:password, :password_confirm], (mandatory & same), :passwords_dont_match
         validation :authorize_submission_usage, (boolean | default(false)), :bad_authorize
       }
@@ -69,8 +70,10 @@ module WebStamina
         activation_key = generate_activation_key
         resources.db.transaction do |t|
           tuple = params.keep(t.default.people.attribute_names)
-          tuple[:password] = Digest::MD5.hexdigest(tuple[:password])
-          tuple.merge!(:activation => activation_key, :id => t.default.people.tuple_count+1)
+          tuple.merge!(:id            => t.default.people.tuple_count+1, 
+                       :activation    => activation_key, 
+                       :password      => Digest::MD5.hexdigest(tuple[:password]),
+                       :creation_time => Time.now)
           t.default.people << tuple
         end
         context = {:first_name      => params[:first_name], 

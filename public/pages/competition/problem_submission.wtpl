@@ -1,0 +1,21 @@
+={controllers.compete.submit_problem as action}{
+	<form id="{action.id}" action="{action.uri}" method="post" enctype="multipart/form-data" class="form-460">
+	  <h4>Problem ${problem[:id]} (alph: ${problem[:alphabet_size]}, sparsity: ${problem[:sample_sparsity]})</h4>
+		<p>Insert your binary sequence in the field below, then submit the form.</p>
+		
+		<p class="feedback"></p>
+		
+		<input type="hidden" name="problem" value="{problem[:id]}"/>
+		
+		<p class="span-4">
+			<label for="binseq">Your binary sequence&nbsp;:</label>
+<textarea name="binseq" value="" tabindex="100"/>
+		</p>
+		
+		<p class="form-button">
+			<input type="submit" tabindex="102" value="Go »"/>
+      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+			+{action.ajax_form_preparer}
+		</p>
+	</form>
+}

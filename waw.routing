@@ -10,5 +10,8 @@ Waw.rack do
     map '/people' do
       run ::WebStamina::Controllers::PeopleController.instance
     end
+    map '/compete' do
+      run ::WebStamina::Controllers::CompeteController.instance
+    end
   end
 end
