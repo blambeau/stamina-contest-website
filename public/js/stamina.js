@@ -1,3 +1,6 @@
+function switch_page(url) {
+	window.location = url;
+}
 function select_problem_for_submission(problem_id) {
 	$('#problem-id').html(problem_id);
 }

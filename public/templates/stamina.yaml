@@ -14,8 +14,6 @@ menu:
     label: Download
   - url: committee
     label: Scientific Committee
-  - url: machines
-  - url: samples
 organizers:
   - name: The University of Sheffield
     icon: images/sheffield.gif

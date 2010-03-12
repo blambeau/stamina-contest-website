@@ -1,5 +1,6 @@
+require 'digest/md5'
 default.people = [
-  {:id => 1, :mail => "test1@stamina.org", :nickname => 'blambeau', :password => 'hello'},
+  {:id => 1, :mail => "blambeau@gmail.com", :nickname => 'blambeau', :password => Digest::MD5.hexdigest('Bernie007'), :admin_level => 0},
   {:id => 2, :mail => "test2@stamina.org", :nickname => 'pdupont',  :password => 'hello'}
 ]
 default.challengers = [
