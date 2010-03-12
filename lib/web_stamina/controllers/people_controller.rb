@@ -24,12 +24,11 @@ module WebStamina
         @mail_agent
       end
       
-      # Generates an activation key
-      def generate_activation_key
-        "%0#{128 / 4}x" % rand(2**128 - 1)
-      end
+      #############################################################################################
+      # Login & logout
+      #############################################################################################
 
-      # Login
+      # Login action
       signature {
         validation :mail, mandatory & mail, :bad_user_or_password
         validation :password, (size>=8) & (size<=15), :bad_user_or_password
@@ -43,17 +42,30 @@ module WebStamina
         session_set(:user, params[:mail]) and :ok
       end
       
-      # Logout
+      # Logout action
       signature {}
       routing { 
         upon 'success/ok' do redirect(:url => 'home') end
         upon '*'          do refresh                  end 
       }
       def logout(params)
+        puts env[:path].inspect
+        puts request.path
         session_unset(:user)
         :ok
       end
       
+
+      #############################################################################################
+      # Subscription
+      #############################################################################################
+      
+      # Generates an activation key
+      def generate_activation_key
+        "%0#{128 / 4}x" % rand(2**128 - 1)
+      end
+
+      # Subscribe action
       signature {
         validation [:mail, :nickname, :password, :password_confirm, :last_name, :first_name], mandatory, :registration_mandatory
         validation :mail, mail, :bad_mail
@@ -78,12 +90,12 @@ module WebStamina
         end
         context = {:first_name      => params[:first_name], 
                    :hosting_site    => config.web_base, 
-                   :activation_link => config.web_base + "webserv/people/activate_account?key=#{activation_key}"}
+                   :activation_link => config.web_base + "activate?key=#{activation_key}"}
         mail_agent.send_mail(:activation, context, params[:mail])
         :ok
       end
       
-      # Activates an account
+      # Activate action
       signature { validation :key, valid_activation_key, :invalid_activation_key }
       routing {
         upon 'validation-ko' do popup_message(:invalid_activation_key) end
@@ -91,12 +103,19 @@ module WebStamina
       }
       def activate_account(params)
         result = resources.db.transaction do |t|
-          t.default.people.send(:underlying_table).filter(:activation => params[:key]).update(:activation => "", :admin_level => 0)
+          table = t.default.people.send(:underlying_table).filter(:activation => params[:key])
+          mail = table.first[:mail]
+          table.update(:activation => "", :admin_level => 0)
+          session_set(:user, mail)
         end
         :ok
       end
       
-      # Login
+      #############################################################################################
+      # Contact with the organizers
+      #############################################################################################
+      
+      # Contact action
       signature {
         validation :mail, mandatory & mail, :bad_mail
         validation :subject, mandatory, :missing_subject

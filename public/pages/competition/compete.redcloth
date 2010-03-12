@@ -12,11 +12,13 @@ Select the problem for which you would like to submit a result using the grid be
 
 <div class="clear"></div>
 
+<div style="display:none">
 h3. Cell-based submission
 
 Select the cell for which you would like to submit results using in the grid below:
 
 !{grid_tools.cell_based_submission_grid("Results displayed for #{algorithm} challenger", "submission-grid", people, algorithm)}
+</div>
 
 <div class="clear"></div>
 }

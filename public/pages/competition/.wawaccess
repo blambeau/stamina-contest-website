@@ -13,7 +13,8 @@ wawaccess do
     if user
       challengers = resources.sequel_db[:challengers].filter(:people => user).order(:creation_time.desc)
       algorithm = (challengers.order(:creation_time.desc).first || {})[:algorithm] unless algorithm
-      wlang '../../templates/layout.wtpl', {'served_file' => 'pages/competition/compete.redcloth', 
+      file = challengers.empty? ? 'nochallenger.redcloth' : 'compete.redcloth'
+      wlang '../../templates/layout.wtpl', {'served_file' => "pages/competition/#{file}", 
                                             :people => user,
                                             :challengers => challengers,
                                             :algorithm => algorithm,

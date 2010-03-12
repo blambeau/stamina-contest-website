@@ -403,3 +403,6 @@ form.form-460 p.form-button input {
 	border: 5px solid #000;
 	padding: 20px;
 }
+#popup a {
+	color: blue;
+}
