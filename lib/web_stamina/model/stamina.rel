@@ -44,7 +44,7 @@ relvar(:problems) {
   foreign_key [:alphabet_size, :sample_sparsity] => default.cells
 }
 
-# Challenger submissions
+# All challenger submissions
 relvar(:submissions) {
   attribute :people, Integer
   attribute :algorithm, String
@@ -53,6 +53,20 @@ relvar(:submissions) {
   attribute :binary_sequence, String
   attribute :score, Float
   primary_key :people, :algorithm, :problem, :submission_time
+  foreign_key [:people, :algorithm] => default.challengers
+  foreign_key :problem => default.problems
+}
+
+# Valid submissions only, the last one for each (people, algorithm problem) 
+# triple and only if the binary_sequence makes sense
+relvar(:valid_submissions) {
+  attribute :people, Integer
+  attribute :algorithm, String
+  attribute :problem, Integer
+  attribute :submission_time, Time
+  attribute :binary_sequence, String
+  attribute :score, Float
+  primary_key :people, :algorithm, :problem
   foreign_key [:people, :algorithm] => default.challengers
   foreign_key :problem => default.problems
 }
