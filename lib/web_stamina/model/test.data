@@ -65,3 +65,16 @@ default.submissions = [
   {:people => 2, :algorithm => 'gravi', :problem => 24, :submission_time => Time.utc(2010, 01, 01, 13, 04), :score => 0.61}, 
 ]
 default.valid_submissions = handler[:retained_submissions].all
+
+def generate_fake_binary_sequence
+  s = ""
+  1500.times{|i| s << rand(2).to_s }
+  s
+end
+default.competition_data = (1..100).collect{|id|
+  {:problem         => id,
+   :target_adl      => '',
+   :learning_sample => '',
+   :test_sample     => '',
+   :binary_sequence => generate_fake_binary_sequence}
+}
