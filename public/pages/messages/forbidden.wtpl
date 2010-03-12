@@ -1,0 +1,3 @@
+<h4>Forbidden access</h4>
+
+<p>Please <a onclick="javascript:show_login_form()">login</a> to access to this page.</p>

@@ -20,7 +20,7 @@ wawaccess do
                                             :algorithm => algorithm,
                                             :current => 'compete'}
     else
-      deny
+      [301, {'Location' => '/home?feedback=forbidden'}, [""]]
     end
   end
   
