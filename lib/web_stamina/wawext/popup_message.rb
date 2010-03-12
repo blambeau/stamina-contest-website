@@ -9,7 +9,7 @@ module Waw
       end
 
       def generate_js_code(result, align=0)
-        buffer = "alert('#{@message}');"
+        buffer = "show_popup('/messages/#{@message}');"
         buffer
       end
       

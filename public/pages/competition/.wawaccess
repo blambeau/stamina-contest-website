@@ -1,0 +1,53 @@
+wawaccess do
+  
+  # We don't inherits static configuration
+  inherits false
+  
+  # .wawaccess files are never served
+  match /.wawaccess$/ do
+    deny
+  end
+  
+  match /compete(\/(.*))?$/ do |url, a, algorithm|
+    user = session.current_user[:id]
+    if user
+      challengers = resources.sequel_db[:challengers].filter(:people => user).order(:creation_time.desc)
+      algorithm = (challengers.order(:creation_time.desc).first || {})[:algorithm] unless algorithm
+      file = challengers.empty? ? 'nochallenger.redcloth' : 'compete.redcloth'
+      wlang '../../templates/layout.wtpl', {'served_file' => "pages/competition/#{file}", 
+                                            :people => user,
+                                            :challengers => challengers,
+                                            :algorithm => algorithm,
+                                            :current => 'compete'}
+    else
+      [301, {'Location' => '/home?feedback=forbidden'}, [""]]
+    end
+  end
+  
+  # Challenger creation
+  match /create_challenger$/ do
+    wlang "create_challenger.wtpl"
+  end
+  
+  # Problem-based submission
+  match /problem_submission\/([a-zA-Z0-9\-_]+)\/([1-9][0-9]?)$/ do |url, algo, problem|
+    wlang "problem_submission.wtpl", {
+      :problem   => resources.sequel_db[:problems].filter(:id => problem).first,
+      :algorithm => algo
+    }
+  end
+  
+  # Cell-based submission
+  match /cell_submission\/([a-zA-Z0-9\-_]+)\/([1-9]|1[0-9]|20)$/ do |url, algo, cell|
+    wlang "cell_submission.wtpl", {
+      :cell => resources.sequel_db[:cells].filter(:token => cell).first,
+      :algorithm => algo
+    }
+  end
+  
+  # Return a 404
+  match true do
+    apply "pages/404.redcloth", 404
+  end
+  
+end

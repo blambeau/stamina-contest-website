@@ -1,8 +1,0 @@
-<table>
-*{db.default.problems as p}{
-  <tr>
-    <td>${p.id}</td>
-    <td>${p.alphabet_size}</td>
-  </tr>
-}
-</table>

@@ -183,14 +183,20 @@ ul#menu li.last { width: 150px; }
 	width: 130px;
 	color: black;
 }
-table.competition-grid tr td.broken   { background-color: #7FF100; }
-table.competition-grid tr td.pending  { background-color: #FFFF4D; }
-table.competition-grid tr td.active   { background-color: #F0F0F5; }
-table.competition-grid tr td.inactive { background-color: white; }
-#content table.competition-grid tr td a { color: black; }
+
+#content table tr td.broken     { background-color: #7FF100; }
+#content table tr td.active,
+#content table tr td.pending    { background-color: #FFFF4D; }
+#content table tr td.inactive   { background-color: white; }
+
+#content table tr td a.broken   { font-weight: bold; color: green; }
+#content table tr td a.pending, 
+#content table tr td a.active   { font-weight: bold; color: #FF8C00; }
+#content table tr td a.inactive { color: black; }
+#content table tr td a  { color: black; }
 
 
-#content table.submission-grid { margin-top: 0px; float: left;}
+#content table.submission-grid { margin-top: 0px; }
 #content input.submit {float: right; margin-top:10px;}
 table.submission-grid tr td {width: 100px;}
 form#problem-based-submission-form,
@@ -235,7 +241,7 @@ form p {
 	line-height: normal;
 	text-align: justify;
 }
-form h4 {
+h4 {
 	font-size: 18px;
 	color: #CF4500;
 	margin: 0px;
@@ -396,4 +402,7 @@ form.form-460 p.form-button input {
 	background: #fff;
 	border: 5px solid #000;
 	padding: 20px;
+}
+#popup a {
+	color: blue;
 }

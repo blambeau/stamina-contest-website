@@ -1,1 +1,2 @@
-people ::WebStamina::Controllers::PeopleController
+people  ::WebStamina::Controllers::PeopleController
+compete ::WebStamina::Controllers::CompeteController

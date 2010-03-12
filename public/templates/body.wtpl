@@ -28,3 +28,8 @@
 </div>
 <div id="hide"></div>
 <div id="popup"></div>
+?{request['feedback']}{
+<script type="text/javascript">
+  $(document).ready(function(){ show_popup('/messages/${request['feedback']}', 460) });
+</script>
+}

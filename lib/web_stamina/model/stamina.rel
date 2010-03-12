@@ -9,8 +9,9 @@ relvar(:people) {
   attribute :activation,  String,   {:default => ''}
   attribute :first_name,  String,   {:default => ''}
   attribute :last_name,   String,   {:default => ''}
-  attribute :admin_level, Integer, {:default => -1 }
+  attribute :admin_level, Integer,  {:default => -1 }
   attribute :authorize_submission_usage, Boolean, {:default => true}
+  attribute :creation_time, Time
   primary_key :id
   candidate_key :mail
   candidate_key :nickname
@@ -18,8 +19,9 @@ relvar(:people) {
 
 # Algorithms considered as challengers
 relvar(:challengers) {
-  attribute :people, Integer
-  attribute :algorithm, String
+  attribute :people,        Integer
+  attribute :algorithm,     String
+  attribute :creation_time, Time
   primary_key :people, :algorithm
   foreign_key :people => default.people
 }
@@ -42,7 +44,17 @@ relvar(:problems) {
   foreign_key [:alphabet_size, :sample_sparsity] => default.cells
 }
 
-# Challenger submissions
+# Competition data for all problems
+relvar(:competition_data) {
+  attribute :problem,         Integer
+  attribute :target_adl,      String 
+  attribute :learning_sample, String 
+  attribute :test_sample,     String
+  attribute :binary_sequence, String
+  primary_key :problem
+}
+
+# All challenger submissions
 relvar(:submissions) {
   attribute :people, Integer
   attribute :algorithm, String
@@ -51,6 +63,20 @@ relvar(:submissions) {
   attribute :binary_sequence, String
   attribute :score, Float
   primary_key :people, :algorithm, :problem, :submission_time
+  foreign_key [:people, :algorithm] => default.challengers
+  foreign_key :problem => default.problems
+}
+
+# Valid submissions only, the last one for each (people, algorithm problem) 
+# triple and only if the binary_sequence makes sense
+relvar(:valid_submissions) {
+  attribute :people, Integer
+  attribute :algorithm, String
+  attribute :problem, Integer
+  attribute :submission_time, Time
+  attribute :binary_sequence, String
+  attribute :score, Float
+  primary_key :people, :algorithm, :problem
   foreign_key [:people, :algorithm] => default.challengers
   foreign_key :problem => default.problems
 }

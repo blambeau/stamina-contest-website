@@ -4,9 +4,9 @@ default.people = [
   {:id => 2, :mail => "test2@stamina.org", :nickname => 'pdupont',  :password => 'hello'}
 ]
 default.challengers = [
-  {:people => 1, :algorithm => 'redblue'},
-  {:people => 1, :algorithm => 'qsm'    },
-  {:people => 2, :algorithm => 'gravi'  }
+  {:people => 1, :algorithm => 'redblue', :creation_time => Time.now},
+  {:people => 1, :algorithm => 'qsm',     :creation_time => Time.now},
+  {:people => 2, :algorithm => 'gravi',   :creation_time => Time.now  }
 ]
 default.submissions = [
   # noise for redblue
@@ -23,6 +23,13 @@ default.submissions = [
   {:people => 1, :algorithm => 'redblue', :problem => 3, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
   {:people => 1, :algorithm => 'redblue', :problem => 4, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
   {:people => 1, :algorithm => 'redblue', :problem => 5, :submission_time => Time.utc(2010, 01, 01, 14, 05), :score => 0.995},
+
+  # a cell completely broken at once by redblue
+  {:people => 1, :algorithm => 'qsm', :problem => 1, :submission_time => Time.utc(2010, 01, 02, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'qsm', :problem => 2, :submission_time => Time.utc(2010, 01, 02, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'qsm', :problem => 3, :submission_time => Time.utc(2010, 01, 02, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'qsm', :problem => 4, :submission_time => Time.utc(2010, 01, 02, 14, 05), :score => 0.995},
+  {:people => 1, :algorithm => 'qsm', :problem => 5, :submission_time => Time.utc(2010, 01, 02, 14, 05), :score => 0.995},
 
   # the same cell broken by gravi a bit later
   {:people => 2, :algorithm => 'gravi', :problem => 1, :submission_time => Time.utc(2010, 01, 01, 14, 04), :score => 0.99},
@@ -50,7 +57,24 @@ default.submissions = [
   {:people => 1, :algorithm => 'qsm', :problem => 8, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.995},
   
   # some try by qsm on the second cell
-  {:people => 2, :algorithm => 'gravi', :problem => 21, :submission_time => Time.utc(2010, 01, 01, 15, 32), :score => 0.78},
-  {:people => 2, :algorithm => 'gravi', :problem => 24, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.61},
+  {:people => 1, :algorithm => 'qsm', :problem => 21, :submission_time => Time.utc(2010, 01, 01, 15, 32), :score => 0.78},
+  {:people => 1, :algorithm => 'qsm', :problem => 22, :submission_time => Time.utc(2010, 01, 01, 15, 04), :score => 0.65},
   
+  # some try by qsm on the second cell
+  {:people => 2, :algorithm => 'gravi', :problem => 21, :submission_time => Time.utc(2010, 01, 01, 13, 32), :score => 0.78},
+  {:people => 2, :algorithm => 'gravi', :problem => 24, :submission_time => Time.utc(2010, 01, 01, 13, 04), :score => 0.61}, 
 ]
+default.valid_submissions = handler[:retained_submissions].all
+
+def generate_fake_binary_sequence
+  s = ""
+  1500.times{|i| s << rand(2).to_s }
+  s
+end
+default.competition_data = (1..100).collect{|id|
+  {:problem         => id,
+   :target_adl      => '',
+   :learning_sample => '',
+   :test_sample     => '',
+   :binary_sequence => generate_fake_binary_sequence}
+}
