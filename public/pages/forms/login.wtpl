@@ -1,6 +1,6 @@
 ={controllers.people.login as action}{
 	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="login" class="form-460">
-	  <h4>Log in as competitor</h4>
+	  <h4>?{knows?(:login_title)}{${login_title}}{Log in as competitor}</h4>
 		<p>To access competitor dedicated features, please provide your e-mail and password below.
 		   To create a competitor account, click <a onclick="javascript:show_subscribe_form()">here</a>.</p>
 		
