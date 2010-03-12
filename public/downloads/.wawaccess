@@ -6,6 +6,11 @@ wawaccess do
     deny
   end
   
+  # Returns real files for download
+  match file do
+    static
+  end
+  
   # Matching a training sample
   match /training_sample_(\d\d?|100)\.txt$/ do |url, number|
     [200, {'Content-Type' => 'text/plain; charset=utf8',

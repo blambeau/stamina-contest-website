@@ -4,7 +4,7 @@ The STAMINA (STAte Machine INference Approaches) competition aims to identify th
 
 The most significant contributions will be selected by the competition organizers and their authors will also be invited to submit their work in a special issue of the "Journal of Empirical Software Engineering":http://www.springer.com/computer/programming/journal/10664.
 
-Additional details are given on the @{protocol}{protocol page}; see also @{participate}{instructions} to participate. Implementation of @{baseline}{baseline learning algorithms} are provided. You can also @{download}{download the training and test samples}, and @{submit}{submit results}.
+Additional details are given on the @{protocol}{protocol page}; see also @{participate}{instructions} to participate. Implementation of @{baseline}{baseline learning algorithms} are provided. You can also @{download}{download the training and test samples}, and @{javascript:show_subscribe_form()}{create a competitor account} (required to submit results).
 
 The competition *finishes* on the 31st December 2010.
 

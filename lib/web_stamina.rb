@@ -15,6 +15,7 @@ module WebStamina
 end # module WebStamina
 require 'waw/tools/mail'
 require 'web_stamina/wawext'
+require 'web_stamina/remember_app'
 require 'web_stamina/grid_tools'
 require 'web_stamina/controllers/people_controller'
 require 'web_stamina/controllers/compete_controller'
