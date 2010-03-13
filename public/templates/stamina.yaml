@@ -8,10 +8,10 @@ menu:
     label: Protocol
   - url: participate
     label: Participate
-  - url: baseline
-    label: Baseline
   - url: download
     label: Download
+  - url: baseline
+    label: Baseline
   - url: committee
     label: Scientific Committee
 organizers:
