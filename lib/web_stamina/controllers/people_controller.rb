@@ -50,7 +50,6 @@ module WebStamina
         upon 'success/ok'    do redirect(:url => 'competition/compete')  end
       }
       def login(params)
-        puts params.inspect
         if params[:remember_me]
           resources.sequel_db[:people].
                     filter(:mail => params[:mail]).

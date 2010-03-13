@@ -16,6 +16,6 @@ bad_challenger_name    "Your challenger name must contain between 2 and 10 chara
 missing_challenger_name      "The challenger name is mandatory"
 invalid_problem              "The problem identifier should be between 1 and 100"
 invalid_cell                 "The cell identifier should be between 1 and 100"
-invalid_binary_sequence      "The binary sequence should contain '1' and '0' characters only and no spaces"
-invalid_binary_sequence_size "The binary sequence you provided should contain 1500 characters"
+invalid_binary_sequence      "Binary sequence should contain '1' and '0' characters only and no spaces"
+invalid_binary_sequence_size "Binary sequence should contain 1500 characters"
 invalid_algorithm            "You cannot submit result for this algorithm"
