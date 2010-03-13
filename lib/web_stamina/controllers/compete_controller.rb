@@ -27,8 +27,9 @@ module WebStamina
       end
             
       signature {
-        validation :algorithm, mandatory,                :missing_challenger_name
-        validation :algorithm, (size>=2) & (size <= 10), :bad_challenger_name
+        validation :algorithm, logged,                   :user_must_be_logged
+        validation :algorithm, valid_algorithm_name,     :invalid_algorithm_name
+        validation :algorithm, algorithm_not_in_use,     :challenger_name_already_in_use
       }
       routing {
         upon 'validation-ko' do form_validation_feedback                 end
@@ -44,9 +45,11 @@ module WebStamina
       end
       
       signature { 
-        validation :problem,   Integer & isin(1..100),  :invalid_problem
-        validation :algorithm, String & mandatory,      :invalid_algorithm
-        validation :binseq,    String & mandatory,      :invalid_binary_sequence
+        validation :algorithm, logged,                         :user_must_be_logged
+        validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
+        validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
+        validation :problem,   Integer & isin(1..100),         :invalid_problem
+        validation :binseq,    String & mandatory,             :invalid_binary_sequence
       }
       routing   { 
         upon 'validation-ko'      do form_validation_feedback           end
@@ -82,15 +85,45 @@ module WebStamina
       end
       
       signature {
-        validation :cell, Integer & isin(1..20),   :invalid_cell
-        validation :algorithm, String & mandatory, :invalid_algorithm
+        validation :algorithm, logged,                         :user_must_be_logged
+        validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
+        validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
+        validation :cell,      Integer & isin(1..20),          :invalid_cell
+        validation :cellfile,  valid_cellfile,                 :invalid_cellfile
       }
       routing   { 
         upon 'validation-ko' do form_validation_feedback end
         upon '*' do refresh end 
       }
       def submit_cell(params)
-        :ok
+        people, algorithm, cells = session.current_user[:id], params[:algorithm], params[:cellfile]
+        problems = cells.collect{|problem, binseq| problem}
+        tuples = cells.collect do |problem, binseq|
+          {:people          => people,
+           :algorithm       => algorithm,
+           :problem         => problem,
+           :submission_time => Time.now,
+           :binary_sequence => binseq,
+           :score           => score(binseq, problem)}
+        end
+        scores = tuples.collect{|t| t[:score]}
+        resources.db.transaction do |t|
+          t.default.valid_submissions.send(:underlying_table).filter(
+            :people => people, 
+            :algorithm => algorithm,
+            :problem => problems
+          ).delete
+          t.default.submissions << tuples
+          t.default.valid_submissions << tuples
+        end
+        case scores.select{|s| s >= 0.99}.size
+          when 0
+            :no_broken
+          when 5
+            :all_broken
+          else 
+            :some_broken
+        end
       end
       
     end # class CompeteController
