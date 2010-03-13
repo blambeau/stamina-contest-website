@@ -6,10 +6,10 @@ menu:
     label: Home
   - url: protocol
     label: Protocol
-  - url: baseline
-    label: Baseline
   - url: participate
     label: Participate
+  - url: baseline
+    label: Baseline
   - url: download
     label: Download
   - url: committee
