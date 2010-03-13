@@ -17,7 +17,7 @@
 	</div>
 	<div id="content">
     <div class="page-body">
-      ^{redcloth/xhtml}{<<+{../${served_file} share all}}
+^{redcloth/xhtml}{<<+{../${served_file} share all}}
     </div>
   </div>
   <div id="footer">

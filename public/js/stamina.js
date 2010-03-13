@@ -7,7 +7,9 @@ function show_popup(url, width) {
 	  $('#popup').width(width);
 		$('#popup').css("margin-left", "-" + (width/2) + "px");
 		$('#popup').css("top", (50+$(window).scrollTop()) + "px");
-		$('#hide').height($('#inside').height()+100);
+		inside_height = $('#inside').height()+100;
+		window_height = $(window).height();
+		$('#hide').height(inside_height > window_height ? inside_height : window_height);
 	  $('#hide').show();
 		$('#popup').show();
 	});
