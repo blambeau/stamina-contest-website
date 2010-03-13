@@ -15,5 +15,13 @@ module Waw
       tuple && (tuple[:admin_level] >= 0)
     }
     
+    validator :mail_not_in_use, validator{|mail|
+      Waw.resources.sequel_db[:people].filter(:mail => mail).empty?
+    }
+    
+    validator :nickname_not_in_use, validator{|nickname|
+      Waw.resources.sequel_db[:people].filter(:nickname => nickname).empty?
+    }
+    
   end # module Validation
 end # module Waw

@@ -11,6 +11,8 @@ passwords_dont_match   "Your passwords do not match"
 bad_authorize          "Bad value sent by your browser for a checkbox"
 bad_nickname           "Your nickname must contain between 2 and 10 characters"
 bad_challenger_name    "Your challenger name must contain between 2 and 10 characters"
+mail_already_used      "An account already exists for this email address"
+nickname_already_used  "This nickname has already been choosen by a competitor"
 
 # Compete forms
 missing_challenger_name      "The challenger name is mandatory"
