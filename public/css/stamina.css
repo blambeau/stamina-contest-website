@@ -136,8 +136,11 @@ ul#menu li.last { width: 150px; }
 }
 #content img {
 	display: block;
-/*  width: 65%; */
 	padding: 0px;
+	margin: auto;
+}
+#popup img {
+	display: block;
 	margin: auto;
 }
 #content table {
@@ -216,7 +219,7 @@ form label {
 
 form {
 	font-family: "Myriad Pro", "Arial", sans-serif;
-	font-size: 90%;
+/*	font-size: 90%; */
 }
 form p.feedback {
 	display: none;
@@ -395,14 +398,22 @@ form.form-460 p.form-button input {
 	left: 0px;
 }
 #popup {
+	font-family: "Myriad Pro", "Arial", sans-serif;
 	display: none;
 	position: absolute;
 	top: 50px;
 	left: 50%;
 	background: #fff;
 	border: 5px solid #000;
+	font-size: 90%;
 	padding: 20px;
 }
 #popup a {
 	color: blue;
 }
+#popup p {
+	text-align: justify;
+	line-height: normal;
+}
+#popup pre { background: #222222; color: white; padding: 5px; margin:5px;}
+#popup img { margin: 15px auto; }

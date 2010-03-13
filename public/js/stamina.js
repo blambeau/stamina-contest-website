@@ -6,7 +6,7 @@ function show_popup(url, width) {
 		$('#popup').html(data); 
 	  $('#popup').width(width);
 		$('#popup').css("margin-left", "-" + (width/2) + "px");
-		$('#popup').css("top", (100+$(window).scrollTop()) + "px");
+		$('#popup').css("top", (50+$(window).scrollTop()) + "px");
 		$('#hide').height($('#inside').height()+100);
 	  $('#hide').show();
 		$('#popup').show();
@@ -26,4 +26,7 @@ function show_problem_submission_form(algo, id) {
 }
 function show_cell_submission_form(algo, id) { 
 	show_popup('pages/competition/cell_submission/' + algo + '/' + id, 460);     
+}
+function show_help(what) {
+	show_popup('pages/help/' + what, 460);
 }

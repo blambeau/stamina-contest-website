@@ -1,0 +1,19 @@
+<h4>Download test set</h4>
+
+<p>Go to the @{download}{download page} and click on the problem number in the test set grid.</p>
+
+<p>A test set for a given problem is a text file containing one string on each line (see example below). All test strings start with a '?' meaning that it has to be labeled as positive or negative by the competitor.</p>
+
+<pre class="left">
+? 1 7 23 2 1 7 0
+? 0 8 3
+...
+</pre>
+
+<p>Don't forget that empty string (containing no symbol at all) exists. Therefore, the following line may appear in a test set:</p>
+
+<pre class="left">
+?
+</pre>
+
+<input type="button" onclick="javascript:hide_popup()" value="Close"/>

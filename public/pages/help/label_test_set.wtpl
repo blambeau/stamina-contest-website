@@ -1,0 +1,20 @@
+<h4>Label a test set</h4>
+
+<p>Once you have a classifier (typically a DFA synthesized from a training set) for a given problem, you need to label the test set you have downloaded by producing a binary sequence of labels. Such a binary sequence contains for each test string, a 1 if the string is considered to be accepted, and a 0 otherwise.</p>
+
+<p>Assume that your classifier is the DFA below, and that the test set if the following:</p>
+
+<pre class="left">
+? 0 1 0
+? 0 1 0 1 0
+? 0 1 0 1
+? 1
+</pre>
+<img src="images/rpnied.gif" align="center"/>
+
+<p>The binary sequence produced would be (only the first two strings reach the accepting state):</p>
+<pre>1100</pre>
+
+<p>All test sets in the competition contain 1500 strings, so your binary sequences must have 1500 characters without any space.</p>
+
+<input type="button" onclick="javascript:hide_popup()" value="Close"/>

@@ -1,6 +1,6 @@
 <map name="usage_map">
   <area shape="rect" coords="16,76,200,127" href="javascript:show_help('download_training')"/>
-  <area shape="rect" coords="505,494,678,543" href="javascript:show_help('congratulations')"/>
+<!--  <area shape="rect" coords="505,494,678,543" href="javascript:show_help('congratulations')"/> -->
   <area shape="rect" coords="16,157,200,206" href="javascript:show_help('infer_machines')"/>
   <area shape="rect" coords="15,237,201,286" href="javascript:show_help('download_test')"/>
   <area shape="rect" coords="15,317,200,366" href="javascript:show_help('label_test_set')"/>
