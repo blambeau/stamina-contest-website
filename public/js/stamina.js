@@ -2,13 +2,15 @@ function switch_page(url) {
 	window.location = url;
 }
 function show_popup(url, width) {
-	$('html, body').animate( { scrollTop: 0 } );
-	$.get(url, function(data) { $('#popup').html(data); });
-  $('#popup').width(width);
-	$('#popup').css("margin-left", "-" + (width/2) + "px");
-	$('#hide').height($('#inside').height()+100);
-  $('#hide').show();
-	$('#popup').show();
+	$.get(url, function(data) { 
+		$('#popup').html(data); 
+	  $('#popup').width(width);
+		$('#popup').css("margin-left", "-" + (width/2) + "px");
+		$('#popup').css("top", (100+$(window).scrollTop()) + "px");
+		$('#hide').height($('#inside').height()+100);
+	  $('#hide').show();
+		$('#popup').show();
+	});
 }
 function hide_popup(refresh) {
 	$('#popup').hide();

@@ -2,26 +2,12 @@ h3. Aim
 
 The aim of the competition is to identify the most successful technique for learning state machines from <i>samples</i> of their behaviour. In other words, given a set of strings that are classified as either positive (i.e. they are accepted by the target machine) or negative (they are rejected), the learned model should accurately classify new strings as positive and negative.
 
+Participation in the competition consists in attempting to <i>solve</i> cells. A cell is considered to be solved if all of the 5  problems it contains are solved with a BCR score of at least 0.99 (see the @{protocol}{protocol page}). *The first technique to solve a hardest cell, among those solved in the competition, will be the winner*. The organizers will add additional problems if all problems appear to be solved more than one month before the final deadline. 
+
 h4. Procedure
 
-Participation in the competition consists in attempting to <i>solve</i> cells. A cell is considered to be solved if all of the 5  problems it contains are solved with a BCR score of at least 0.99 (see the @{protocol}{protocol page}). The first technique to solve a hardest cell, among those solved in the competition, will be the winner. The organizers will add additional problems if all problems appear to be solved more than one month before the final deadline. 
-
-A single participant can submit one or more <i>entries</i>, where each entry attempts to solve one or more cells. The high-level process is shown in the diagram. Each step is described in more detail below.
+The competition process is illustrated on the image below. Click on the different nodes to have detailed information. 
 
 <img src="{info.process_image}" alt="Competition process" id="usage_image" ismap="ismap" usemap="#usage_map"/>
-<<{../images/usage_map.xml}
+<notextile><<{../images/usage_map.xml}</notextile>
 
-- *Choose cell* := Go to the @{download}{Download Competition Data} page. This contains the training and testing data for all of the problems in the competition. In the "Training Sets" table, select the cell you want to attempt (probably best to start with the easier cells first - so alphabet=2 and sample = 100%).
-
-- *Download data* := Click on the link to one of the problems in the cell (e.g. problem '1'). Right-click on the frame with the training data, and select "Save as...". Save in an appropriate directory on your computer.
-
-- *Learn state machine(s)* := Use the data as input for your chosen state machine inference tool. Optionally, you can @{baseline}{download the baseline implementation} and adapt it to your needs.
-
-- *Download testing data* := In the @{download}{Download Competition Data} page, in the "Test Sets" table, select the appropriate problem number. As with the training data, save it in an appropriate directory on your computer.
-
-- *Classify test data on learned machine(s)* := For each string in the test data (i.e. for every string that starts with a '?') classify it with the learned machine for that problem. This will produce a string of '0's and '1's, <u>without spaces</u>. For every test string that is accepted by the inferred machine, append a '1', and for every rejected string append a '0'.
-
-- *Create entry* := Go to the @{entries}{Submit Entry} page. Login if you have a username and password, otherwise create one. You can submit multiple entries to this competition. Select "New entry". Enter a suitable name for the entry (it must be unique).
-
-- *Submit binary sequence of labels* := Select the appropriate cell in the entry page. Paste the sequence of labels into the appropriate form, and click "save changes". The solution is now submitted to the server. If the solution is correct, the "save changes" button will be replaced by the text "Solved!". Once an entire cell of problems has been correctly solved,
-the cell will turn from red to green. TODO
