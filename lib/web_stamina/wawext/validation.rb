@@ -23,5 +23,7 @@ module Waw
       Waw.resources.sequel_db[:people].filter(:nickname => nickname).empty?
     }
     
+    validator :valid_cellfile, WebStamina::CellFileValidator.new
+    
   end # module Validation
 end # module Waw

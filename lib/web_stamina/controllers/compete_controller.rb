@@ -82,15 +82,43 @@ module WebStamina
       end
       
       signature {
-        validation :cell, Integer & isin(1..20),   :invalid_cell
-        validation :algorithm, String & mandatory, :invalid_algorithm
+        validation :cell,      Integer & isin(1..20),   :invalid_cell
+        validation :algorithm, String & mandatory,      :invalid_algorithm
+        validation :cellfile,  valid_cellfile,          :invalid_cellfile
       }
       routing   { 
         upon 'validation-ko' do form_validation_feedback end
         upon '*' do refresh end 
       }
       def submit_cell(params)
-        :ok
+        people, algorithm, cells = session.current_user[:id], params[:algorithm], params[:cellfile]
+        problems = cells.collect{|problem, binseq| problem}
+        tuples = cells.collect do |problem, binseq|
+          {:people          => people,
+           :algorithm       => algorithm,
+           :problem         => problem,
+           :submission_time => Time.now,
+           :binary_sequence => binseq,
+           :score           => score(binseq, problem)}
+        end
+        scores = tuples.collect{|t| t[:score]}
+        resources.db.transaction do |t|
+          t.default.valid_submissions.send(:underlying_table).filter(
+            :people => people, 
+            :algorithm => algorithm,
+            :problem => problems
+          ).delete
+          t.default.submissions << tuples
+          t.default.valid_submissions << tuples
+        end
+        case scores.select{|s| s >= 0.99}.size
+          when 0
+            :no_broken
+          when 5
+            :all_broken
+          else 
+            :some_broken
+        end
       end
       
     end # class CompeteController

@@ -27,6 +27,14 @@ Waw.rack do
       end          
     }
   end
+  map '/freesubmit' do 
+    run lambda{|env|
+      req = ::Rack::Request.new(env)
+      result = ::WebStamina::Controllers::CompeteController.instance.submit_cell(req.params.symbolize_keys)
+      feedback = result[1].to_s
+      [301, {'Location' => req.referrer + "?feedback=#{feedback}"}, [""]]
+    }
+  end
   map '/randbinary' do
     run lambda{|env|
       s = ""; 1500.times{|i| s << rand(2).to_s }

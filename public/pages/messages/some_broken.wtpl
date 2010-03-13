@@ -1,0 +1,5 @@
+<h4>CONGRATULATIONS !</h4>
+
+<p>Some of the problems for which you provided a binary sequence have been broken! See your competition grids for details.</p>
+   
+<input type="button" onclick="javascript:hide_popup(false)" value="Close"/>
