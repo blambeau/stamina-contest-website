@@ -136,7 +136,7 @@ ul#menu li.last { width: 150px; }
 }
 #content img {
 	display: block;
-	width: 60%;
+/*  width: 65%; */
 	padding: 0px;
 	margin: auto;
 }

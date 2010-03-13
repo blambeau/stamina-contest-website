@@ -8,7 +8,8 @@ Participation in the competition consists in attempting to <i>solve</i> cells. A
 
 A single participant can submit one or more <i>entries</i>, where each entry attempts to solve one or more cells. The high-level process is shown in the diagram. Each step is described in more detail below.
 
-<img src="{info.process_image}" alt="Competition process"/>
+<img src="{info.process_image}" alt="Competition process" id="usage_image" ismap="ismap" usemap="#usage_map"/>
+<<{../images/usage_map.xml}
 
 - *Choose cell* := Go to the @{download}{Download Competition Data} page. This contains the training and testing data for all of the problems in the competition. In the "Training Sets" table, select the cell you want to attempt (probably best to start with the easier cells first - so alphabet=2 and sample = 100%).
 

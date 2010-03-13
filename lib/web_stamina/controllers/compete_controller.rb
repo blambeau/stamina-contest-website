@@ -90,7 +90,6 @@ module WebStamina
         upon '*' do refresh end 
       }
       def submit_cell(params)
-        puts params.inspect
         :ok
       end
       
