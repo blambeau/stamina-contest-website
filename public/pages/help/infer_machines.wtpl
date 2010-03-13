@@ -1,0 +1,17 @@
+<h4>Infer state machines</h4>
+
+<p>Infering a state machine from a training set typically consists of applying an induction algorithm to synthesize an automaton that correctly accepts all positive strings and rejects all negative strings.</p>
+
+<p>For example, given the following training set, the RPNI (Regular Positive and Negative Inference) algorithm synthesize the DFA illustrated below:</p>
+
+<pre class="left">
++ 0
++ 0 1 0
+- 
+- 0 1
+</pre>
+<img src="images/rpnied.gif" align="center"/>
+  
+<p>As a good starting point for competitors, this website provides <a href="baseline">baseline implementations</a> of RPNI and Blue-Fringe.</p>
+
+<input type="button" onclick="javascript:hide_popup()" value="Close"/>

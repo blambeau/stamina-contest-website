@@ -1,0 +1,9 @@
+<h4>Manage your challengers</h4>
+
+<p>When logged as a competitor on this website, a <a href="competition/compete"><i>Compete</i></a> tab appears in the main menu. This page is your personal competitor page, allowing you to manage your challenger algorithm(s) and submit labelled test sets.</p>
+
+<p><b>A challenger is an induction technique with which you compete</b>. You may have as many challengers as you want using the same account. Use the proposed links to create, rename, and/or document your challengers.</p>
+
+<p>On the same page, each challenger has its own competition grid, allowing to submit labelled test sets and see its current broken problems and cells.</p>
+
+<input type="button" onclick="javascript:hide_popup()" value="Close"/>

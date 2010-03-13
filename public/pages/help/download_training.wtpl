@@ -1,0 +1,20 @@
+<h4>Download training set</h4>
+
+<p>Go to the @{download}{download page} and click on the problem number in the training set grid.</p>
+
+<p>A training set for a given problem is a text file containing one string on each line (see example below). Positive strings (accepted by target machine) starts with a '+' and negative strings (rejected) with a '-'. Strings are made of <i>symbols</i>, represented by integer literals and separated by one space.</p>
+
+<pre class="left">
++ 1 7 23 2 1 7 0
+- 0 8 3
+...
+</pre>
+
+<p>Don't forget that empty strings (containing no symbol at all) exist. Therefore, the following lines may appear in training sets (not together in the same training set, of course, as it would lead to an inconsistent sample):</p>
+
+<pre class="left">
++
+-
+</pre>
+
+<input type="button" onclick="javascript:hide_popup()" value="Close"/>

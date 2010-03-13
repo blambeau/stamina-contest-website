@@ -1,0 +1,9 @@
+<h4>Broken or not?</h4>
+
+<p>A problem is considered broken if you reach a BCR score of at least 0.99 (see the <a href="protocol#scoring">protocol page</a> for details). When broken, problem numbers are displayed in green in the different competition grids.</p>
+
+<p>A cell is considered broken if <b>all of its 5 problems</b> are broken. Broken cells have a green background in the competition green</p>
+
+<p><b>The first technique to solve a hardest cell, among those solved in the competition, will be the winner.</b></p>
+
+<input type="button" onclick="javascript:hide_popup()" value="Close"/>

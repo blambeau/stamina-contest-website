@@ -18,9 +18,7 @@ Waw.rack do
   map '/activate' do
     run lambda{|env| 
       req = ::Rack::Request.new(env)
-      puts req.params.inspect
       result = ::WebStamina::Controllers::PeopleController.instance.activate_account(req.params.symbolize_keys)
-      puts result.inspect
       case result
         when [:success, :ok]
           [301, {'Location' => Waw.config.web_base + 'competition/compete?feedback=activation_ok'}, [""]]

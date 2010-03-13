@@ -1,0 +1,13 @@
+<map name="usage_map">
+  <area shape="rect" coords="16,76,200,127" href="javascript:show_help('download_training')"/>
+<!--  <area shape="rect" coords="505,494,678,543" href="javascript:show_help('congratulations')"/> -->
+  <area shape="rect" coords="16,157,200,206" href="javascript:show_help('infer_machines')"/>
+  <area shape="rect" coords="15,237,201,286" href="javascript:show_help('download_test')"/>
+  <area shape="rect" coords="15,317,200,366" href="javascript:show_help('label_test_set')"/>
+  <area shape="rect" coords="271,157,438,206" href="javascript:show_subscribe_form()"/>
+  <area shape="rect" coords="271,237,438,286" href="javascript:show_help('activation')"/>
+  <area shape="rect" coords="497,157,683,206" href="javascript:show_login_form()"/>
+  <area shape="rect" coords="498,238,683,286" href="javascript:show_help('challengers')"/>
+  <area shape="rect" coords="498,317,683,366" href="javascript:show_help('submit')"/>
+  <area shape="poly" coords="592,400,657,428,591,456,525,427," href="javascript:show_help('broken')"/>
+</map>

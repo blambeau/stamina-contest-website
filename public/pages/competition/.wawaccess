@@ -30,7 +30,7 @@ wawaccess do
   end
   
   # Problem-based submission
-  match /problem_submission\/([a-zA-Z0-9\-_]+)\/([1-9][0-9]?)$/ do |url, algo, problem|
+  match /problem_submission\/([a-zA-Z0-9\-_]+)\/([1-9][0-9]?|100)$/ do |url, algo, problem|
     wlang "problem_submission.wtpl", {
       :problem   => resources.sequel_db[:problems].filter(:id => problem).first,
       :algorithm => algo
