@@ -32,3 +32,6 @@ function show_cell_submission_form(algo, id) {
 function show_help(what) {
 	show_popup('pages/help/' + what, 460);
 }
+function randbinary() {
+	$.get('/randbinary', function(data) { $('#binseq').val(data); });
+}

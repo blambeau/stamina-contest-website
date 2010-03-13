@@ -27,4 +27,10 @@ Waw.rack do
       end          
     }
   end
+  map '/randbinary' do
+    run lambda{|env|
+      s = ""; 1500.times{|i| s << rand(2).to_s }
+      [200, {'Content-Type' => 'text/plain; charset=utf8'}, [s]]
+    }
+  end
 end

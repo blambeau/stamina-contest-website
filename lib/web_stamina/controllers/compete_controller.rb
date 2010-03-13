@@ -25,7 +25,7 @@ module WebStamina
         end
         harmonic_bcr(tp, fn, fp, tn)
       end
-      
+            
       signature {
         validation :algorithm, mandatory,                :missing_challenger_name
         validation :algorithm, (size>=2) & (size <= 10), :bad_challenger_name
