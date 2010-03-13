@@ -1,6 +1,6 @@
 /* ------------------------------- Main Overridings */
 body {
-	width: 85%;
+	width: 960px;
 	margin: auto;
 	font-family: Verdana, Arial;
 	font-size: 14px;
@@ -173,8 +173,8 @@ ul#menu li.last { width: 150px; }
   font-weight: bold;
 }
 #content dl dt { padding-bottom: 2px; }
-#content pre { text-align: center; font-weight: bold; color: #333333;}
-#content pre.left { text-align: left; font-weight: bold; padding-left: 30px;}
+#content pre { background: #222222; color: white; padding: 5px; padding-left:10px; margin:5px; margin-left: 30px;}
+#content pre.left { text-align: left; }
 #content div.math {
 	padding-left: 100px;
 }
@@ -415,5 +415,36 @@ form.form-460 p.form-button input {
 	text-align: justify;
 	line-height: normal;
 }
-#popup pre { background: #222222; color: white; padding: 5px; margin:5px;}
+#popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:5px;}
 #popup img { margin: 15px auto; }
+
+div#compete {
+	width: 100%;
+	margin: auto;
+}
+ul#challengers {
+	width: 130px;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 20px;
+	float: left;
+}
+ul#challengers li {
+	list-style: none;
+	width: 125px;
+	padding: 3px;
+	margin: 0px;
+	text-align: center;
+	border-top: 1px solid black;
+}
+ul#challengers li.current {
+	font-style: italic;
+	font-weight: bold;
+}
+.competitor-grids {
+	width: 725px;
+	float: left;
+	padding-left: 30px;
+	margin-bottom: 20px;
+	border-left: 1px solid black;
+}

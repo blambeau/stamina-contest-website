@@ -2,6 +2,6 @@
 
 <p>After having <a href="javascript:show_subscribe_form()">subscribed</a> to the competition, click on the activation link that you receive by email. Your account will be activated and you'll be redirected to your personal competition page.</p>
 
-<p>If you don't receive the activation email within 24 hours after your subscription, please check your spam folder or <a href="javascript:show_contact_form()">take contact</a> with the organizers.</p>
+<p>If you don't receive the activation email within 24 hours after subscription, please check your spam folder or <a href="javascript:show_contact_form()">take contact</a> with the organizers.</p>
   
 <input type="button" onclick="javascript:hide_popup()" value="Close"/>

@@ -11,10 +11,9 @@ wawaccess do
   match /compete(\/(.*))?$/ do |url, a, algorithm|
     user = session.current_user[:id]
     if user
-      challengers = resources.sequel_db[:challengers].filter(:people => user).order(:creation_time.desc)
+      challengers = resources.sequel_db[:challengers].filter(:people => user).order(:creation_time.asc)
       algorithm = (challengers.order(:creation_time.desc).first || {})[:algorithm] unless algorithm
-      file = challengers.empty? ? 'nochallenger.redcloth' : 'compete.redcloth'
-      wlang '../../templates/layout.wtpl', {'served_file' => "pages/competition/#{file}", 
+      wlang '../../templates/layout.wtpl', {'served_file' => "pages/competition/compete.redcloth", 
                                             :people => user,
                                             :challengers => challengers,
                                             :algorithm => algorithm,

@@ -1,5 +1,0 @@
-h3. Manage your challengers
-
-Welcome in this competition! You don't have any challenger for now. A challenger is simply an induction algorithm with which you plan to participate. Each account may have multiple challengers. Use the form below to create and manage your challengers:
-
-* <a onclick="javascript:show_create_challenger_form()">Create a new challenger</a>

@@ -1,24 +1,28 @@
-h3. Manage your challengers
+h3. Results and submissions
 
-* Select the challenger for which you want to submit results: *{challengers as c}{<a href="/competition/compete/${c.algorithm}">?{c.algorithm==algorithm}{<b>${c.algorithm}</b>}{${c.algorithm}}</a>}{, }
-* <a onclick="javascript:show_create_challenger_form()">Create a new challenger</a>
+<div id="compete">
+  <ul id="challengers">
+    <li class="heading">Your challengers</li>
+    *{challengers as c}{
+      <li class="?{c.algorithm==algorithm}{current}{other}">
+        <a href="/competition/compete/${c.algorithm}">${c.algorithm}</a>
+      </li>
+    }
+    <li>
+      <a onclick="javascript:show_create_challenger_form()">create ...</a>
+    </li>
+  </ul>
 
-?{algorithm}{
-h3. Problem-based submission
+  <div class="competitor-grids">
+    ?{algorithm}{
+      <h4>Problem-based competition grid</h4>
+      !{grid_tools.problem_based_submission_grid(nil, "submission-grid", people, algorithm)}
 
-Select the problem for which you would like to submit a result using the grid below:
-
-!{grid_tools.problem_based_submission_grid("Results displayed for #{algorithm} challenger", "submission-grid", people, algorithm)}
-
-<div class="clear"></div>
-
-<div style="display:none">
-h3. Cell-based submission
-
-Select the cell for which you would like to submit results using in the grid below:
-
-!{grid_tools.cell_based_submission_grid("Results displayed for #{algorithm} challenger", "submission-grid", people, algorithm)}
+      <h4>Cell-based competition grid</h4>
+      !{grid_tools.cell_based_submission_grid(nil, "submission-grid", people, algorithm)}
+    }{
+<p>Welcome in this competition! You don't have any challenger for now. A challenger is simply an induction algorithm with which you plan to participate. Each account may have multiple challengers. Use the create link at left to create a new one.</p>
+    }
+  </div>
+  <div class="clear"></div>
 </div>
-
-<div class="clear"></div>
-}
