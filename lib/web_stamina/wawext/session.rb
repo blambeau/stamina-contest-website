@@ -12,6 +12,9 @@ module Waw
     # Current user e-mail
     query_var(:user_mail) {|s| s.logged? ? s.current_user[:mail] : ''}
     
+    # Current user e-mail
+    query_var(:user_id) {|s| s.logged? ? s.current_user[:id] : nil}
+    
     # Is there a cureent user logged?
     query_var(:logged?) {|s| not(s.user.nil?) }
     
