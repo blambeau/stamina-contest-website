@@ -10,12 +10,13 @@
 		
 		<p class="span-4">
 			<label for="binseq">Your binary sequence&nbsp;:</label>
-<textarea name="binseq" value="" tabindex="100"/>
+<textarea id="binseq" name="binseq" value="" tabindex="100" style="height: 250px;"/>
 		</p>
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>
       <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+      <input type="button" onclick="javascript:randbinary()" value="Example"/>
 			+{action.ajax_form_preparer}
 		</p>
 	</form>
