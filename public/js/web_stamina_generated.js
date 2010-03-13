@@ -14,9 +14,11 @@ messages['invalid_binary_sequence'] = "Binary sequence should contain '1' and '0
 messages['invalid_binary_sequence_size'] = "Binary sequence should contain 1500 characters";
 messages['invalid_cell'] = "The cell identifier should be between 1 and 100";
 messages['invalid_problem'] = "The problem identifier should be between 1 and 100";
+messages['mail_already_used'] = "An account already exists for this email address";
 messages['missing_challenger_name'] = "The challenger name is mandatory";
 messages['missing_message'] = "The message is mandatory";
 messages['missing_subject'] = "The subject is mandatory";
+messages['nickname_already_used'] = "This nickname has already been choosen by a competitor";
 messages['passwords_dont_match'] = "Your passwords do not match";
 messages['registration_mandatory'] = "All fields are mandatory";
 

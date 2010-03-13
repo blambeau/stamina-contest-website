@@ -30,7 +30,7 @@ module WebStamina
       
       # Generates an activation key
       def generate_activation_key
-        "%0#{512 / 4}x" % rand(2**512 - 1)
+        "%0#{256 / 4}x" % rand(2**256 - 1)
       end
       alias :generate_sid :generate_activation_key
 
@@ -79,8 +79,10 @@ module WebStamina
       signature {
         validation [:mail, :nickname, :password, :password_confirm, :last_name, :first_name], mandatory, :registration_mandatory
         validation :mail, mail, :bad_mail
+        validation :mail, mail_not_in_use, :mail_already_used
         validation :password, (size>=8) & (size<=15), :bad_password
         validation :nickname, (size>=2) & (size <= 10), :bad_nickname
+        validation :nickname, nickname_not_in_use, :nickname_already_used
         validation [:password, :password_confirm], (mandatory & same), :passwords_dont_match
         validation :authorize_submission_usage, (boolean | default(false)), :bad_authorize
       }
