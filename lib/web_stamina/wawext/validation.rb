@@ -7,17 +7,17 @@ module Waw
     
     # Checks that a validation key is valid
     validator :valid_activation_key, validator{|key| 
-      Waw.resources.sequel_db[:people].filter(:activation => key).count == 1 
+      Waw.resources.db.user_exists?(:activation => key)
     }
     
     # Checks that a mail is not alredy in use
     validator :mail_not_in_use, validator{|mail|
-      Waw.resources.sequel_db[:people].filter(:mail => mail).empty?
+      not(Waw.resources.db.user_exists?(:mail => mail))
     }
     
     # Checks that a nick name is not already in use
     validator :nickname_not_in_use, validator{|nickname|
-      Waw.resources.sequel_db[:people].filter(:nickname => nickname).empty?
+      not(Waw.resources.db.user_exists?(:nickname => nickname))
     }
     
 
@@ -28,12 +28,11 @@ module Waw
     
     # Checks that a given user is allowed to log in
     validator :authorized_user, validator{|mail, password|
-      tuple = Waw.resources.sequel_db[:people].filter(
-        :mail => mail, 
-        :password => Digest::MD5.hexdigest(password), 
-        :activation => ""
-      ).first
-      tuple && (tuple[:admin_level] >= 0)
+      user = Waw.resources.db.user_tuple(
+        {:mail      => mail, 
+         :password   => Digest::MD5.hexdigest(password), 
+         :activation => ""}, false)
+      user && (user[:admin_level] >= 0)
     }
     
     # Checks that the user is currently logged

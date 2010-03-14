@@ -34,4 +34,11 @@ describe ::WebStamina::DatabaseFunctions do
     lambda { @db.user_tuple(:activation => "")     }.should raise_error(::WebStamina::UnexpectedCase)
   end
   
+  it "should provide a shortcut for testing existence of users" do
+    @db.user_exists?(:mail => "blambeau@gmail.com").should be_true
+    @db.user_exists?(:nickname => "blambeau").should be_true
+    @db.user_exists?(:id => 2).should be_true
+    @db.user_exists?(:id => 100).should be_false
+  end
+  
 end

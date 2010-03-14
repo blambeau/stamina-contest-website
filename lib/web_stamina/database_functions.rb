@@ -23,6 +23,11 @@ module WebStamina
       end
     end
     
+    # Checks if a given user exists
+    def user_exists?(filter)
+      not(user_tuple(filter, false).nil?)
+    end
+    
     # Returns a filtered version of the people relation variable.
     def users(filter = {})
       handler[:people].filter(filter)
