@@ -6,8 +6,13 @@ Participation in the competition consists in attempting to <i>solve</i> cells. A
 
 h4. Procedure
 
-The competition process is illustrated on the image below. Click on the different nodes to have detailed information. 
+The competition process is illustrated on the image below. <u id="test">Click on the different nodes to have detailed information</u>
 
 <img src="{info.process_image}" alt="Competition process" id="usage_image" ismap="ismap" usemap="#usage_map"/>
-<notextile><<{../images/usage_map.xml}</notextile>
+<notextile>
+<<{../images/usage_map.xml}
+<script type="text/javascript">
+  $(document).ready(function(){ $('#usage_image *').tooltip(); });
+</script>
+</notextile>
 

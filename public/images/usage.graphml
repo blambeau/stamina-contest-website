@@ -16,7 +16,7 @@
 <y:Geometry height="41.0" width="162.0" x="22.0" y="160.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="144.17529296875" x="8.912353515625" y="12.0">Download training set(s)</y:NodeLabel>
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="144.17529296875" x="8.912353515625" y="12.0">Download training set(s)</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
 </data>
@@ -27,7 +27,7 @@
 <y:Geometry height="41.0" width="162.0" x="22.0" y="231.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="129.71533203125" x="16.142333984375" y="12.0">Infer state machine(s)</y:NodeLabel>
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="129.71533203125" x="16.142333984375" y="12.0">Infer state machine(s)</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
 </data>
@@ -39,7 +39,7 @@
 <y:Geometry height="41.0" width="162.0" x="22.0" y="302.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="122.49169921875" x="19.754150390625" y="12.0">Download test set(s)</y:NodeLabel>
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="122.49169921875" x="19.754150390625" y="12.0">Download test set(s)</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
 </data>
@@ -50,13 +50,12 @@
 <y:Geometry height="41.0" width="162.0" x="22.0" y="373.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="118.1689453125" x="21.91552734375" y="12.0">Label the test set(s)</y:NodeLabel>
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="118.1689453125" x="21.91552734375" y="12.0">Label the test set(s)</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
 </data>
 </node>
 <node id="n4">
-<data key="d5"/>
 <data key="d6">
 <y:ShapeNode>
 <y:Geometry height="49.0" width="117.0" x="364.125" y="152.0"/>
@@ -74,7 +73,7 @@
 <y:Geometry height="41.0" width="146.0" x="249.0" y="231.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="121.7744140625" x="12.11279296875" y="5.5">Create a competitor 
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="121.7744140625" x="12.11279296875" y="5.5">Create a competitor 
 account</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
@@ -86,7 +85,7 @@ account</y:NodeLabel>
 <y:Geometry height="41.0" width="162.0" x="450.25" y="373.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="96.498046875" x="32.7509765625" y="5.5">Submit labelled 
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="96.498046875" x="32.7509765625" y="5.5">Submit labelled 
 test set(s)</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
@@ -98,7 +97,7 @@ test set(s)</y:NodeLabel>
 <y:Geometry height="41.0" width="146.0" x="249.0" y="302.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="128.287109375" x="8.8564453125" y="12.0">Activate your account</y:NodeLabel>
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="128.287109375" x="8.8564453125" y="12.0">Activate your account</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
 </data>
@@ -109,7 +108,7 @@ test set(s)</y:NodeLabel>
 <y:Geometry height="41.0" width="162.0" x="450.25" y="302.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="121.0634765625" x="20.46826171875" y="5.5">Select your
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="121.0634765625" x="20.46826171875" y="5.5">Select your
 challenger algorithm</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
@@ -122,19 +121,18 @@ challenger algorithm</y:NodeLabel>
 <y:Geometry height="41.0" width="162.0" x="450.25" y="231.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="35.80810546875" x="63.095947265625" y="12.0">Login</y:NodeLabel>
+<y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="35.80810546875" x="63.095947265625" y="12.0">Login</y:NodeLabel>
 <y:Shape type="rectangle"/>
 </y:ShapeNode>
 </data>
 </node>
 <node id="n10">
-<data key="d5"/>
 <data key="d6">
 <y:ShapeNode>
 <y:Geometry height="49.0" width="117.0" x="472.75" y="444.0"/>
 <y:Fill color="#FFCC00" transparent="false"/>
 <y:BorderStyle color="#000000" type="line" width="1.0"/>
-<y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="54.5908203125" x="31.20458984375" y="9.5">problem
+<y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Helvetica" fontSize="13" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.0" modelName="internal" modelPosition="c" textColor="#0000FF" visible="true" width="54.5908203125" x="31.20458984375" y="9.5">problem
 broken ?</y:NodeLabel>
 <y:Shape type="diamond"/>
 </y:ShapeNode>
@@ -152,7 +150,6 @@ broken ?</y:NodeLabel>
 </data>
 </node>
 <node id="n12">
-<data key="d5"/>
 <data key="d6">
 <y:ShapeNode>
 <y:Geometry height="22.5" width="22.5" x="310.75" y="539.0"/>
@@ -164,7 +161,6 @@ broken ?</y:NodeLabel>
 </data>
 </node>
 <node id="n13">
-<data key="d5"/>
 <data key="d6">
 <y:ShapeNode>
 <y:Geometry height="11.25" width="11.25" x="316.375" y="544.625"/>
@@ -176,7 +172,6 @@ broken ?</y:NodeLabel>
 </data>
 </node>
 <node id="n14">
-<data key="d5"/>
 <data key="d6">
 <y:ShapeNode>
 <y:Geometry height="15.0" width="15.0" x="95.5" y="105.25"/>
