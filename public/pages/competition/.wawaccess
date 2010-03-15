@@ -38,8 +38,10 @@ wawaccess do
   
   # Cell-based submission
   match /cell_submission\/([a-zA-Z0-9\-_]+)\/([1-9]|1[0-9]|20)$/ do |url, algo, cell|
+    cell_tuple = resources.sequel_db[:cells].filter(:token => cell).first
+    cell_range = resources.grid_tools.cell_token_to_range(cell_tuple[:token])
     wlang "cell_submission.wtpl", {
-      :cell => resources.sequel_db[:cells].filter(:token => cell).first,
+      :cell => cell_tuple, :cell_range => cell_range,
       :algorithm => algo
     }
   end

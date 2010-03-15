@@ -69,6 +69,14 @@ module Waw
               empty?)
     }
     
+    # Checks that a binary sequence is valid
+    validator :valid_binary_sequence, validator{|binseq|
+      binseq.to_s =~ /^[01]{1500}$/
+    }
+    validator :valid_binary_sequences, validator{|binseq|
+      ::Array===binseq and binseq.all?{|s| s.to_s =~ /^[01]{1500}$/}
+    }
+    
     # Checks that a cell file has a valid format
     validator :valid_cellfile, WebStamina::CellFileValidator.new
     

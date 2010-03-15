@@ -35,3 +35,10 @@ function show_help(what) {
 function randbinary() {
 	$.get('/randbinary', function(data) { $('#binseq').val(data); });
 }
+function randbinaries() {
+	$.get('/randbinary', function(data) { $('#binseq_0').val(data); });
+	$.get('/randbinary', function(data) { $('#binseq_1').val(data); });
+	$.get('/randbinary', function(data) { $('#binseq_2').val(data); });
+	$.get('/randbinary', function(data) { $('#binseq_3').val(data); });
+	$.get('/randbinary', function(data) { $('#binseq_4').val(data); });
+}

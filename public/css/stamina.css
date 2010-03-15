@@ -426,13 +426,6 @@ form.form-460 p.form-button input {
 	text-align: justify;
 	line-height: normal;
 }
-#popup ul {
-	padding-left: 20px;
-}
-#popup ul li {
-	line-height: normal;	
-	margin-top: 5px;
-}
 #popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:5px;}
 #popup img { margin: 15px auto; }
 
@@ -467,3 +460,8 @@ ul#challengers li.current {
 	margin-bottom: 20px;
 	border-left: 1px solid black;
 }
+
+
+#cell_submission_fields { margin: auto; }
+#cell_submission_fields tr td { text-align: left; }
+#cell_submission_fields textarea { height: 50px; width: 350px; }

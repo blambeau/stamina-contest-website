@@ -1,20 +1,22 @@
-<form action="/freesubmit" method="post" enctype="multipart/form-data" class="form-460">
-  <h4>Cell ${((cell[:token]-1)*5 + 1)..(cell[:token]*5)}: (alph: ${cell[:alphabet_size]}, sparsity: ${cell[:sample_sparsity]})</h4>
-	<p>The form below allows you to submit binary sequences for a whole cell (5 problems)
-	   at once.</p>
-	
-	<p class="feedback"></p>
-	
-	<p class="span-4">
-		<label for="cellfile">Your cell file&nbsp;:</label>
-		<input type="file" name="cellfile" value="" tabindex="100" size="10"/>
-	</p>
-	
-	<input type="hidden" name="cell" value="{cell[:token]}"/>
-	<input type="hidden" name="algorithm" value="{algorithm}"/>
-	
-	<p class="form-button">
-		<input type="submit" tabindex="102" value="Go »"/>
-    <input type="button" onclick="javascript:hide_popup()" value="Close"/>
-	</p>
-</form>
+={controllers.compete.submit_cell as action}{
+	<form id="{action.id}" action="{action.uri}" method="post" enctype="multipart/form-data" class="form-460">
+    <h4>Cell ${cell_range}: (alph: ${cell[:alphabet_size]}, sparsity: ${cell[:sample_sparsity]})</h4>
+  	<p>The form below allows you to submit binary sequences for the 5 problems in the cell at once.</p>
+		
+		<p class="feedback"></p>
+		
+  	<input type="hidden" name="cell" value="{cell[:token]}"/>
+  	<input type="hidden" name="algorithm" value="{algorithm}"/>
+		
+		<p class="span-4">
+<<+{cell_submission_fields.wtpl with cell_range: cell_range}			
+		</p>
+		
+		<p class="form-button">
+			<input type="submit" tabindex="102" value="Go »"/>
+      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+      <input type="button" onclick="javascript:randbinaries()" value="Example"/>
+			+{action.ajax_form_preparer}
+		</p>
+	</form>
+}

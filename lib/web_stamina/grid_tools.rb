@@ -42,6 +42,11 @@ module WebStamina
       submissions.collect{|t| results[t[:problem]] = t[:submission_status]}
       results
     end
+    
+    # Convers a cell token to its problem range
+    def cell_token_to_range(token)
+      ((1+(token-1)*5)..(token*5))
+    end
 
     ############################################################################################
     ### Tools to generate HTML grids

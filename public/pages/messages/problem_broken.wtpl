@@ -1,6 +1,0 @@
-<h4>CONGRATULATIONS !</h4>
-
-<p>You have broken this problem, reaching a BCR score >= 0.99. It's probably time to try
-   solving all problems in the same cell...</p>
-   
-<input type="button" onclick="javascript:hide_popup(true)" value="Close"/>

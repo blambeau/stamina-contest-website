@@ -158,6 +158,36 @@ function webserv_compete_create_challenger(request_data, form) {
   });
   return false;
 }  
+function webserv_compete_free_submit(request_data, form) {
+  $.ajax({type: "POST", url: "/webserv/compete/free_submit", data: request_data, dataType: "json",
+    error: function(data) {
+      window.location = '/feedback?mkey=server_error';
+    },
+    success: function(data) {
+      if (data[0] == 'validation-ko') {
+        str = '';
+        str += '<ul>';
+        for (var k in data[1]) {
+          str += '<li>' + messages[data[1][k]] + '</li>';
+        }
+        str += '</ul>';
+        $(form + ' .feedback').show();
+        $(form + ' .feedback').html(str);
+      
+      } else if (data[0] == 'success') {
+        if (data[1] == 'all_broken') {
+      show_popup('/messages/all_broken');
+        } else if (data[1] == 'some_broken') {
+      show_popup('/messages/some_broken');
+        } else if (data[1] == 'no_broken') {
+      show_popup('/messages/no_broken');
+        }
+      } else {
+       location.reload(true);}
+    }
+  });
+  return false;
+}  
 function webserv_compete_submit_cell(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/compete/submit_cell", data: request_data, dataType: "json",
     error: function(data) {
@@ -174,6 +204,14 @@ function webserv_compete_submit_cell(request_data, form) {
         $(form + ' .feedback').show();
         $(form + ' .feedback').html(str);
       
+      } else if (data[0] == 'success') {
+        if (data[1] == 'all_broken') {
+      show_popup('/messages/all_broken');
+        } else if (data[1] == 'some_broken') {
+      show_popup('/messages/some_broken');
+        } else if (data[1] == 'no_broken') {
+      show_popup('/messages/no_broken');
+        }
       } else {
        location.reload(true);}
     }
@@ -197,10 +235,12 @@ function webserv_compete_submit_problem(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'not_broken') {
-      show_popup('/messages/problem_not_broken');
-        } else if (data[1] == 'broken') {
-      show_popup('/messages/problem_broken');
+        if (data[1] == 'all_broken') {
+      show_popup('/messages/all_broken');
+        } else if (data[1] == 'some_broken') {
+      show_popup('/messages/some_broken');
+        } else if (data[1] == 'no_broken') {
+      show_popup('/messages/no_broken');
         }
       } else {
        location.reload(true);}
