@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://stamina.chefbe.net/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/home</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/protocol</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/participate</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/baseline</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/download</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/committee</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/machines</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stamina.chefbe.net/samples</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>
