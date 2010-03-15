@@ -12,16 +12,22 @@ messages['bad_user_or_password'] = "Unknown user or bad password";
 messages['challenger_name_already_in_use'] = "You already have a challenger with this name";
 messages['invalid_algorithm'] = "You cannot submit result for this algorithm";
 messages['invalid_algorithm_name'] = "Your algorithm name should respect [a-zA-Z0-9_-]{2,10}";
-messages['invalid_binary_sequence'] = "Binary sequence should contain '1' and '0' characters only and no spaces";
-messages['invalid_binary_sequence_size'] = "Binary sequence should contain 1500 characters";
+messages['invalid_binary_sequence'] = "Binary sequence should contain 1500 characters (0 or 1) without any space";
+messages['invalid_binary_sequence_1'] = "Your first binary sequence is invalid";
+messages['invalid_binary_sequence_2'] = "Your second binary sequence is invalid";
+messages['invalid_binary_sequence_3'] = "Your third binary sequence is invalid";
+messages['invalid_binary_sequence_4'] = "Your fourth binary sequence is invalid";
+messages['invalid_binary_sequence_5'] = "Your fifth binary sequence is invalid";
 messages['invalid_cell'] = "The cell identifier should be between 1 and 100";
 messages['invalid_problem'] = "The problem identifier should be between 1 and 100";
 messages['mail_already_used'] = "An account already exists for this email address";
+messages['missing_binary_sequence'] = "At least one binary sequence must be provided";
 messages['missing_message'] = "The message is mandatory";
 messages['missing_subject'] = "The subject is mandatory";
 messages['nickname_already_used'] = "This nickname has already been choosen by a competitor";
 messages['passwords_dont_match'] = "Your passwords do not match";
 messages['registration_mandatory'] = "All fields are mandatory";
+messages['user_must_be_logged'] = "You should be logged to invoke this service.";
 
 /* Actions contributed by WebStamina::Controllers::PeopleController, mapped to / */
 function webserv_people_activate_account(request_data, form) {
@@ -154,36 +160,6 @@ function webserv_compete_create_challenger(request_data, form) {
           window.location = "/competition/compete";
         }
       }
-    }
-  });
-  return false;
-}  
-function webserv_compete_free_submit(request_data, form) {
-  $.ajax({type: "POST", url: "/webserv/compete/free_submit", data: request_data, dataType: "json",
-    error: function(data) {
-      window.location = '/feedback?mkey=server_error';
-    },
-    success: function(data) {
-      if (data[0] == 'validation-ko') {
-        str = '';
-        str += '<ul>';
-        for (var k in data[1]) {
-          str += '<li>' + messages[data[1][k]] + '</li>';
-        }
-        str += '</ul>';
-        $(form + ' .feedback').show();
-        $(form + ' .feedback').html(str);
-      
-      } else if (data[0] == 'success') {
-        if (data[1] == 'all_broken') {
-      show_popup('/messages/all_broken');
-        } else if (data[1] == 'some_broken') {
-      show_popup('/messages/some_broken');
-        } else if (data[1] == 'no_broken') {
-      show_popup('/messages/no_broken');
-        }
-      } else {
-       location.reload(true);}
     }
   });
   return false;

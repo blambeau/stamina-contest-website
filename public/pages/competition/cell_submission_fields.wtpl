@@ -3,7 +3,7 @@
 <tr>
 <td>Problem ${r}: </td>
 <td>
-<textarea id="binseq_${i}" name="sequences[]" value="" tabindex="100"/>
+<textarea id="binseq_${i+1}" name="binseq_${i+1}" value="" tabindex="100"/>
 </td>
 </tr>
 <tr><td>
