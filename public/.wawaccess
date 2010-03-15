@@ -4,6 +4,10 @@ wawaccess do
   match /.wawaccess$/ do
     deny
   end
+  
+  match /^api-doc$/ do
+    [301, {'Location' => '/api-doc/'}, [""]]
+  end
 
   # Match the root site
   match root do
