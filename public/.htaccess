@@ -1,0 +1,4 @@
+<Files ~ "\.(wtpl|yaml|redcloth|graphml|wawaccess)$">
+  order allow,deny
+  deny from all
+</Files>
