@@ -13,7 +13,7 @@ The 100 problems are divided into <i>cells</i> of 5 problems each, where each ce
 !{grid_tools.points_grid("Cell points", "right")}
 <div class="clear"></div>
 
-Participation in the competition consists in attempting to <i>solve</i> cells. A cell is considered to be solved if all of the 5  problems it contains are solved with a @{protocol#scoring}{BCR score} of at least 0.99. Each cell is given a number of points (from 1 to 4) according to its difficulty, based on the average performance of the @{baseline}{redblue algorithm}, computed with our @{protocol#scoring}{scoring procedure}. <u>The first technique to solve a hardest cell, among those solved in the competition, will be the winner</u>. The organizers will add additional problems if all cells appear to be solved more than one month before the final deadline.  
+Participation in the competition consists in attempting to <i>solve</i> cells. A cell is considered to be solved if all of the 5  problems it contains are solved with a @{protocol#scoring}{BCR score} of at least 0.99. Each cell is given a number of points (from 1 to 4) according to its difficulty, based on the average performance of the @{baseline}{Blue-Fringe algorithm}, computed with our @{protocol#scoring}{scoring procedure}. <u>The first technique to solve a hardest cell, among those solved in the competition, will be the winner</u>. The organizers will add additional problems if all cells appear to be solved more than one month before the final deadline.  
 
 h3(#machines). Machines
 
@@ -39,7 +39,7 @@ For each problem, disjoint training and test samples have been generated using a
 
 - Test samples := Each test sample contains <u>1,500 strings</u> and contains <u>no duplicates</u> (to avoid favoring repeated strings in the scoring metric). <u>Training and test sets do not intersect</u>.
 
-- Empirically adjusted := The different parameters of the generation procedure (the sample sizes, in particular) have all been empirically adjusted to ensure good induction results using RedBlue (aka Blue-Fringe) on the simplest problems (alphabet of size 2 with a learning sample sparsity of 100%) without breaking the cell.
+- Empirically adjusted := The different parameters of the generation procedure (the sample sizes, in particular) have all been empirically adjusted to ensure good induction results using Blue-Fringe on the simplest problems (alphabet of size 2 with a learning sample sparsity of 100%) without breaking the cell.
 
 @{samples}{Learn more} about samples generation...
 
