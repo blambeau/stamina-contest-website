@@ -1,0 +1,11 @@
+<table id="cell_submission_fields">
+*{cell_range using each_with_index as r, i}{
+<tr>
+<td>Problem ${r}: </td>
+<td>
+<textarea id="binseq_${i}" name="sequences[]" value="" tabindex="100"/>
+</td>
+</tr>
+<tr><td>
+}
+</table>

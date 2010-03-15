@@ -26,6 +26,36 @@ module WebStamina
         harmonic_bcr(tp, fn, fp, tn)
       end
             
+      # Makes some submissions
+      def make_submissions(people, algorithm, subs)
+        tuples = subs.collect do |problem, binseq|
+          {:people          => people,
+           :algorithm       => algorithm,
+           :problem         => problem,
+           :submission_time => Time.now,
+           :binary_sequence => binseq,
+           :score           => score(binseq, problem)}
+        end
+        resources.db.transaction do |t|
+          t.default.valid_submissions.send(:underlying_table).filter(
+            :people => people, 
+            :algorithm => algorithm,
+            :problem => tuples.collect{|tuple| tuple[:problem]}
+          ).delete
+          t.default.submissions << tuples
+          t.default.valid_submissions << tuples
+        end
+        case tuples.collect{|t| t[:score]}.select{|s| s >= 0.99}.size
+          when 0
+            :no_broken
+          when subs.size
+            :all_broken
+          else 
+            :some_broken
+        end
+      end
+            
+      # Challenger creation
       signature {
         validation :algorithm, logged,                   :user_must_be_logged
         validation :algorithm, valid_algorithm_name,     :invalid_algorithm_name
@@ -49,41 +79,42 @@ module WebStamina
         validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
         validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
         validation :problem,   Integer & isin(1..100),         :invalid_problem
-        validation :binseq,    String & mandatory,             :invalid_binary_sequence
+        validation :binseq,    valid_binary_sequence,          :invalid_binary_sequence
       }
       routing   { 
-        upon 'validation-ko'      do form_validation_feedback           end
-        upon 'success/not_broken' do popup_message(:problem_not_broken) end
-        upon 'success/broken'     do popup_message(:problem_broken)     end
-        upon '*'                  do refresh                            end 
+        upon 'validation-ko'       do form_validation_feedback           end
+        upon 'success/no_broken'   do popup_message(:no_broken)          end
+        upon 'success/all_broken'  do popup_message(:all_broken)         end
+        upon 'success/some_broken' do popup_message(:some_broken)        end
+        upon '*'                   do refresh                            end 
       }
       def submit_problem(params)
-        the_score = score(params[:binseq], params[:problem])
-        resources.db.transaction do |t|
-          tuple = {:people          => session.current_user[:id],
-                   :algorithm       => params[:algorithm],
-                   :problem         => params[:problem],
-                   :submission_time => Time.now,
-                   :binary_sequence => params[:binseq],
-                   :score           => the_score}
-          t.default.submissions << tuple
-          t.default.valid_submissions.send(:underlying_table).filter(tuple.keep(:people, :algorithm, :problem)).delete
-          (t.default.valid_submissions << tuple) if the_score >= 0.0
-        end
-        case the_score
-          when -2.0
-            raise ::Waw::Validation::KO, [:invalid_binary_sequence]
-          when -1.0
-            raise ::Waw::Validation::KO, [:invalid_binary_sequence_size]
-          when (0.0...0.99)
-            :not_broken
-          when (0.99..1.0)
-            :broken
-          else
-            raise "Unexpected situation"
-        end
+        people, algo, submissions = session.user_id, params[:algorithm], [[params[:problem], params[:binseq]]]
+        make_submissions(people, algo, submissions)
       end
       
+      # Submission of a whole cell
+      signature {
+        validation :algorithm, logged,                         :user_must_be_logged
+        validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
+        validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
+        validation :cell,      Integer & isin(1..20),          :invalid_cell
+        validation :sequences, valid_binary_sequences,         :invalid_binary_sequence
+      }
+      routing   { 
+        upon 'validation-ko'       do form_validation_feedback           end
+        upon 'success/no_broken'   do popup_message(:no_broken)          end
+        upon 'success/all_broken'  do popup_message(:all_broken)         end
+        upon 'success/some_broken' do popup_message(:some_broken)        end
+        upon '*'                   do refresh                            end 
+      }
+      def submit_cell(params)
+        range = resources.grid_tools.cell_token_to_range(params[:cell])
+        people, algo, submissions = session.user_id, params[:algorithm], range.to_a.zip(params[:sequences])
+        make_submissions(people, algo, submissions)
+      end
+      
+      # Free submission
       signature {
         validation :algorithm, logged,                         :user_must_be_logged
         validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
@@ -92,38 +123,15 @@ module WebStamina
         validation :cellfile,  valid_cellfile,                 :invalid_cellfile
       }
       routing   { 
-        upon 'validation-ko' do form_validation_feedback end
-        upon '*' do refresh end 
+        upon 'validation-ko'       do form_validation_feedback           end
+        upon 'success/no_broken'   do popup_message(:no_broken)          end
+        upon 'success/all_broken'  do popup_message(:all_broken)         end
+        upon 'success/some_broken' do popup_message(:some_broken)        end
+        upon '*'                   do refresh                            end 
       }
-      def submit_cell(params)
-        people, algorithm, cells = session.user_id, params[:algorithm], params[:cellfile]
-        problems = cells.collect{|problem, binseq| problem}
-        tuples = cells.collect do |problem, binseq|
-          {:people          => people,
-           :algorithm       => algorithm,
-           :problem         => problem,
-           :submission_time => Time.now,
-           :binary_sequence => binseq,
-           :score           => score(binseq, problem)}
-        end
-        scores = tuples.collect{|t| t[:score]}
-        resources.db.transaction do |t|
-          t.default.valid_submissions.send(:underlying_table).filter(
-            :people => people, 
-            :algorithm => algorithm,
-            :problem => problems
-          ).delete
-          t.default.submissions << tuples
-          t.default.valid_submissions << tuples
-        end
-        case scores.select{|s| s >= 0.99}.size
-          when 0
-            :no_broken
-          when 5
-            :all_broken
-          else 
-            :some_broken
-        end
+      def free_submit(params)
+        people, algo, submissions = session.user_id, params[:algorithm], params[:cellfile]
+        make_submissions(people, algo, submissions)
       end
       
     end # class CompeteController
