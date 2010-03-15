@@ -95,11 +95,15 @@ module WebStamina
       
       # Submission of a whole cell
       signature {
-        validation :algorithm, logged,                         :user_must_be_logged
-        validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
-        validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
-        validation :cell,      Integer & isin(1..20),          :invalid_cell
-        validation :sequences, valid_binary_sequences,         :invalid_binary_sequence
+        validation :algorithm, logged,                          :user_must_be_logged
+        validation :algorithm, valid_algorithm_name,            :invalid_algorithm_name
+        validation :algorithm, valid_algorithm_for_submission,  :invalid_algorithm
+        validation :cell,      Integer & isin(1..20),           :invalid_cell
+        validation :binseq_1,  valid_binary_sequence | missing, :invalid_binary_sequence_1
+        validation :binseq_2,  valid_binary_sequence | missing, :invalid_binary_sequence_2
+        validation :binseq_3,  valid_binary_sequence | missing, :invalid_binary_sequence_3
+        validation :binseq_4,  valid_binary_sequence | missing, :invalid_binary_sequence_4
+        validation :binseq_5,  valid_binary_sequence | missing, :invalid_binary_sequence_5
       }
       routing   { 
         upon 'validation-ko'       do form_validation_feedback           end
@@ -109,30 +113,33 @@ module WebStamina
         upon '*'                   do refresh                            end 
       }
       def submit_cell(params)
+        people, algo = session.user_id, params[:algorithm]
         range = resources.grid_tools.cell_token_to_range(params[:cell])
-        people, algo, submissions = session.user_id, params[:algorithm], range.to_a.zip(params[:sequences])
-        make_submissions(people, algo, submissions)
+        sequences = params[:binseq_1], params[:binseq_2], params[:binseq_3], params[:binseq_4], params[:binseq_5]
+        submissions = range.to_a.zip(sequences).select{|pair| not(pair[1].nil?)}
+        return make_submissions(people, algo, submissions) unless submissions.empty?
+        raise Waw::Validation::KO, [:missing_binary_sequence]
       end
       
       # Free submission
-      signature {
-        validation :algorithm, logged,                         :user_must_be_logged
-        validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
-        validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
-        validation :cell,      Integer & isin(1..20),          :invalid_cell
-        validation :cellfile,  valid_cellfile,                 :invalid_cellfile
-      }
-      routing   { 
-        upon 'validation-ko'       do form_validation_feedback           end
-        upon 'success/no_broken'   do popup_message(:no_broken)          end
-        upon 'success/all_broken'  do popup_message(:all_broken)         end
-        upon 'success/some_broken' do popup_message(:some_broken)        end
-        upon '*'                   do refresh                            end 
-      }
-      def free_submit(params)
-        people, algo, submissions = session.user_id, params[:algorithm], params[:cellfile]
-        make_submissions(people, algo, submissions)
-      end
+      # signature {
+      #   validation :algorithm, logged,                         :user_must_be_logged
+      #   validation :algorithm, valid_algorithm_name,           :invalid_algorithm_name
+      #   validation :algorithm, valid_algorithm_for_submission, :invalid_algorithm
+      #   validation :cell,      Integer & isin(1..20),          :invalid_cell
+      #   validation :cellfile,  valid_cellfile,                 :invalid_cellfile
+      # }
+      # routing   { 
+      #   upon 'validation-ko'       do form_validation_feedback           end
+      #   upon 'success/no_broken'   do popup_message(:no_broken)          end
+      #   upon 'success/all_broken'  do popup_message(:all_broken)         end
+      #   upon 'success/some_broken' do popup_message(:some_broken)        end
+      #   upon '*'                   do refresh                            end 
+      # }
+      # def free_submit(params)
+      #   people, algo, submissions = session.user_id, params[:algorithm], params[:cellfile]
+      #   make_submissions(people, algo, submissions)
+      # end
       
     end # class CompeteController
   end # module Controller
