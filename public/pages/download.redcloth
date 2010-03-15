@@ -27,7 +27,7 @@ For test sets:
 ? 21 5 6      # a test string to be classified as well (3 symbols)
 </pre>
 
-The "compressed archive":http://www.dcs.shef.ac.uk/~nw/Files/trainingTesting.tar.gz contains 20 text files, one for each grid cell. Therefore each file contains the training and testing data of five problems. These files respect the following abstract format:
+The "compressed archive":/downloads/packed_grid.tar.gz contains 20 text files, one for each grid cell. Therefore each file contains the training and testing data of five problems. These files respect the following abstract format:
 
 <pre class="left">
 id [PROBLEM NUMBER]       # first problem in the cell
