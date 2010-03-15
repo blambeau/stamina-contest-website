@@ -96,7 +96,7 @@ module WebStamina
         upon '*' do refresh end 
       }
       def submit_cell(params)
-        people, algorithm, cells = session.current_user[:id], params[:algorithm], params[:cellfile]
+        people, algorithm, cells = session.user_id, params[:algorithm], params[:cellfile]
         problems = cells.collect{|problem, binseq| problem}
         tuples = cells.collect do |problem, binseq|
           {:people          => people,

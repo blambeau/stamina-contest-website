@@ -46,16 +46,15 @@ module WebStamina
         validation :remember_me, (boolean | default(false)), :bad_remember_me 
       }
       routing {
-        upon 'validation-ko' do feedback end
+        upon 'validation-ko' do form_validation_feedback                 end
         upon 'success/ok'    do redirect(:url => 'competition/compete')  end
       }
       def login(params)
-        if params[:remember_me]
-          resources.sequel_db[:people].
-                    filter(:mail => params[:mail]).
-                    update(:remember_me => generate_sid)
-        end
-        session_set(:user, params[:mail]) and :ok
+        resources.db.transaction do |t|
+          t.users(params.keep(:mail)).update(:remember_me => generate_sid)
+        end if params[:remember_me]
+        session_set(:user, params[:mail])
+        :ok
       end
       
       # Logout action
@@ -65,7 +64,9 @@ module WebStamina
         upon '*'          do refresh                  end 
       }
       def logout(params)
-        resources.sequel_db[:people].filter(:mail => session.user).update(:remember_me => '') if session.logged?
+        resources.db.transaction do |t|
+          t.users(:mail => session.user).update(:remember_me => '')
+        end if session.logged?
         session_unset(:user)
         :ok
       end
@@ -114,11 +115,10 @@ module WebStamina
         upon 'success/ok'    do popup_message(:welcome)                end
       }
       def activate_account(params)
-        result = resources.db.transaction do |t|
-          table = t.default.people.send(:underlying_table).filter(:activation => params[:key])
-          mail = table.first[:mail]
-          table.update(:activation => "", :admin_level => 0)
-          session_set(:user, mail)
+        resources.db.transaction do |t|
+          user = t.user_tuple(:activation => params[:key])
+          t.users(:id => user[:id]).update(:activation => "", :admin_level => 0)
+          session_set(:user, user[:mail])
         end
         :ok
       end
