@@ -10,9 +10,13 @@ The competition *finishes* on the 31st December 2010.
 
 h3. Competition grid
 
-Below are the current results of the competition. Click <a onclick="javascript:show_help('master_grid')">here</a> to learn more about this table.
+The grids below provide feedback about the competition results. The first one presents <span class="winners">cell winners</span> and <span class="pending">best challengers</span> so far. 
 
-!{grid_tools.competition_grid}
+!{grid_tools.competition_grid("Cell winners and best challengers", "competition-grid")}
+
+This second grid presents statistics about challengers and submissions: <u># challengers with the cell broken</u> / <u># challengers with at least one problem broken</u> / <u>total # of submissions</u> for the cell.
+
+!{grid_tools.stats_grid("Statistics about the submissions", "competition-grid")}
 
 h3. Organizers & Contact
 

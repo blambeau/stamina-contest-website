@@ -72,3 +72,28 @@ CREATE VIEW master_grid AS
                                     WHERE g2.alphabet_size   = g.alphabet_size
                                       AND g2.sample_sparsity = g.sample_sparsity
                                       AND g2.cell_status     = g.cell_status);
+
+DROP VIEW IF EXISTS stats_grid;
+CREATE VIEW stats_grid AS
+  SELECT c.alphabet_size,
+         c.sample_sparsity,
+         (SELECT max(cell_status) 
+            FROM grid_statistics AS s
+           WHERE c.alphabet_size   = s.alphabet_size
+             AND c.sample_sparsity = s.sample_sparsity) as cell_status,
+         (SELECT count(*) 
+            FROM grid_statistics AS s
+           WHERE c.alphabet_size   = s.alphabet_size
+             AND c.sample_sparsity = s.sample_sparsity
+             AND s.cell_status = 3) as challenger_broken_count,
+         (SELECT count(*) 
+            FROM grid_statistics AS s
+           WHERE c.alphabet_size   = s.alphabet_size
+             AND c.sample_sparsity = s.sample_sparsity
+             AND s.cell_status = 2) as challenger_pending_count,
+         (SELECT count(*) 
+            FROM submissions AS s
+            JOIN problems as p on s.problem = p.id
+           WHERE p.alphabet_size   = c.alphabet_size
+             AND p.sample_sparsity = c.sample_sparsity) as total_submission_count
+    FROM cells AS c;
