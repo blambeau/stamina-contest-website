@@ -1,6 +1,11 @@
-h3. Baseline Implementation
+h3. Baseline implementation
 
-Open-source code of RPNI and Blue-Fringe are proposed as a good starting point for challengers. This code is written in Ruby and distributed under a MIT licence. You can download it "here":/downloads/stamina_0.2.1.tar.gz
+Open-source code of RPNI and Blue-Fringe are proposed as a good starting point for challengers. This code is written in Ruby and distributed under a MIT licence. 
+
+h3. Download, sources and api
+
+* Download the "stable version 0.2.1":/downloads/stamina_0.2.1.tar.gz
+* Read the "API documentation of version 0.2.1":/api-doc/stamina_0.2.1/ 
 
 This code is also made available through Subversion (read-only), if you prefer working 'on-the-edge' or plan to submit patches. You can download the trunk version of the source code using:
 
@@ -11,3 +16,36 @@ If you prefer a stable version:
 <pre>svn checkout http://svn.chefbe.net/stamina/tags/public_0.2.1</pre>
 
 Please report any bug, feature or documentation request on our "redmine bug tracker":http://redmine.chefbe.net/projects/stamina
+
+h3. Installing Ruby
+
+To run the baseline implementation, you need a correct ruby installation >= 1.8.6. Please refer to http://www.ruby-lang.org/ for download and installation procedures on the operating systems. On Debian/Ubuntu system, the following commands should suffice:
+
+<pre>
+apt-get install ruby ruby1.8-dev ri irb rake rubygems rdoc
+gem update --system
+</pre>
+
+h3. Running tests & Generating documentation
+
+After having downloaded and unzipped the archive, type the following command in the main folder:
+
+<pre>
+rake test
+rake rerdoc
+</pre>
+
+Please report any test failure on our "redmine bug tracker":http://redmine.chefbe.net/projects/stamina. The documentation can be browsed from the index file located in doc/api/index.html.
+
+h3. Competition roadmap
+
+The baseline implementation contains <code>rpni</code>, <code>redblue</code> and executables in the bin folder as well as training and test sets for the problem 31 in the example/competition folder. 
+
+If you type the following commands in turn, a binary sequence will be written on the standard console. It can simply be submitted on the website...
+
+<pre>
+./bin/rpni --verbose --output example/competition/31_rpni_induced.adl example/competition/31_training.adl
+./bin/classify example/competition/31_test.adl example/competition/31_rpni_induced.adl
+</pre>
+
+The baseline implementation has not been implemented with efficiency in mind so that it may take *several minutes* to synthesize machines on hardest problems ;-)
