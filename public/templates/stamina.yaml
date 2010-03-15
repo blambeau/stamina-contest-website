@@ -25,3 +25,13 @@ sponsors:
   - name: Engineering and Physical Sciences Research Council
     icon: images/epsrc.jpg
     website: http://www.epsrc.ac.uk/
+titles:
+  home: Learning regular languages with large alphabets
+  baseline: Baseline
+  committee: Scientific Committee
+  download: Download
+  machines: Target machines
+  participate: How to participate ?
+  protocol: Competition protocol
+  samples: Learning and Test samples
+  
