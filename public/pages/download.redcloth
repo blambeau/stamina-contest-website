@@ -2,7 +2,7 @@ h3. Training & Test Sets
 
 Training and test strings for each of the 100 problems can be downloaded using the two tables below. A cell is considered broken if your induction algorithm solves the 5 problems it contains (see @{protocol}{the protocol page} for details, and the "section below":#file-formats about file formats). 
 
-Alternatively to these tables, you can download "the archive that contains all of the training sets":http://www.dcs.shef.ac.uk/~nw/Files/trainingTesting.tar.gz (see the "section below":#file-formats about its content).
+Alternatively to these tables, you can download "the archive that contains all of the training sets":/downloads/packed_grid.tar.gz (see the "section below":#file-formats about its content).
 
 !{grid_tools.training_download_grid("Training sets")}
 !{grid_tools.test_download_grid("Test sets")}
