@@ -415,6 +415,13 @@ form.form-460 p.form-button input {
 	text-align: justify;
 	line-height: normal;
 }
+#popup ul {
+	padding-left: 20px;
+}
+#popup ul li {
+	line-height: normal;	
+	margin-top: 5px;
+}
 #popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:5px;}
 #popup img { margin: 15px auto; }
 

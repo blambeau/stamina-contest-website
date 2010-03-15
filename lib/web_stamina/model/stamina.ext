@@ -66,6 +66,7 @@ CREATE VIEW master_grid AS
                           FROM grid_statistics AS g2
                          WHERE g2.alphabet_size   = g.alphabet_size
                            AND g2.sample_sparsity = g.sample_sparsity)
+     AND cell_status >= 2
      AND latest_submission_time = (SELECT min(latest_submission_time)
                                      FROM grid_statistics AS g2
                                     WHERE g2.alphabet_size   = g.alphabet_size
