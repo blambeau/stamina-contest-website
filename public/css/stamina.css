@@ -11,8 +11,8 @@ body {
 }
 a { cursor: pointer; }
 img { border: none;}
-div.left { clear: left; }
-div.right { clear: right; }
+div.left {  float: left; }
+div.right { float: right; }
 div.clear { clear: both; }
 * { line-height: 19px; }
 
@@ -461,3 +461,6 @@ ul#challengers li.current {
 #cell_submission_fields { margin: auto; }
 #cell_submission_fields tr td { text-align: left; }
 #cell_submission_fields textarea { height: 50px; width: 350px; }
+div.w3c {
+	padding-top: 10px;
+}
