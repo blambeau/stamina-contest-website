@@ -152,7 +152,7 @@ ul#menu li.last { width: 150px; }
 }
 #content table.left { float: left; margin-left: 50px;}
 #content table.right { float: right; margin-right: 50px;}
-#content table td, #content table th  {
+#content table td, #content table th, #content table tr td.th  {
 	padding: 3px 10px 3px 10px;
 	border: 1px solid black;
 	text-align: center;
@@ -163,15 +163,11 @@ ul#menu li.last { width: 150px; }
 	font-weight: bold;
 	padding-bottom: 10px;
 }
-#content table th {
-  font-weight: normal;
-}
-#content table td {
-  color: #CF4500;
-}
-#content table td a:hover {
-  font-weight: bold;
-}
+#content table th, #content table td.th { font-weight: normal; }
+#content table td { color: #CF4500; }
+#content table td a:hover { font-weight: bold; }
+#content table td.th  { color: black; }
+
 #content dl dt { padding-bottom: 2px; }
 #content pre { background: #222222; color: white; padding: 5px; padding-left:10px; margin:5px; margin-left: 30px;}
 #content pre.left { text-align: left; }
@@ -182,10 +178,8 @@ ul#menu li.last { width: 150px; }
 	float: left;
 }
 
-#content table.competition-grid tr td {
-	width: 130px;
-	color: black;
-}
+#content table.competition-grid td { width: 130px; color: black; }
+#content table.competition-grid td.th { width: auto; color: black; }
 
 #content table tr td.broken     { background-color: #7FF100; }
 #content table tr td.pending    { background-color: #FFFF4D; }
@@ -210,9 +204,10 @@ span.winners { background-color: #7FF100; padding: 3px 3px; }
 span.pending { background-color: #FFFF4D; padding: 3px 3px; }
 
 #content table.submission-grid { margin-top: 0px; }
-
 #content input.submit {float: right; margin-top:10px;}
-table.submission-grid tr td {width: 100px;}
+table.submission-grid tr td { width: 100px; }
+table.submission-grid tr td.th { width: auto; }
+
 form#problem-based-submission-form,
 form#cell-based-submission-form {
 	margin-left: 25px;

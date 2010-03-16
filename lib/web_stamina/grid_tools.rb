@@ -72,7 +72,7 @@ module WebStamina
             "<td>#{block_result}</td>"
         end
       }
-      "<th>#{alph}</th>" + cells.join
+      "<td class=\"th\">#{alph}</td>" + cells.join
     end
     
     #
@@ -91,16 +91,27 @@ module WebStamina
         <table#{cssclass}>
           #{caption}
           <tr>
-            <th rowspan="2" colspan="2">
-              <th colspan="5">Sparsity of the training sample</th>
-              <tr>
-                <th>#{SPARSITY.join("</th><th>")}</th>
-              </tr>
-            </th>
+            <td class="th" colspan="2" rowspan="2"></td>
+            <td class="th" colspan="4">Sparsity of the training sample</td>
           </tr>
           <tr>
-            <th rowspan="6">Alphabet size</th>
-            <tr>#{ALPHABETS.collect{|a| subgrid(a, &block)}.join('</tr><tr>')}</tr>
+            <td class="th">#{SPARSITY.join("</td><td class=\"th\">")}</td>
+          </tr>
+          <tr>
+            <td class="th" rowspan="5">Alphabet size</td>
+            #{subgrid(2, &block)}
+          </tr>
+          <tr>
+            #{subgrid(5, &block)}
+          </tr>
+          <tr>
+            #{subgrid(10, &block)}
+          </tr>
+          <tr>
+            #{subgrid(20, &block)}
+          </tr>
+          <tr>
+            #{subgrid(50, &block)}
           </tr>
         </table>
       EOF
