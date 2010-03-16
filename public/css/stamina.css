@@ -196,14 +196,19 @@ ul#menu li.last { width: 150px; }
 #compete table tr td.pending    { background-color: #FFFF4D; }
 #compete table tr td.active     { background-color: #CCCCCC; }
 #compete table tr td.inactive   { background-color: white; }
+
 #compete table tr td            { color: black; }
 #compete table.legend           { margin-left: 45px; }
 
-#compete table tr td .broken   { font-weight: bold; color: green; }
-#compete table tr td .pending,  
-#compete table tr td .active   { font-weight: bold; color: #FF8C00; }  
-#compete table tr td .inactive { color: black; }
-#compete table tr td a         { color: black; }
+#compete table tr td .broken, 
+#compete table tr td a.broken:visited   { font-weight: bold; color: green; }
+#compete table tr td .pending,
+#compete table tr td a.pending:visited,
+#compete table tr td .active,
+#compete table tr td a.active:visited   { font-weight: bold; color: #FF8C00; }  
+#compete table tr td .inactive,
+#compete table tr td a.inactive:visited { color: black; }
+
 #compete table tr td.left { text-align: left; }
 
 span.winners { background-color: #7FF100; padding: 3px 3px; }

@@ -18,7 +18,8 @@ function show_popup(url, width) {
 function hide_popup(refresh) {
 	$('#popup').hide();
   $('#hide').hide();
-  if (refresh) { location.reload(true); }
+  /*if (refresh) { location.reload(true); }*/
+  location.reload(true);
 }  
 function show_login_form()                { show_popup('pages/forms/login', 460);                           }
 function show_subscribe_form()            { show_popup('pages/forms/subscribe', 460);                       }
