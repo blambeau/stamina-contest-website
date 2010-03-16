@@ -1,1 +1,1 @@
-<<+{../forms/login.wtpl with login_title: 'Forbidden access, please log in'}
+<<+{../forms/login.wtpl with login_title: 'Forbidden access, please log in', cookies: true}

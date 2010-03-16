@@ -46,7 +46,7 @@ module WebStamina
         validation :remember_me, (boolean | default(false)), :bad_remember_me 
       }
       routing {
-        upon 'validation-ko' do form_validation_feedback                 end
+        upon 'validation-ko' do feedback                                 end
         upon 'success/ok'    do redirect(:url => 'competition/compete')  end
       }
       def login(params)
