@@ -50,7 +50,7 @@ module WebStamina
         # go to the submission page
         puts "Competitor #{@id} is going to submit through the problem-based form"
         @browser.location = "competition/compete/chal#{@id}"
-        raise "Visiting #{visiting} led to an error" unless @browser.is200
+        raise "Visiting challenger private page led to an error" unless @browser.is200
 
         # Invoke the submission action
         algo, problem = challenger_tuple(@id)[:algorithm], 1+Kernel.rand(99)
@@ -72,7 +72,7 @@ module WebStamina
         # go to the submission page
         puts "Competitor #{@id} is going to submit through the cell-based form"
         @browser.location = "competition/compete/chal#{@id}"
-        raise "Visiting #{visiting} led to an error" unless @browser.is200
+        raise "Visiting challenger private page led to an error" unless @browser.is200
 
         # Invoke the submission action
         algo, cell = challenger_tuple(@id)[:algorithm], 1+Kernel.rand(19)
@@ -92,7 +92,7 @@ module WebStamina
       
       # Run the competitor
       def run
-        20.times do |i|
+        100.times do |i|
           begin
             self.send(COMPETITOR_CHOICES[Kernel.rand(COMPETITOR_CHOICES.size)])
           rescue => ex

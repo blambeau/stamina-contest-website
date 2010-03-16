@@ -15,7 +15,7 @@ $solutions = kernel.resources.sequel_db[:competition_data].order(:problem.asc).c
 
 # Create competitors 
 url = "http://127.0.0.1:9292/"
-nb_competitors = 10
+nb_competitors = 20
 competitors = []
 nb_competitors.times do |i|
   competitors << ::WebStamina::StressTest::Competitor.new(kernel, i+1, url)
