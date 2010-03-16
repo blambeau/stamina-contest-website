@@ -1,18 +1,18 @@
-?{session.logged?}{
-  <<+{logged_links.wtpl}
-}{
-  <<+{anonymous_links.wtpl}
-}
 <div id="inside">
+  ?{session.logged?}{
+    <<+{logged_links.wtpl}
+  }{
+    <<+{anonymous_links.wtpl}
+  }
 	<div id="banner">
-	  <h1><a href="/">${info.title}</a></h1>
-	  <h2>${info.subtitle}</h2>
 		<div id="organizers">
 		  *{info.organizers as org}{
 		    <a href="{org.website}"><img src="{org.icon}" alt="{org.name}"/></a>
 	    }
 		</div>
 		<<+{menu.wtpl share all}
+	  <h1><a href="/">${info.title}</a></h1>
+	  <h2>${info.subtitle}</h2>
 		<div class="clear"></div>
 	</div>
 	<div id="content">

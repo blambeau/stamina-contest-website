@@ -4,4 +4,4 @@
 
 <p>If you don't receive the activation email within 24 hours after subscription, please check your spam folder or <a href="javascript:show_contact_form()">take contact</a> with the organizers.</p>
   
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

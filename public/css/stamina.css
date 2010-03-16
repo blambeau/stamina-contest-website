@@ -6,7 +6,6 @@ body {
 	font-size: 14px;
 	padding: 40px 0px 0px 0px;
 	background-color: white;
-  overflow: scroll;
   background: url(../images/specimen.gif);
 }
 a { cursor: pointer; }
@@ -24,9 +23,11 @@ div.clear { clear: both; }
 }
 #banner h1 {
 	position: absolute;
-	top: 40px;
+	top: 30px;
+	height: 100px;
 	font-variant: small-caps;
 	padding: 0px;
+	padding-top:10px;
 	margin: 0px;
   color: #820000;
 }
@@ -72,12 +73,17 @@ div.clear { clear: both; }
 	
 
 /* ------------------------------- Menu */
-ul#menu { clear: both; font-size: 1em; }
+ul#menu { 
+	clear: both; font-size: 1em;
+	height: 20px;
+	margin-bottom: 0px;
+}
 ul#menu li {
 	display: block;
 	float: left;
 	list-style : none;
 	width: 80px;
+	height: 20px;
   border: 1px solid #CF4500;
   border-bottom: none;
   background-color: white;
@@ -150,8 +156,8 @@ ul#menu li.last { width: 150px; }
 	border-collapse: collapse;
 	border: 1px solid black;
 }
-#content table.left { float: left; margin-left: 50px;}
-#content table.right { float: right; margin-right: 50px;}
+#content table.left  { float: left;  margin-left: 30px;    padding-left: 0px;}
+#content table.right { float: right; margin-right: 30px; padding-right: 0px;}
 #content table td, #content table th, #content table tr td.th  {
 	padding: 3px 10px 3px 10px;
 	border: 1px solid black;
@@ -225,6 +231,8 @@ form label {
 
 form {
 	font-family: "Myriad Pro", "Arial", sans-serif;
+	margin: 0px;
+	padding: 0px;
 /*	font-size: 90%; */
 }
 form p.feedback {
@@ -235,10 +243,11 @@ form p.feedback {
 	margin-bottom: 20px;
 }
 form p.feedback ul {
-	margin: 0px;
-	padding: 0px;
+	list-style-type: square;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	margin-left: 25px;
-	width: 100%;
+	padding-left: 0px;
 }
 form.form-followed {
 	float: left;
@@ -421,8 +430,10 @@ form.form-460 p.form-button input {
 #popup p {
 	text-align: justify;
 	line-height: normal;
+	margin-bottom: 0px;
+	margin-top: 10px;
 }
-#popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:5px;}
+#popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:10px 0px;}
 #popup img { margin: 15px auto; }
 
 div#compete {

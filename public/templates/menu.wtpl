@@ -1,12 +1,12 @@
 <ul id="menu">
   *{info.menu as entry}{
-    <li class="?{current == entry.url}{current} ?{entry.url == 'committee'}{last}" onclick="javascript:switch_page('{entry.url}')">
-      <a onclick="javascript:switch_page('{entry.url}')">${entry.label}</a>
+    <li class="?{current == entry.url}{current} ?{entry.url == 'committee'}{last}" onclick="javascript:switch_page('/+{entry.url}')">
+      <a href="/${entry.url}">${entry.label}</a>
     </li>
   }
   ?{session.logged?}{
-    <li class="?{current == 'compete'}{current}{other}">
-      <a onclick="javascript:switch_page('competition/compete')">Compete</a>
+    <li class="?{current == 'compete'}{current}{other}" onclick="javascript:switch_page('/competition/compete')">
+      <a href="/competition/compete">Compete</a>
     </li>
   }
 </ul>

@@ -16,4 +16,4 @@
 ?
 </pre>
 
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

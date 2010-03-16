@@ -2,4 +2,4 @@
 
 <p>Your message has been correctly sent to the organizers. We will answer your question as soon as possible.</p>
    
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>
