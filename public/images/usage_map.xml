@@ -1,4 +1,4 @@
-<map name="usage_map">
+<map name="usage_map" id="usage_map">
   <area shape="rect" coords="16,76,200,127" href="javascript:show_help('download_training')"
         alt="Click to learn more about training sets" title="Click to learn more about training sets"/>
   <area shape="rect" coords="16,157,200,206" href="javascript:show_help('infer_machines')" 

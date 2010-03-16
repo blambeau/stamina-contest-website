@@ -10,7 +10,28 @@ The competition process is illustrated on the image below. <u id="test">Click on
 
 <img src="{info.process_image}" alt="Competition process" id="usage_image" ismap="ismap" usemap="#usage_map"/>
 <notextile>
-<<{../images/usage_map.xml}
+<map name="usage_map" id="usage_map">
+  <area shape="rect" coords="16,76,200,127" href="javascript:show_help('download_training')"
+        alt="Click to learn more about training sets" title="Click to learn more about training sets"/>
+  <area shape="rect" coords="16,157,200,206" href="javascript:show_help('infer_machines')" 
+        alt="Click to learn more about inference" title="Click to learn more about inference"/>
+  <area shape="rect" coords="15,237,201,286" href="javascript:show_help('download_test')"
+        alt="Click to learn more about test sets" title="Click to learn more about test sets"/>
+  <area shape="rect" coords="15,317,200,366" href="javascript:show_help('label_test_set')"
+        alt="Click to learn more about labeling test sets" title="Click to learn more about labeling test sets"/>
+  <area shape="rect" coords="271,157,438,206" href="javascript:show_subscribe_form()"
+        alt="Click to subscribe to StaMinA" title="Click to subscribe to StaMinA"/>
+  <area shape="rect" coords="271,237,438,286" href="javascript:show_help('activation')"
+        alt="Click to learn more about account activation" title="Learn more about account activation"/>
+  <area shape="rect" coords="497,157,683,206" href="javascript:show_login_form()"
+        alt="Click to log in" title="Click to log in"/>
+  <area shape="rect" coords="498,238,683,286" href="javascript:show_help('challengers')"
+        alt="Click to learn more about challengers" title="Click to learn more about challengers"/>
+  <area shape="rect" coords="498,317,683,366" href="javascript:show_help('submit')"
+        alt="Click to learn about the submission process" title="Click to learn about the submission process"/>
+  <area shape="poly" coords="592,400,657,428,592,456,525,428" href="javascript:show_help('broken')"
+        alt="When is a problem considered broken?" title="When is a problem considered broken?"/>
+</map>
 <script type="text/javascript">
   $(document).ready(function(){ $('#usage_image *').tooltip(); });
 </script>
