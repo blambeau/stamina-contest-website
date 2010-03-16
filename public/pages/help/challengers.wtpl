@@ -6,4 +6,4 @@
 
 <p>On the same page, each challenger has its own competition grid, allowing to submit labelled test sets and see its current broken problems and cells.</p>
 
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

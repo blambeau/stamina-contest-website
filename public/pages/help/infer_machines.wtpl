@@ -14,4 +14,4 @@
   
 <p>As a good starting point for competitors, this website provides <a href="baseline">baseline implementations</a> of RPNI and Blue-Fringe.</p>
 
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

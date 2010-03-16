@@ -56,13 +56,13 @@ div(math). _TP_ : True positives
            _FP_ : False positives
            _FN_ : False negatives
 
-These figures are used to compute two numbers, <span class="math">_C[^plus^]_</span> and <span class="math">C[^minus^]</span>
+These figures are used to compute two numbers, <span class="math"><em>C[^plus^]</em></span> and <span class="math"><em>C[^minus^]</em></span>
 
 div(math). _C[^plus^]_&nbsp;&nbsp;= _TP_ / (_TP_ + _FN_) 
            _C[^minus^]_&nbsp;= _TN_ / (_TN_ + _FP_)
 
-The BCR value is the harmonic mean between <span class="math">_C[^plus^]_</span> and <span class="math">_C[^minus^]_</span> and is defined as follows:
+The BCR value is the harmonic mean between <span class="math"><em>C[^plus^]</em></span> and <span class="math"><em>C[^minus^]</em></span> and is defined as follows:
 
-div(math). _BCR_ = (2 * _C[^plus^]_ * _C[^minus^]_) / (_C[^plus^]_ + _C[^minus^]_)
+div(math). _BCR_ = (2 * <em>C[^plus^]</em> * <em>C[^minus^]</em>) / (<em>C[^plus^]</em> + <em>C[^minus^]</em>)
 
 A _problem_ is deemed to be solved if the <span class="math">_BCR_</span> value is greater than or equal to 0.99. A _cell_ is deemed to be solved if all of its 5 problems are solved. Cells of the competition and participant result grids turn to green when solved.

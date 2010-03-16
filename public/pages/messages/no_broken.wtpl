@@ -2,4 +2,4 @@
 
 <p>You did not reach any BCR score of 0.99 with your submission. Good try anyway, and good luck for the competition!</p>
    
-<input type="button" onclick="javascript:hide_popup(true)" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

@@ -4,4 +4,4 @@
 
 <p>A submission form appears if you click on a problem number in its result grid. Put your binary sequence and submit the form. A feedback message tells you if the problem has been <a href="javascript:show_help('broken')">broken or not</a>, and the result grid is updated accordingly.</p>
 
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

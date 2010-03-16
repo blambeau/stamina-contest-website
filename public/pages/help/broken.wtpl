@@ -6,4 +6,4 @@
 
 <p><b>The first technique to solve a hardest cell, among those solved in the competition, will be the winner.</b></p>
 
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

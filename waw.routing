@@ -2,6 +2,7 @@ Waw.rack do
   use ::Rack::CommonLogger,  Waw.logger
   use ::Rack::Session::Pool, :domain       => Waw.config.web_domain,
                              :expire_after => Waw.config.rack_session_expire
+  use ::WebStamina::NoCache
   use ::WebStamina::RememberApp
   map '/' do
     run ::Waw::StaticController.new(:root => 'public')
@@ -27,18 +28,10 @@ Waw.rack do
       end          
     }
   end
-  # map '/freesubmit' do 
-  #   run lambda{|env|
-  #     req = ::Rack::Request.new(env)
-  #     result = ::WebStamina::Controllers::CompeteController.instance.submit_cell(req.params.symbolize_keys)
-  #     feedback = result[1].to_s
-  #     [301, {'Location' => req.referrer + "?feedback=#{feedback}"}, [""]]
-  #   }
-  # end
   map '/randbinary' do
     run lambda{|env|
       s = ""; 1500.times{|i| s << rand(2).to_s }
-      [200, {'Content-Type' => 'text/plain; charset=utf8'}, [s]]
+      [200, {'Content-Type' => 'text/plain; charset=UTF-8'}, [s]]
     }
   end
 end

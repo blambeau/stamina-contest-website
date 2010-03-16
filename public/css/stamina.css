@@ -6,13 +6,12 @@ body {
 	font-size: 14px;
 	padding: 40px 0px 0px 0px;
 	background-color: white;
-  overflow: scroll;
   background: url(../images/specimen.gif);
 }
 a { cursor: pointer; }
 img { border: none;}
-div.left { clear: left; }
-div.right { clear: right; }
+div.left {  float: left; }
+div.right { float: right; }
 div.clear { clear: both; }
 * { line-height: 19px; }
 
@@ -24,9 +23,11 @@ div.clear { clear: both; }
 }
 #banner h1 {
 	position: absolute;
-	top: 40px;
+	top: 30px;
+	height: 100px;
 	font-variant: small-caps;
 	padding: 0px;
+	padding-top:10px;
 	margin: 0px;
   color: #820000;
 }
@@ -72,12 +73,17 @@ div.clear { clear: both; }
 	
 
 /* ------------------------------- Menu */
-ul#menu { clear: both; font-size: 1em; }
+ul#menu { 
+	clear: both; font-size: 1em;
+	height: 20px;
+	margin-bottom: 0px;
+}
 ul#menu li {
 	display: block;
 	float: left;
 	list-style : none;
 	width: 80px;
+	height: 20px;
   border: 1px solid #CF4500;
   border-bottom: none;
   background-color: white;
@@ -150,9 +156,9 @@ ul#menu li.last { width: 150px; }
 	border-collapse: collapse;
 	border: 1px solid black;
 }
-#content table.left { float: left; margin-left: 50px;}
-#content table.right { float: right; margin-right: 50px;}
-#content table td, #content table th  {
+#content table.left  { float: left;  margin-left: 30px;    padding-left: 0px;}
+#content table.right { float: right; margin-right: 30px; padding-right: 0px;}
+#content table td, #content table th, #content table tr td.th  {
 	padding: 3px 10px 3px 10px;
 	border: 1px solid black;
 	text-align: center;
@@ -163,15 +169,11 @@ ul#menu li.last { width: 150px; }
 	font-weight: bold;
 	padding-bottom: 10px;
 }
-#content table th {
-  font-weight: normal;
-}
-#content table td {
-  color: #CF4500;
-}
-#content table td a:hover {
-  font-weight: bold;
-}
+#content table th, #content table td.th { font-weight: normal; }
+#content table td { color: #CF4500; }
+#content table td a:hover { font-weight: bold; }
+#content table td.th  { color: black; }
+
 #content dl dt { padding-bottom: 2px; }
 #content pre { background: #222222; color: white; padding: 5px; padding-left:10px; margin:5px; margin-left: 30px;}
 #content pre.left { text-align: left; }
@@ -182,10 +184,8 @@ ul#menu li.last { width: 150px; }
 	float: left;
 }
 
-#content table.competition-grid tr td {
-	width: 130px;
-	color: black;
-}
+#content table.competition-grid td { width: 130px; color: black; }
+#content table.competition-grid td.th { width: auto; color: black; }
 
 #content table tr td.broken     { background-color: #7FF100; }
 #content table tr td.pending    { background-color: #FFFF4D; }
@@ -196,23 +196,29 @@ ul#menu li.last { width: 150px; }
 #compete table tr td.pending    { background-color: #FFFF4D; }
 #compete table tr td.active     { background-color: #CCCCCC; }
 #compete table tr td.inactive   { background-color: white; }
+
 #compete table tr td            { color: black; }
 #compete table.legend           { margin-left: 45px; }
 
-#compete table tr td .broken   { font-weight: bold; color: green; }
-#compete table tr td .pending,  
-#compete table tr td .active   { font-weight: bold; color: #FF8C00; }  
-#compete table tr td .inactive { color: black; }
-#compete table tr td a         { color: black; }
+#compete table tr td .broken, 
+#compete table tr td a.broken:visited   { font-weight: bold; color: green; }
+#compete table tr td .pending,
+#compete table tr td a.pending:visited,
+#compete table tr td .active,
+#compete table tr td a.active:visited   { font-weight: bold; color: #FF8C00; }  
+#compete table tr td .inactive,
+#compete table tr td a.inactive:visited { color: black; }
+
 #compete table tr td.left { text-align: left; }
 
 span.winners { background-color: #7FF100; padding: 3px 3px; }
 span.pending { background-color: #FFFF4D; padding: 3px 3px; }
 
 #content table.submission-grid { margin-top: 0px; }
-
 #content input.submit {float: right; margin-top:10px;}
-table.submission-grid tr td {width: 100px;}
+table.submission-grid tr td { width: 100px; }
+table.submission-grid tr td.th { width: auto; }
+
 form#problem-based-submission-form,
 form#cell-based-submission-form {
 	margin-left: 25px;
@@ -230,6 +236,8 @@ form label {
 
 form {
 	font-family: "Myriad Pro", "Arial", sans-serif;
+	margin: 0px;
+	padding: 0px;
 /*	font-size: 90%; */
 }
 form p.feedback {
@@ -240,10 +248,11 @@ form p.feedback {
 	margin-bottom: 20px;
 }
 form p.feedback ul {
-	margin: 0px;
-	padding: 0px;
+	list-style-type: square;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	margin-left: 25px;
-	width: 100%;
+	padding-left: 0px;
 }
 form.form-followed {
 	float: left;
@@ -426,8 +435,10 @@ form.form-460 p.form-button input {
 #popup p {
 	text-align: justify;
 	line-height: normal;
+	margin-bottom: 0px;
+	margin-top: 10px;
 }
-#popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:5px;}
+#popup pre { background: #222222; color: white; padding: 5px; padding-left: 10px; margin:10px 0px;}
 #popup img { margin: 15px auto; }
 
 div#compete {
@@ -466,3 +477,6 @@ ul#challengers li.current {
 #cell_submission_fields { margin: auto; }
 #cell_submission_fields tr td { text-align: left; }
 #cell_submission_fields textarea { height: 50px; width: 350px; }
+div.w3c {
+	padding-top: 10px;
+}

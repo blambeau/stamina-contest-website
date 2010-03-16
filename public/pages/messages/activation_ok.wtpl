@@ -5,4 +5,4 @@
 <p>You have been automatically logged into the web site. You will now be redirected on 
    the submission page to manage your algorithm challenger(s).</p>
    
-<input type="button" onclick="javascript:hide_popup()" value="Close"/>
+<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>
