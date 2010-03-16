@@ -10,6 +10,7 @@ function show_popup(url, width) {
 		inside_height = $('#inside').height()+100;
 		window_height = $(window).height();
 		$('#hide').height(inside_height > window_height ? inside_height : window_height);
+		$('#hide').width($(window).width());
 	  $('#hide').show();
 		$('#popup').show();
 	});
