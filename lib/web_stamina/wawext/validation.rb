@@ -30,7 +30,7 @@ module Waw
     validator :authorized_user, validator{|mail, password|
       user = Waw.resources.db.user_tuple(
         {:mail      => mail, 
-         :password   => Digest::MD5.hexdigest(password), 
+         :password   => Digest::MD5.hexdigest(password.nil? ? "" : password), 
          :activation => ""}, false)
       user && (user[:admin_level] >= 0)
     }

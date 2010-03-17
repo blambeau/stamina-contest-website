@@ -22,11 +22,3 @@ require 'web_stamina/no_cache'
 require 'web_stamina/grid_tools'
 require 'web_stamina/controllers/people_controller'
 require 'web_stamina/controllers/compete_controller'
-
-::Waw::kernel.add_start_hook do |kernel|
-  database = ::Rubyrel::connect(kernel.config.database_handler)
-  database.extend(WebStamina::DatabaseFunctions)
-  kernel.resources.send(:add_resource, :db, database)
-  kernel.resources.send(:add_resource, :sequel_db, database.handler)
-  kernel.resources.send(:add_resource, :grid_tools, ::WebStamina::GridTools.new(database))
-end
