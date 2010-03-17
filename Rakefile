@@ -17,4 +17,4 @@ Spec::Rake::SpecTask.new(:spec) do |t|
 end
 
 desc "Launches all tests"
-task :test => [:wspec]
+task :test => [:spec, :wspec]
