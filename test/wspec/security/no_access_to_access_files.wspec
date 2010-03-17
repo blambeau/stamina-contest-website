@@ -1,0 +1,8 @@
+requirement("Waw access files (.wawaccess) are not served") {
+  i_may_not_reach index_page + '.wawaccess'
+  i_may_not_reach index_page + 'pages/.wawaccess'
+  i_may_not_reach index_page + 'templates/.wawaccess'
+}
+requirement("Apache access files (.htaccess) are not served") {
+  i_may_not_reach index_page + '.htaccess'
+}

@@ -12,13 +12,7 @@ requirement("Static pages are correctly served") {
     i_reach(index_page + page)
   }
 }
-requirement(".wawaccess files are correctly written") {
-  i_may_not_reach index_page + '.wawaccess'
-  i_may_not_reach index_page + 'pages/.wawaccess'
-  i_may_not_reach index_page + 'templates/.wawaccess'
-  i_may_not_reach index_page + 'templates/layout.wtpl'
-}
-requirement("the default wlang context is correct") {
+requirement("CSS stylesheets and JS files are correctly included") {
   i_reach index_page
   i_see_tag "link",   {:rel => "stylesheet", :type => "text/css", :href => /^.*\.css/}
   i_see_tag "script", {:type => "text/javascript", :src => /^.*\.js$/}

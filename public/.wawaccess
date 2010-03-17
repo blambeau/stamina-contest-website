@@ -1,7 +1,7 @@
 wawaccess do
 
   # .wawaccess files are never served
-  match /.wawaccess$/ do
+  match /.(waw|ht)access$/ do
     deny
   end
   
