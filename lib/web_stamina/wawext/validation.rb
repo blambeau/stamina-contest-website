@@ -20,6 +20,10 @@ module Waw
       not(Waw.resources.db.user_exists?(:nickname => nickname))
     }
     
+    # Checks that a nickname respects [0-9a-zA-Z_\-]{2,10}
+    validator :valid_nickname, validator{|nickname|
+      (nickname =~ /^[0-9a-zA-Z\-_]{2,10}$/)
+    }
 
 
     #############################################################################################

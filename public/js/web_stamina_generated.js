@@ -4,14 +4,13 @@
 /* Messages, from waw.resources.messages */
 var messages = new Array();
 messages['bad_authorize'] = "Bad value sent by your browser for a checkbox";
-messages['bad_challenger_name'] = "Your challenger name must contain between 2 and 10 characters";
 messages['bad_mail'] = "Invalid e-mail address";
-messages['bad_nickname'] = "Your nickname must contain between 2 and 10 characters";
+messages['bad_nickname'] = "Your nickname should have alphanumeric characters only (max 10)";
 messages['bad_password'] = "You password should contain at least 8 and maximum 15 characters";
 messages['bad_user_or_password'] = "Unknown user or bad password";
 messages['challenger_name_already_in_use'] = "You already have a challenger with this name";
 messages['invalid_algorithm'] = "You cannot submit result for this algorithm";
-messages['invalid_algorithm_name'] = "Your algorithm name should respect [a-zA-Z0-9_-]{2,10}";
+messages['invalid_algorithm_name'] = "Your algorithm should have alphanumeric characters only (max 10)";
 messages['invalid_binary_sequence'] = "Binary sequence should contain 1500 characters (0 or 1) without any space";
 messages['invalid_binary_sequence_1'] = "Your first binary sequence is invalid";
 messages['invalid_binary_sequence_2'] = "Your second binary sequence is invalid";

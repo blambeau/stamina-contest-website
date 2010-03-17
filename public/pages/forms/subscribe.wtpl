@@ -12,7 +12,7 @@
 		</p>
 		
 		<p class="span-4">
-			<label for="nickname">Choose a nickname (public competitor name, max 10 characters)&nbsp;:</label>
+			<label for="nickname">Choose a nickname (max 10 alphanumeric characters)&nbsp;:</label>
 			<input type="text" name="nickname" value="" tabindex="100" maxlength="10"/>
 		</p>
 		

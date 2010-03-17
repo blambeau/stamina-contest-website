@@ -7,7 +7,7 @@
 		<p class="feedback"></p>
 		
 		<p class="span-4">
-			<label for="algorithm">The challenger name (max 10 characters)&nbsp;:</label>
+			<label for="algorithm">The challenger name (max 10 alphanumeric characters)&nbsp;:</label>
 			<input type="text" name="algorithm" value="" tabindex="100" size="10"/>
 		</p>
 		
