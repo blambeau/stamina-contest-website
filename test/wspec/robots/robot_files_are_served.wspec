@@ -1,0 +1,6 @@
+requirement("Robot file robots.txt is served") {
+  i_reach index_page + 'robots.txt'
+}
+requirement("Site map file sitemap.xml is served") {
+  i_reach index_page + 'sitemap.xml'
+}
