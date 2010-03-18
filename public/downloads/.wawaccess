@@ -11,19 +11,19 @@ wawaccess do
     static
   end
   
-  # Matching a training sample
-  match /training_sample_(\d\d?|100)\.txt$/ do |url, number|
-    [200, {'Content-Type' => 'text/plain; charset=UTF-8',
-           'Content-disposition' => "attachment; filename=training_sample_#{number}.txt"}, 
-           ["#{number}"]]
-  end
-  
-  # Matching a test sample
-  match /test_sample_(\d\d?|100)\.txt$/ do |url, number|
-    [200, {'Content-Type' => 'text/plain; charset=UTF-8',
-           'Content-disposition' => "attachment; filename=test_sample_#{number}.txt"}, 
-           ["#{number}"]]
-  end
+  # # Matching a training sample
+  # match /training_sample_(\d\d?|100)\.txt$/ do |url, number|
+  #   [200, {'Content-Type' => 'text/plain; charset=UTF-8',
+  #          'Content-disposition' => "attachment; filename=training_sample_#{number}.txt"}, 
+  #          ["#{number}"]]
+  # end
+  # 
+  # # Matching a test sample
+  # match /test_sample_(\d\d?|100)\.txt$/ do |url, number|
+  #   [200, {'Content-Type' => 'text/plain; charset=UTF-8',
+  #          'Content-disposition' => "attachment; filename=test_sample_#{number}.txt"}, 
+  #          ["#{number}"]]
+  # end
   
   # When the file cannot be found
   match true do

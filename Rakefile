@@ -18,3 +18,21 @@ end
 
 desc "Launches all tests"
 task :test => [:spec, :wspec]
+
+desc "Installs the database from scratch"
+task :"db-install" do
+  require('lib/web_stamina/model/install')
+end
+
+desc "Installs the download files"
+task :downloads do
+  kernel = ::Waw::autoload(__FILE__)
+  kernel.resources.db.default.competition_data.each do |tuple|
+    File.open("public/downloads/training_sample_#{tuple.problem}.txt", 'w') do |file|
+      file << tuple.learning_sample
+    end
+    File.open("public/downloads/test_sample_#{tuple.problem}.txt", 'w') do |file|
+      file << tuple.test_sample
+    end
+  end
+end

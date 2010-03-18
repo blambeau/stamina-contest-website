@@ -3,8 +3,8 @@ default.submissions = []
 default.valid_submissions = []
 
 # People & challengers
-default.people = []
 default.challengers = []
+default.people = []
 
 # Cells
 default.cells = [
