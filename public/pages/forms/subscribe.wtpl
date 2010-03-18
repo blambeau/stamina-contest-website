@@ -2,7 +2,8 @@
 	<form action="{action.uri}" method="post" enctype="multipart/form-data" id="subscribe" class="form-460">
 	  <h4>Create a competitor account</h4>
 		<p>After having filled the form below, you will receive an e-mail with instructions to activate you account. 
-		   Once done you will have access to competitor dedicated features, including result submissions.</p>
+		   <b><u>Please check your spam folder</u></b> and take contact with the organizers if you do not receive this mail within
+		      24 hours</p>
 		
 		<p class="feedback"></p>
 		
