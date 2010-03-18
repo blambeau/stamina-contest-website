@@ -15,7 +15,7 @@
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>
-      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+      <input type="button" onclick="javascript:hide_popup(false)" value="Close"/>
       <input type="button" onclick="javascript:randbinary()" value="Example"/>
 			+{action.ajax_form_preparer}
 		</p>

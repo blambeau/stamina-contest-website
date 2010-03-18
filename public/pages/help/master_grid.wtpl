@@ -6,4 +6,4 @@
   <li>Pending cells (some problems are broken but not all of them) appear with a yellow background. Displayed challenger is the one that looks in the best position for that cell in the competition (most broken problem).
 </ul>
 
-<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>
+<p><input type="button" onclick="javascript:hide_popup(false)" value="Close"/></p>

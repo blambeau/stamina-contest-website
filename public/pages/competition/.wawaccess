@@ -12,12 +12,16 @@ wawaccess do
     user = session.current_user[:id]
     if user
       challengers = resources.sequel_db[:challengers].filter(:people => user).order(:creation_time.asc)
-      algorithm = (challengers.order(:creation_time.desc).first || {})[:algorithm] unless algorithm
-      wlang '../../templates/layout.wtpl', {'served_file' => "pages/competition/compete.redcloth", 
-                                            :people => user,
-                                            :challengers => challengers,
-                                            :algorithm => algorithm,
-                                            :current => 'compete'}
+      if algorithm and challengers.filter(:algorithm => algorithm).empty?
+        [301, {'Location' => '/competition/compete'}, [""]]
+      else
+        algorithm = (challengers.order(:creation_time.desc).first || {})[:algorithm] unless algorithm
+        wlang '../../templates/layout.wtpl', {'served_file' => "pages/competition/compete.redcloth", 
+                                              :people => user,
+                                              :challengers => challengers,
+                                              :algorithm => algorithm,
+                                              :current => 'compete'}
+      end
     else
       [301, {'Location' => '/home?feedback=forbidden'}, [""]]
     end

@@ -1,8 +1,0 @@
-<h4>Your account has been activated!</h4>
-
-<p>Thank you for participating to the StaMinA competition.</p> 
-
-<p>You have been automatically logged into the web site. You will now be redirected on 
-   the submission page to manage your algorithm challenger(s).</p>
-   
-<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>

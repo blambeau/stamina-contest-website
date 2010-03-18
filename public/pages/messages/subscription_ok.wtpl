@@ -3,4 +3,4 @@
 <p>Thank you for subscribing to the StaMinA competition. You will shortly receive an email with instructions to activate 
    your account.</p>
    
-<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>
+<p><input type="button" onclick="javascript:hide_popup(false)" value="Close"/></p>

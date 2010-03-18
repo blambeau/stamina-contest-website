@@ -3,4 +3,4 @@
 <p>The activation key you provided seems invalid. If this problem persists, please 
    <a onclick="javascript:show_contact_form()">take contact</a> with the organizers.</p>
    
-<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>
+<p><input type="button" onclick="javascript:hide_popup(false)" value="Close"/></p>

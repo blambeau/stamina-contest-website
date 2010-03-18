@@ -22,7 +22,7 @@ Waw.rack do
       result = ::WebStamina::Controllers::PeopleController.instance.activate_account(req.params.symbolize_keys)
       case result
         when [:success, :ok]
-          [301, {'Location' => Waw.config.web_base + 'competition/compete?feedback=activation_ok'}, [""]]
+          [301, {'Location' => Waw.config.web_base + 'competition/compete'}, [""]]
         else
           [301, {'Location' => Waw.config.web_base + 'home?feedback=activation_ko'}, [""]]
       end          

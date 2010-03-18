@@ -22,7 +22,7 @@
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>
-      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+      <input type="button" onclick="javascript:hide_popup(false)" value="Close"/>
       ?{knows?(:cookies) and cookies}{
         <div class="right"><b>This website requires cookies.</b></div>
       }

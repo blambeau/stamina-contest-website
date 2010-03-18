@@ -1,45 +1,10 @@
 <div id="compete">
-  <ul id="challengers">
-    <li class="heading">Your challengers</li>
-    *{challengers as c}{
-      <li class="?{c.algorithm==algorithm}{current}{other}">
-        <a href="/competition/compete/${c.algorithm}">${c.algorithm}</a>
-      </li>
-    }
-    <li>
-      <a onclick="javascript:show_create_challenger_form()">create ...</a>
-    </li>
-  </ul>
-
-
+  <<+{challengers.wtpl share all}
   <div class="competitor-grids">
-h3. Results and submissions
-
     ?{algorithm}{
-      <p>The grids below provides you feedback about results or your challenger and allows you to submit labeled test sets on a problem or cell basis. The following color legend applies in these grids:</p>
-      <table class="legend">
-        <tr>
-          <td class="broken">broken cell</td>
-          <td class="left">All problems have a BCR score >= 0.99</td>
-        </tr>
-        <tr>
-          <td class="pending">pending cell</td>
-          <td class="left">At least one problem has a BCR >= 0.99</td>
-        </tr>
-        <tr>
-          <td class="active">active cell</td>
-          <td class="left">At least one submission in the cell</td>
-        </tr>
-      </table>
-      
-      <h4>Problem-based competition grid</h4>
-      <p>Problem numbers in green are broken by your challenger. Orange numbers denote problems for which at least one submission has been done. Black numbers are problems for which you did not make any submission.</p> 
-      !{grid_tools.problem_based_submission_grid(nil, "submission-grid", people, algorithm)}
-
-      <h4>Cell-based competition grid</h4>
-      !{grid_tools.cell_based_submission_grid(nil, "submission-grid", people, algorithm)}
+      <<+{challenger_grids.wtpl share all}
     }{
-<p>Welcome in this competition! You don't have any challenger for now. A challenger is simply an induction algorithm with which you plan to participate. Each account may have multiple challengers. Use the create link at left to create a new one.</p>
+      <<+{welcome.wtpl share all}
     }
   </div>
   <div class="clear"></div>

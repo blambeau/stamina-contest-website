@@ -17,4 +17,4 @@
 
 <p>All test sets in the competition contain 1500 strings, so your binary sequences must have 1500 characters without any space.</p>
 
-<p><input type="button" onclick="javascript:hide_popup()" value="Close"/></p>
+<p><input type="button" onclick="javascript:hide_popup(false)" value="Close"/></p>

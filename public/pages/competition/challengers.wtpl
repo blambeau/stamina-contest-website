@@ -1,0 +1,11 @@
+<ul id="challengers">
+  <li class="heading">Your challengers</li>
+  *{challengers as c}{
+    <li class="?{c.algorithm==algorithm}{current}{other}">
+      <a href="/competition/compete/${c.algorithm}">${c.algorithm}</a>
+    </li>
+  }
+  <li>
+    <a onclick="javascript:show_create_challenger_form()">create ...</a>
+  </li>
+</ul>

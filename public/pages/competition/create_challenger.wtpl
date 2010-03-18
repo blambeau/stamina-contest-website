@@ -13,7 +13,7 @@
 		
 		<p class="form-button">
 			<input type="submit" tabindex="102" value="Go »"/>
-      <input type="button" onclick="javascript:hide_popup()" value="Close"/>
+      <input type="button" onclick="javascript:hide_popup(hide_popup)" value="Close"/>
 			+{action.ajax_form_preparer(:form_id => 'create_challenger')}
 		</p>
 	</form>
