@@ -3,6 +3,7 @@ require "rake/rdoctask"
 require "rake/testtask"
 require 'spec/rake/spectask'
 require "waw"
+require "fileutils"
 
 task :default => [:test]
 
@@ -25,13 +26,14 @@ task :"db-install" do
 end
 
 desc "Installs the download files"
-task :downloads do
+task :makegrid do
   kernel = ::Waw::autoload(__FILE__)
+  FileUtils.mkdir("public/downloads/grid") unless File.exists?("public/downloads/grid")
   kernel.resources.db.default.competition_data.each do |tuple|
-    File.open("public/downloads/training_sample_#{tuple.problem}.txt", 'w') do |file|
+    File.open("public/downloads/grid/#{tuple.problem}_training.txt", 'w') do |file|
       file << tuple.learning_sample
     end
-    File.open("public/downloads/test_sample_#{tuple.problem}.txt", 'w') do |file|
+    File.open("public/downloads/grid/#{tuple.problem}_test.txt", 'w') do |file|
       file << tuple.test_sample
     end
   end
