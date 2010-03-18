@@ -5,3 +5,5 @@ waw.deploy
 config/*.cfg
 tmp
 logs
+stageprod.sh
+vendor/stamina
