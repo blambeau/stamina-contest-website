@@ -1,6 +1,6 @@
 <p>Hi ${first_name},<p>
 
-<p>You have requested a competitor account for the StaMinA Competition, hosted at ${hosting_site}.</p> 
+<p>You have requested a competitor account for the StaMinA Competition, hosted at <a href="http://stamina.dcs.shef.ac.uk/">http://stamina.dcs.shef.ac.uk</a>.</p> 
 
 <p>Please follow <a href="{activation_link}">this link</a> to activate your account, then follow instructions on the website.</p>
 
