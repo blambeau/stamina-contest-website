@@ -1,6 +1,6 @@
 h3. About
 
-The STAMINA (STAte Machine INference Approaches) competition aims to identify the best technique for learning deterministic finite state machines (FSMs) defined on large alphabets. It extends former competitions, especially "Abbadingo":http://www-bcl.cs.may.ie/, and focusses on large alphabets with an adapted generation protocol for target machines and strings. It aims to encourage the development of novel learning algorithms and to encourage cross-fertilization between the machine learning and software engineering communities. *A prize of &pound;700 (about $1146) will be awarded to the winner.*
+The STAMINA (STAte Machine INference Approaches) competition aims to identify the best technique for learning deterministic finite state machines (FSMs). It extends former competitions, especially "Abbadingo":http://www-bcl.cs.may.ie/, and focusses on the complexity of the learning with respect to the alphabet size. Stamina relies on an adapted generation protocol for target machines and strings. It aims to encourage the development of novel learning algorithms and to encourage cross-fertilization between the machine learning and software engineering communities. *A prize of &pound;700 (about $1146) will be awarded to the winner.*
 
 The most significant contributions will be selected by the competition organizers and their authors will also be invited to submit their work in a special issue of the "Journal of Empirical Software Engineering":http://www.springer.com/computer/programming/journal/10664.
 
