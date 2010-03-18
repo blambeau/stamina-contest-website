@@ -42,7 +42,7 @@ default.problems = default.cells.collect{|t|
 }.flatten
 
 # Competition data
-source_dir = File.join('contest', 'grid')
+source_dir = File.join('contest')
 default.competition_data = (1..100).collect{|id|
   {:problem         => id,
    :target_adl      => File.read(File.join(source_dir, "#{id}_target.adl")),
