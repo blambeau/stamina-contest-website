@@ -28,7 +28,9 @@ end
 desc "Installs the download files"
 task :makegrid do
   kernel = ::Waw::autoload(__FILE__)
-  FileUtils.mkdir("public/downloads/grid") unless File.exists?("public/downloads/grid")
+  FileUtils.rm_rf("public/downloads/grid") if File.exists?("public/downloads/grid")
+  FileUtils.rm_rf("public/downloads/grid.tar.gz") if File.exists?("public/downloads/grid.tar.gz")
+  FileUtils.mkdir("public/downloads/grid")
   kernel.resources.db.default.competition_data.each do |tuple|
     File.open("public/downloads/grid/#{tuple.problem}_training.txt", 'w') do |file|
       file << tuple.learning_sample
@@ -37,4 +39,5 @@ task :makegrid do
       file << tuple.test_sample
     end
   end
+  puts `cd public/downloads && tar -cf grid.tar grid && gzip grid.tar && cd ../..`
 end

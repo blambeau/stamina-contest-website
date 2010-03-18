@@ -8,3 +8,4 @@ logs
 stageprod.sh
 vendor/stamina
 public/downloads/grid
+public/downloads/grid.tar.gz

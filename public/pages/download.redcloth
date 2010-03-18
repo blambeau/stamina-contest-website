@@ -2,7 +2,7 @@ h3. Training & Test Sets
 
 Training and test strings for each of the 100 problems can be downloaded using the two tables below. A cell is considered broken if your induction algorithm solves the 5 problems it contains (see @{protocol}{the protocol page} for details, and the "section below":#file-formats about file formats). 
 
-Alternatively to these tables, you can download "the archive that contains all of the training sets":/downloads/packed_grid.tar.gz (see the "section below":#file-formats about its content).
+Alternatively to these tables, you can download the ".tar.gz archive":/downloads/grid.tar.gz that contains all of the training and test sets:
 
 !{grid_tools.training_download_grid("Training sets")}
 !{grid_tools.test_download_grid("Test sets")}
@@ -25,30 +25,4 @@ For test sets:
 <pre class="left">
 ?             # the empty string could of course be classified
 ? 21 5 6      # a test string to be classified as well (3 symbols)
-</pre>
-
-The "compressed archive":/downloads/packed_grid.tar.gz contains 20 text files, one for each grid cell. Therefore each file contains the training and testing data of five problems. These files respect the following abstract format:
-
-<pre class="left">
-id [PROBLEM NUMBER]       # first problem in the cell
-[TRAINING SET]
-[TEST SET]
-id [PROBLEM NUMBER]       # next problem
-...
-</pre>
-
-For example, 
-
-<pre class="left">
-id 1                      # first problem in the first cell (alphabet of size 2)
-+ 1 2 1 2                 # training set starts here
-- 1 2 1
-...
-+ 1
-? 2 1 2 2 1               # test set starts here
-? 2 2 
-?                             # never forget that the empty string exists ;-)
-...
-id 2                      # second problem in the cell
-...
-</pre>
+</pre> 
