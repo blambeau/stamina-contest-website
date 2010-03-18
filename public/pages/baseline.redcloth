@@ -19,11 +19,10 @@ Please report any bug, feature or documentation request on our "redmine bug trac
 
 h3. Installing Ruby
 
-To run the baseline implementation, you need a correct ruby installation >= 1.8.6. Please refer to http://www.ruby-lang.org/ for download and installation procedures on the operating systems. On Debian/Ubuntu system, the following commands should suffice:
+To run the baseline implementation, you need a correct ruby installation >= 1.8.6. Please refer to http://www.ruby-lang.org/ for download and installation procedures on the operating systems. On Debian/Ubuntu system, the following command should suffice:
 
 <pre>
 apt-get install ruby ruby1.8-dev ri irb rake rubygems rdoc
-gem update --system
 </pre>
 
 h3. Running tests & Generating documentation
