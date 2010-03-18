@@ -33,13 +33,22 @@ function show_cell_submission_form(algo, id) {
 function show_help(what) {
 	show_popup('pages/help/' + what, 460);
 }
+function random_binary_sequence() {
+	var s = "";
+	for (i=0; i<1500; i++) {
+		if (Math.random() <= 0.5) {
+			s += "0";
+		} else {
+		  s += "1";
+		}
+	}
+	return s;
+}
 function randbinary() {
-	$.get('/randbinary', function(data) { $('#binseq').val(data); });
+	$('#binseq').val(random_binary_sequence());
 }
 function randbinaries() {
-	$.get('/randbinary', function(data) { $('#binseq_1').val(data); });
-	$.get('/randbinary', function(data) { $('#binseq_2').val(data); });
-	$.get('/randbinary', function(data) { $('#binseq_3').val(data); });
-	$.get('/randbinary', function(data) { $('#binseq_4').val(data); });
-	$.get('/randbinary', function(data) { $('#binseq_5').val(data); });
+	for (var i=1; i<=5; i++) {
+		$('#binseq_' + i).val(random_binary_sequence());
+	}
 }

@@ -6,7 +6,7 @@ body {
 	font-size: 14px;
 	padding: 40px 0px 0px 0px;
 	background-color: white;
-  background: url(../images/specimen.gif);
+  /* background: url(../images/specimen.gif); */
 }
 a { cursor: pointer; }
 img { border: none;}
