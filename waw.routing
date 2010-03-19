@@ -52,7 +52,4 @@ Waw.rack do
       end          
     }
   end
-  map '/raise' do
-    run lambda{|env| raise ArgumentError, "mail should not be nil"}
-  end
 end
