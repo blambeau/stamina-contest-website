@@ -9,7 +9,7 @@ Waw.rack do
     end
     begin
       mail = ::Waw::Tools::MailAgent::Mail.new "Stamina server fatal error",
-                                               ex.backtrace.join("\n"),
+                                               ex.message + "\n" + ex.backtrace.join("\n"),
                                                "stamina@listes.uclouvain.be",
                                                "blambeau@gmail.com"
       k.resources.business.mail_agent << mail
