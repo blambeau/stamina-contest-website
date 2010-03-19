@@ -1,5 +1,5 @@
 Waw.rack do
-  use ::Waw::ErrorHandler, Kernel.lambda {|k, ex|
+  error_handler {|k, ex|
     begin
       k.logger.fatal(ex.message)
       k.logger.fatal(ex.backtrace.join("\n"))
@@ -19,8 +19,8 @@ Waw.rack do
       puts ex.backtrace.join("\n")
       nil
     end
-  }, Kernel.lambda{|k, ex|
-    # Redirection to the 500.html web page with apologies
+  }
+  error_handler {|k, ex|
     [301, {'Location' => k.config.web_base + '500.html'}, ['']]
   }
   use ::Rack::CommonLogger,  Waw.logger
