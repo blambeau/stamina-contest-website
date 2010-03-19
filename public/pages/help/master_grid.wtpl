@@ -1,9 +1,0 @@
-<h4>The master competition grid</h4>
-
-<p>The master competition grid presents the current results of the competition:</p>
-<ul>
-  <li><a onclick="javascript:show_help('broken')">Broken cells</a> are labeled with the competition/challenger that gained the cell and appear with a green background.</li>
-  <li>Pending cells (some problems are broken but not all of them) appear with a yellow background. Displayed challenger is the one that looks in the best position for that cell in the competition (most broken problem).
-</ul>
-
-<p><input type="button" onclick="javascript:hide_popup(false)" value="Close"/></p>

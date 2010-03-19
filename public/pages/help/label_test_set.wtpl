@@ -2,7 +2,7 @@
 
 <p>Once you have a classifier (typically a DFA synthesized from a training set) for a given problem, you need to label the test set you have downloaded by producing a binary sequence of labels. Such a binary sequence contains for each test string, a 1 if the string is considered to be accepted, and a 0 otherwise.</p>
 
-<p>Assume that your classifier is the DFA below, and that the test set if the following:</p>
+<p>Assume that your classifier is the DFA below, and that the test set is the following:</p>
 
 <pre class="left">
 ? 0 1 0

@@ -1,6 +1,6 @@
 <h4>Submit labeled test sets</h4>
 
-<p>Go to the <a href="competition/compete">submission page</a> (requires to be logged as a competitor) and select the result grid of the challenger algorithm for which you want submit labeled test sets.</p>
+<p>Go to the <a href="competition/compete">submission page</a> (requires to be logged as a competitor) and select the result grid of the challenger algorithm for which you want to submit labeled test sets.</p>
 
 <p>A submission form appears if you click on a problem number in its result grid. Put your binary sequence and submit the form. A feedback message tells you if the problem has been <a href="javascript:show_help('broken')">broken or not</a>, and the result grid is updated accordingly.</p>
 

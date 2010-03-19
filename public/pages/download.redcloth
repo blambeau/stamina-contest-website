@@ -9,7 +9,7 @@ Alternatively to these tables, you can download the ".tar.gz archive":/downloads
 
 h3(#file-formats). File formats
 
-The files in the grids above contain input strings, one per line. Training sets contains positive (starting with **@+@**) and negative strings (starting with **@-@**) in any order. Test sets contains test strings only (starting with **@?@**). Symbols are always integer literals and are separated by one space:
+The files in the grids above contain input strings, one per line. Training sets contain positive (starting with **@+@**) and negative strings (starting with **@-@**) in any order. Test sets contain test strings only (starting with **@?@**). Symbols are always integer literals and are separated by one space:
 
 For training sets:
 

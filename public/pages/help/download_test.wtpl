@@ -10,7 +10,7 @@
 ...
 </pre>
 
-<p>Don't forget that empty string (containing no symbol at all) exists. Therefore, the following line may appear in a test set:</p>
+<p>Don't forget that the empty string (containing no symbol at all) exists. Therefore, the following line may appear in a test set:</p>
 
 <pre class="left">
 ?

@@ -2,7 +2,7 @@
 
 <p>Go to the @{download}{download page} and click on the problem number in the training set grid.</p>
 
-<p>A training set for a given problem is a text file containing one string on each line (see example below). Positive strings (accepted by target machine) starts with a '+' and negative strings (rejected) with a '-'. Strings are made of <i>symbols</i>, represented by integer literals and separated by one space.</p>
+<p>A training set for a given problem is a text file containing one string on each line (see example below). Positive strings (accepted by target machine) start with a '+' and negative strings (rejected) with a '-'. Strings are made of <i>symbols</i>, represented by integer literals and separated by one space.</p>
 
 <pre class="left">
 + 1 7 23 2 1 7 0
