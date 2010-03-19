@@ -1,8 +1,32 @@
 Waw.rack do
+  use ::Waw::ErrorHandler, Kernel.lambda {|k, ex|
+    begin
+      k.logger.fatal(ex.message)
+      k.logger.fatal(ex.backtrace.join("\n"))
+    rescue Exception => ex
+      puts ex.message
+      puts ex.backtrace.join("\n")
+    end
+    begin
+      mail = ::Waw::Tools::MailAgent::Mail.new "Stamina server fatal error",
+                                               ex.backtrace.join("\n"),
+                                               "stamina@listes.uclouvain.be",
+                                               "blambeau@gmail.com"
+      k.resources.business.mail_agent << mail
+      nil
+    rescue Exception => ex
+      puts ex.message
+      puts ex.backtrace.join("\n")
+      nil
+    end
+  }, Kernel.lambda{|k, ex|
+    # Redirection to the 500.html web page with apologies
+    [301, {'Location' => k.config.web_base + '500.html'}, ['']]
+  }
   use ::Rack::CommonLogger,  Waw.logger
   use ::Rack::Session::Pool, :domain       => Waw.config.web_domain,
                              :expire_after => Waw.config.rack_session_expire
-  use ::WebStamina::NoCache
+  use ::Waw::NoCache
   use ::WebStamina::RememberApp
   map '/' do
     run ::Waw::StaticController.new(:root => 'public')
@@ -27,5 +51,8 @@ Waw.rack do
           [301, {'Location' => Waw.config.web_base + 'home?feedback=activation_ko'}, [""]]
       end          
     }
+  end
+  map '/raise' do
+    run lambda{|env| raise ArgumentError, "mail should not be nil"}
   end
 end
