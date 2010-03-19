@@ -15,7 +15,7 @@ If you prefer a stable version:
 
 <pre>svn checkout http://svn.chefbe.net/stamina/tags/public_0.2.1</pre>
 
-Please report any bug, feature or documentation request on our "redmine bug tracker":http://redmine.chefbe.net/projects/stamina
+Please report any bugs, features or documentation requests on our "redmine bug tracker":http://redmine.chefbe.net/projects/stamina
 
 h3. Installing Ruby
 
