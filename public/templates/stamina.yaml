@@ -1,6 +1,32 @@
 title: The StaMinA Competition
 subtitle: Learning regular languages with large alphabets
 process_image: images/usage.jpg
+description: |-
+  The STAMINA (STAte Machine INference Approaches) competition aims to identify the best technique for
+  learning deterministic finite state machines. It extends former competitions, especially Abbadingo,
+  and focusses on the complexity of the learning with respect to the alphabet size. Stamina relies on
+  original generation protocols for target machines and learning samples. It aims to encourage the
+  development of novel learning algorithms and to encourage cross-fertilization between the machine
+  learning and software engineering communities. A prize of £700 (about $1146) will be awarded to the
+  winner.
+keywords:
+  - grammar inference
+  - grammar induction
+  - grammatical inference
+  - learning competition
+  - learning contest
+  - learning algorithm
+  - final state machine
+  - dfa
+  - automaton
+  - software engineering
+  - rpni
+  - blue fringe
+  - evidence driven state merging
+  - Abbadingo
+  - Gowachin
+  - Omphalos
+  - icgi
 menu:
   - url: home
     label: Home
