@@ -35,7 +35,13 @@ div.clear { clear: both; }
 	color: #820000;
 	text-decoration: none;
 }
-#organizers { float: right; margin-bottom: 20px; }
+#organizers { 
+	float: right; 
+	margin-bottom: 20px;
+}
+#organizers img {
+	margin-left: 10px;
+}
 #banner h2 {
 	float: left;
 	font-style: italic;

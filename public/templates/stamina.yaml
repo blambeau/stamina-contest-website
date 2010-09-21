@@ -41,12 +41,15 @@ menu:
   - url: committee
     label: Scientific Committee
 organizers:
-  - name: The University of Sheffield
-    icon: images/sheffield.gif
-    website: http://www.shef.ac.uk/
   - name: The University of Louvain
     icon: images/ucl.jpg
     website: http://www.uclouvain.be/
+  - name: The University of Sheffield
+    icon: images/sheffield.gif
+    website: http://www.shef.ac.uk/
+  - name: The University of Leicester
+    icon: images/leicester.png
+    website: http://www2.le.ac.uk/
 sponsors:
   - name: Engineering and Physical Sciences Research Council
     icon: images/epsrc.jpg
