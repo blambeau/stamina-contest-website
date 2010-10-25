@@ -179,7 +179,9 @@ module WebStamina
       hash_grid = to_hash_grid(@database.handler[:stats_grid])
       grid(caption, cssclass){ |sparsity, alph, range| 
         tuple = hash_grid[alph][sparsity]
-        cbc, cpc, tsc = tuple[:challenger_broken_count], tuple[:challenger_pending_count], tuple[:total_submission_count]
+        cbc, cpc, tsc = tuple[:challenger_broken_count], 
+                        tuple[:challenger_pending_count] + tuple[:challenger_broken_count], 
+                        tuple[:total_submission_count]
         label = tuple ? "#{cbc} / #{cpc} / #{tsc}" : ""
         css_class = CELL_STATUS_TO_CSS_CLASS[tuple ? tuple[:cell_status] : 0]
         {:label => label, :css_class => css_class}

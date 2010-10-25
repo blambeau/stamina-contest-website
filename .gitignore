@@ -2,6 +2,7 @@
 # system like Git or Subversion. The following waw files should always be ignored
 # to avoid overriding configuration of other developers or production deployments
 .DS_Store
+backups
 waw.deploy
 config/*.cfg
 tmp
