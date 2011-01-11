@@ -32,7 +32,7 @@ messages['user_must_be_logged'] = "You should be logged to invoke this service."
 function webserv_people_activate_account(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/people/activate_account", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -49,7 +49,7 @@ function webserv_people_activate_account(request_data, form) {
 function webserv_people_contact(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/people/contact", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -74,7 +74,7 @@ function webserv_people_contact(request_data, form) {
 function webserv_people_login(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/people/login", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -92,7 +92,7 @@ function webserv_people_login(request_data, form) {
 function webserv_people_logout(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/people/logout", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'success') {
@@ -108,7 +108,7 @@ function webserv_people_logout(request_data, form) {
 function webserv_people_subscribe(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/people/subscribe", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -134,7 +134,7 @@ function webserv_people_subscribe(request_data, form) {
 function webserv_compete_create_challenger(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/compete/create_challenger", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -159,7 +159,7 @@ function webserv_compete_create_challenger(request_data, form) {
 function webserv_compete_submit_cell(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/compete/submit_cell", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -173,12 +173,12 @@ function webserv_compete_submit_cell(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'all_broken') {
+        if (data[1] == 'no_broken') {
+      show_popup('/messages/no_broken');
+        } else if (data[1] == 'all_broken') {
       show_popup('/messages/all_broken');
         } else if (data[1] == 'some_broken') {
       show_popup('/messages/some_broken');
-        } else if (data[1] == 'no_broken') {
-      show_popup('/messages/no_broken');
         }
       } else {
        location.reload(true);}
@@ -189,7 +189,7 @@ function webserv_compete_submit_cell(request_data, form) {
 function webserv_compete_submit_problem(request_data, form) {
   $.ajax({type: "POST", url: "/webserv/compete/submit_problem", data: request_data, dataType: "json",
     error: function(data) {
-      window.location = '/feedback?mkey=server_error';
+      window.location = '/500';
     },
     success: function(data) {
       if (data[0] == 'validation-ko') {
@@ -203,12 +203,12 @@ function webserv_compete_submit_problem(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'all_broken') {
+        if (data[1] == 'no_broken') {
+      show_popup('/messages/no_broken');
+        } else if (data[1] == 'all_broken') {
       show_popup('/messages/all_broken');
         } else if (data[1] == 'some_broken') {
       show_popup('/messages/some_broken');
-        } else if (data[1] == 'no_broken') {
-      show_popup('/messages/no_broken');
         }
       } else {
        location.reload(true);}
