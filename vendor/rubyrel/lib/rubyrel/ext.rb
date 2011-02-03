@@ -1,6 +1,0 @@
-require 'rubyrel/ext/sequel'
-require 'rubyrel/ext/core/class'
-require 'rubyrel/ext/core/object'
-require 'rubyrel/ext/core/boolean'
-require 'rubyrel/ext/core/symbol'
-require 'rubyrel/ext/core/module'

@@ -14,6 +14,7 @@ end
 
 desc "Run RSpec code examples"
 RSpec::Core::RakeTask.new(:spec) do |t|
+  t.skip_bundler = true
   t.pattern = 'test/spec/test_all.rb'
 end
 
