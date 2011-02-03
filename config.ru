@@ -1,5 +1,5 @@
 #!/usr/bin/env rackup
 require "rubygems"
-gem 'waw', '~> 0.3.0'
+require "bundler/setup"
 require "waw"
 run Waw.autoload(__FILE__)
