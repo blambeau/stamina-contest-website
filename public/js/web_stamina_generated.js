@@ -173,12 +173,12 @@ function webserv_compete_submit_cell(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'no_broken') {
+        if (data[1] == 'some_broken') {
+      show_popup('/messages/some_broken');
+        } else if (data[1] == 'no_broken') {
       show_popup('/messages/no_broken');
         } else if (data[1] == 'all_broken') {
       show_popup('/messages/all_broken');
-        } else if (data[1] == 'some_broken') {
-      show_popup('/messages/some_broken');
         }
       } else {
        location.reload(true);}
@@ -203,12 +203,12 @@ function webserv_compete_submit_problem(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'no_broken') {
+        if (data[1] == 'some_broken') {
+      show_popup('/messages/some_broken');
+        } else if (data[1] == 'no_broken') {
       show_popup('/messages/no_broken');
         } else if (data[1] == 'all_broken') {
       show_popup('/messages/all_broken');
-        } else if (data[1] == 'some_broken') {
-      show_popup('/messages/some_broken');
         }
       } else {
        location.reload(true);}

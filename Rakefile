@@ -1,7 +1,7 @@
 require "rubygems"
 require "rake/rdoctask"
 require "rake/testtask"
-require 'spec/rake/spectask'
+require "rspec/core/rake_task"
 require "waw"
 require "fileutils"
 
@@ -12,9 +12,9 @@ task :wspec do
   require('test/wspec/test_all.rb')
 end
 
-desc "Run all rspec test"
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.spec_files = FileList['test/spec/test_all.rb']
+desc "Run RSpec code examples"
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = 'test/spec/test_all.rb'
 end
 
 desc "Launches all tests"
