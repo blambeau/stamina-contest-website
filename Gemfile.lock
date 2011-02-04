@@ -2,23 +2,23 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.3)
-    json (1.1.9)
+    json (1.5.1)
     pg (0.8.0)
     rack (1.2.1)
     rubyrel (0.0.3)
     sequel (3.8.0)
-    waw (0.3.0)
-    wlang (0.9.2)
+    waw (0.3.1)
+      json (>= 1.1.9)
+      rack (~> 1.2.1)
+      wlang (~> 0.10.1)
+    wlang (0.10.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   RedCloth (~> 4.2.2)
-  json (~> 1.1.9)
   pg (~> 0.8.0)
-  rack (~> 1.2.1)
   rubyrel (~> 0.0.3)
   sequel (~> 3.8.0)
-  waw (~> 0.3.0)
-  wlang (~> 0.9.1)
+  waw (~> 0.3.1)
