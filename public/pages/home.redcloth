@@ -1,3 +1,15 @@
+h3. News !
+
+As you'll see below, the Stamina competition is now closed. Congratulations to the winners once again!
+
+However, we are currently in the process of updating this website to become an online benchmark for grammar induction (applied to software model synthesis). This means that you can still @{download}{download training and test sets}, @{participate}{register and participate}, use the oracle (once registered), and so on.
+
+The first step towards this update from a competition to an official benchmark has already been implemented. Indeed, *the oracle has been turned to an exact one!* In other words, when you submit a solution, the oracle responds with the exact score you've obtained. 
+
+We hope that you'll use and enjoy the new oracle. Additional features will be added as soon as we can! Feel free to @{javascript:show_contact_form()}{contact} us with questions and ideas.
+
+The Stamina Organizers.
+
 h3. About
 
 The STAMINA (STAte Machine INference Approaches) competition aims to identify the best technique for learning deterministic finite state machines (FSMs). It extends former competitions, especially "Abbadingo":http://www-bcl.cs.may.ie/, and focusses on the complexity of the learning with respect to the alphabet size. Stamina relies on an adapted generation protocol for target machines and strings. It aims to encourage the development of novel learning algorithms and to encourage cross-fertilization between the machine learning and software engineering communities. *A prize of &pound;700 (about $1146) will be awarded to the winner.*
@@ -16,7 +28,7 @@ p=. with the *DFASAT* algorithm
 
 p=. !/images/IMAG0110.jpg!
 
-*Congratulations* to them !! More information about the outcome of the competition will be available here soon. 
+*Congratulations* to them !!
 
 h3. Competition grid
 
