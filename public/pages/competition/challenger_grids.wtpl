@@ -17,7 +17,7 @@
 </table>
 
 <h4>Problem-based competition grid</h4>
-<p>Problem numbers in green are broken by your challenger. Orange numbers denote problems for which at least one submission has been done. Black numbers are problems for which you did not make any submission.</p> 
+<p>Problem numbers in green are broken by your challenger. Orange numbers denote problems for which at least one submission has been made. Black numbers are problems for which you did not make any submission.</p> 
 !{grid_tools.problem_based_submission_grid(nil, "submission-grid", people, algorithm)}
 
 <h4>Cell-based competition grid</h4>

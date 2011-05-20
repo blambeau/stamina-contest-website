@@ -7,6 +7,10 @@ module Waw
         Waw::Routing::PopupMessage.new(message)
       end
       
+      def submission_feedback
+        Waw::Routing::SubmissionFeedback.new
+      end
+      
     end # class DSL
   end # module Routing
 end # module Waw

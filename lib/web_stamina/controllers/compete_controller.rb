@@ -45,7 +45,8 @@ module WebStamina
           t.default.submissions << tuples
           t.default.valid_submissions << tuples
         end
-        case tuples.collect{|t| t[:score]}.select{|s| s >= 0.99}.size
+        scores = tuples.collect{|t| (t[:score]*100).to_i / 100.0}
+        result = case scores.select{|s| s >= 0.99}.size
           when 0
             :no_broken
           when subs.size
@@ -53,6 +54,7 @@ module WebStamina
           else 
             :some_broken
         end
+        [result, scores]
       end
             
       # Challenger creation
@@ -83,9 +85,7 @@ module WebStamina
       }
       routing   { 
         upon 'validation-ko'       do form_validation_feedback           end
-        upon 'success/no_broken'   do popup_message(:no_broken)          end
-        upon 'success/all_broken'  do popup_message(:all_broken)         end
-        upon 'success/some_broken' do popup_message(:some_broken)        end
+        upon 'success'             do submission_feedback                end
         upon '*'                   do refresh                            end 
       }
       def submit_problem(params)
@@ -107,9 +107,7 @@ module WebStamina
       }
       routing   { 
         upon 'validation-ko'       do form_validation_feedback           end
-        upon 'success/no_broken'   do popup_message(:no_broken)          end
-        upon 'success/all_broken'  do popup_message(:all_broken)         end
-        upon 'success/some_broken' do popup_message(:some_broken)        end
+        upon 'success'             do submission_feedback                end
         upon '*'                   do refresh                            end 
       }
       def submit_cell(params)

@@ -1,7 +1,7 @@
 function switch_page(url) {
 	window.location = url;
 }
-function show_popup(url, width) {
+function show_popup(url, width, contd) {
 	$.get(url, function(data) { 
 		$('#popup').html(data); 
 	  $('#popup').width(width);
@@ -13,6 +13,7 @@ function show_popup(url, width) {
 		$('#hide').width($(window).width());
 	  $('#hide').show();
 		$('#popup').show();
+    if (contd != null) { contd(); }
 	});
 }
 function hide_popup(refresh) {

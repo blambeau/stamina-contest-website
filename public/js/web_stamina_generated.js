@@ -173,13 +173,10 @@ function webserv_compete_submit_cell(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'some_broken') {
-      show_popup('/messages/some_broken');
-        } else if (data[1] == 'no_broken') {
-      show_popup('/messages/no_broken');
-        } else if (data[1] == 'all_broken') {
-      show_popup('/messages/all_broken');
-        }
+                show_popup('/messages/' + data[1][0], function(){
+                  $('#popup .scores').html("Exact BCR score(s): " + data[1][1].join(', '));
+                });
+      
       } else {
        location.reload(true);}
     }
@@ -203,13 +200,10 @@ function webserv_compete_submit_problem(request_data, form) {
         $(form + ' .feedback').html(str);
       
       } else if (data[0] == 'success') {
-        if (data[1] == 'some_broken') {
-      show_popup('/messages/some_broken');
-        } else if (data[1] == 'no_broken') {
-      show_popup('/messages/no_broken');
-        } else if (data[1] == 'all_broken') {
-      show_popup('/messages/all_broken');
-        }
+                show_popup('/messages/' + data[1][0], function(){
+                  $('#popup .scores').html("Exact BCR score(s): " + data[1][1].join(', '));
+                });
+      
       } else {
        location.reload(true);}
     }
