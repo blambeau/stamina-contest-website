@@ -2,11 +2,9 @@ h3. News !
 
 As you'll see below, the Stamina competition is now closed. Congratulations to the winners once again!
 
-However, we are currently in the process of updating this website to become an online benchmark for grammar induction (applied to software model synthesis). This means that you can still @{download}{download training and test sets}, @{participate}{register and participate}, use the oracle (once registered), and so on.
+However, we are currently in the process of updating this website to become an online benchmark for grammar induction (applied to software model synthesis). This means that you can still @{download}{download training and test sets}, @{participate}{register and participate}, use the oracle (once registered), and ... try to outperform the @{/images/dfasat-performance.gif}{winning algorithm}!.
 
-The first step towards this update from a competition to an official benchmark has already been implemented. Indeed, *the oracle has been turned to an exact one!* In other words, when you submit a solution, the oracle responds with the exact score you've obtained. 
-
-We hope that you'll use and enjoy the new oracle. Additional features will be added as soon as we can! Feel free to @{javascript:show_contact_form()}{contact} us with questions and ideas.
+Our *new benchmarking oracle* is more verbose as it reports your *exact score* after submitting a solution rather than a simple success/failure answer. We hope that you'll use and enjoy it. Additional features will be added as soon as we can! Feel free to @{javascript:show_contact_form()}{contact} us with any question and/or idea.
 
 The Stamina Organizers.
 
