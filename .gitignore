@@ -3,8 +3,6 @@
 # to avoid overriding configuration of other developers or production deployments
 .DS_Store
 backups
-waw.deploy
-config/*.cfg
 tmp
 logs
 stageprod.sh
