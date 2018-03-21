@@ -5,7 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <base href="{config.web_base}"/>
 		<title>${info.title}?{info.titles[token]}{ - ${info.titles[token]}}{}</title>
     <meta name="description" content="${info.description}"></meta>
 		<meta name="keywords" content="${info.keywords.join(', ')}"></meta>

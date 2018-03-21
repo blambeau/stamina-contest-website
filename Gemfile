@@ -1,6 +1,3 @@
 source 'http://rubygems.org'
 gem 'waw',      '~> 0.3.1'
 gem 'RedCloth', '~> 4.2.2'
-gem 'sequel',   '~> 3.8.0'
-gem 'pg',       '~> 0.8.0'
-gem 'rubyrel',  '~> 0.0.3'

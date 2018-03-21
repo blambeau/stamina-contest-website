@@ -2,6 +2,9 @@ h3. News !
 
 As you'll see below, the Stamina competition is now closed. Congratulations to the winners once again!
 
+**This website has been officially closed on 21 of March 2018, meaning that all features related to the competition
+itself have been disabled (login, compete, submissions, etc). You can still download the training and test sets, though. Please send an email to blambeau@gmail.com with any question.**
+
 However, we are currently in the process of updating this website to become an online benchmark for grammar induction (applied to software model synthesis). This means that you can still @{download}{download training and test sets}, @{participate}{register and participate}, use the oracle (once registered), and ... try to outperform the @{/images/dfasat-performance.gif}{winning algorithm}!.
 
 Our *new benchmarking oracle* is more verbose as it reports your *exact score* after submitting a solution rather than a simple success/failure answer. We hope that you'll use and enjoy it. Additional features will be added as soon as we can! Feel free to @{javascript:show_contact_form()}{contact} us with any question and/or idea.

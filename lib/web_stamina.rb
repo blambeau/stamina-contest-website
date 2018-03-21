@@ -2,7 +2,7 @@ WLang::file_extension_map('.redcloth', 'wlang/xhtml')
 module WebStamina
   
   # Current version of the WebStamina architecture
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
   
   # Generates a fake binary sequence
   def generate_fake_binary_sequence

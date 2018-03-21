@@ -1,9 +1,7 @@
 <div id="inside">
-  ?{session.logged?}{
-    <<+{logged_links.wtpl}
-  }{
-    <<+{anonymous_links.wtpl}
-  }
+  <ul id="links">
+    <li></li>
+  </ul>
 	<div id="banner">
 		<div id="organizers">
 		  *{info.organizers as org}{

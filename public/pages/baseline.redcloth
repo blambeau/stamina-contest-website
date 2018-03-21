@@ -7,15 +7,7 @@ h3. Download, sources and api
 * Download the "stable version 0.2.1":/downloads/stamina_0.2.1.tar.gz
 * Read the "API documentation of version 0.2.1":/api-doc/stamina_0.2.1/ 
 
-This code is also made available through Subversion (read-only), if you prefer working 'on-the-edge' or plan to submit patches. You can download the trunk version of the source code using:
-
-<pre>svn checkout http://svn.chefbe.net/stamina/trunk</pre>
-
-If you prefer a stable version:
-
-<pre>svn checkout http://svn.chefbe.net/stamina/tags/public_0.2.1</pre>
-
-Please report any bugs, features or documentation requests on our "redmine bug tracker":http://redmine.chefbe.net/projects/stamina
+This code is also made available on github: https://github.com/blambeau/stamina
 
 h3. Installing Ruby
 
